@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yashvi Gupta — Biomedical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #8B1A1A;
+    --navy-mid: #7A1515;
+    --blue: #B22222;
+    --blue-light: #CC3333;
+    --gold: #8B1A1A;
+    --gold-light: #D4A0A0;
+    --cream: #FDF8F8;
+    --cream-dark: #F0E0E0;
+    --text: #1A0A0A;
+    --text-mid: #4A5568;
+    --text-light: #8899AA;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(139,26,26,0.95);
+    backdrop-filter: blur(12px);
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid rgba(139,26,26,0.3);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; letter-spacing: 0.05em;
+    color: var(--white);
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.92); text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(178,34,34,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,26,26,0.08) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 64px 80px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--gold-light);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 84px);
+    font-weight: 300; line-height: 1.0;
+    color: var(--white); margin-bottom: 8px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-name span { font-style: italic; color: var(--gold-light); }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 400; color: rgba(255,255,255,0.85);
+    margin-bottom: 40px; letter-spacing: 0.02em;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-desc {
+    font-size: 16px; line-height: 1.75; font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    max-width: 520px; margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 7px 14px; border-radius: 2px;
+    border: 1px solid rgba(212,160,160,0.5);
+    color: #F5DCDC;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-cta {
+    display: flex; gap: 16px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--white);
+    color: var(--navy);
+    padding: 14px 32px; border-radius: 2px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.05em;
+    text-decoration: none; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); color: var(--navy); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.6);
+    color: var(--white);
+    padding: 14px 32px; border-radius: 2px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.05); }
+
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 64px 80px 32px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; margin-bottom: 40px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(178,34,34,0.3); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300;
+    color: var(--gold-light); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .hero-awards {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(178,34,34,0.15);
+    border-radius: 4px; padding: 24px;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .awards-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 16px;
+  }
+  .award-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px; color: rgba(255,255,255,0.92); line-height: 1.5;
+  }
+  .award-item:last-child { border-bottom: none; }
+  .award-item::before { content: '✦'; color: var(--gold); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 0; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--navy); margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--blue); }
+
+  .section-sub {
+    font-size: 17px; color: var(--text-mid); font-weight: 400;
+    max-width: 620px; line-height: 1.7; margin-bottom: 64px;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--white); }
+
+  .exp-grid { display: grid; gap: 2px; }
+
+  .exp-card {
+    background: var(--cream);
+    border-left: 3px solid transparent;
+    padding: 36px 40px;
+    display: grid; grid-template-columns: 240px 1fr;
+    gap: 40px;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .exp-card:hover {
+    border-left-color: var(--gold);
+    background: var(--white);
+    transform: translateX(4px);
+  }
+
+  .exp-meta { padding-top: 4px; }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--text-mid); font-weight: 500; letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .exp-org {
+    font-size: 14px; color: var(--blue); font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .exp-loc {
+    font-size: 13px; color: var(--text-mid);
+  }
+
+  .exp-content {}
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--navy); margin-bottom: 12px;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 15px; line-height: 1.7; font-weight: 400;
+    color: #2D1010; padding: 5px 0 5px 20px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '›'; position: absolute; left: 0;
+    color: var(--gold); font-size: 16px; line-height: 1.4;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--navy); }
+  #projects .section-title { color: var(--white); }
+  #projects .section-sub { color: rgba(255,255,255,0.85); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .project-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 32px;
+    transition: all 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #B22222, #8B1A1A);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .project-card:hover { border-color: rgba(178,34,34,0.25); transform: translateY(-4px); }
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 16px;
+    display: inline-block;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--white); margin-bottom: 14px; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 14px; line-height: 1.7; font-weight: 400;
+    color: rgba(255,255,255,0.88); margin-bottom: 20px;
+  }
+  .project-tech {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tech-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+    padding: 5px 11px; border-radius: 2px;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: var(--cream); }
+
+  .pub-list { display: grid; gap: 16px; }
+
+  .pub-card {
+    background: var(--white);
+    border-radius: 4px; padding: 28px 32px;
+    display: grid; grid-template-columns: 64px 1fr;
+    gap: 24px; align-items: start;
+    border: 1px solid var(--cream-dark);
+    transition: all 0.2s;
+  }
+  .pub-card:hover { border-color: rgba(139,26,26,0.2); transform: translateX(4px); }
+
+  .pub-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--cream-dark); line-height: 1;
+    text-align: center; padding-top: 4px;
+  }
+  .pub-venue {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 8px;
+  }
+  .pub-title {
+    font-size: 16px; font-weight: 600;
+    color: var(--navy); margin-bottom: 8px; line-height: 1.45;
+  }
+  .pub-meta {
+    font-size: 13px; color: var(--text-mid); line-height: 1.5;
+  }
+  .pub-badge {
+    display: inline-block; margin-left: 8px;
+    background: rgba(178,34,34,0.1);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.08em;
+    padding: 2px 8px; border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--white); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-block {
+    padding: 32px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .skill-block:hover { border-color: rgba(178,34,34,0.3); background: var(--cream); }
+
+  .skill-icon {
+    font-size: 24px; margin-bottom: 16px;
+  }
+  .skill-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+  .skill-items {
+    font-size: 14px; line-height: 1.8; font-weight: 400;
+    color: #2D1010;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--navy-mid); }
+  #education .section-title { color: var(--white); }
+  #education .section-sub { color: rgba(255,255,255,0.85); }
+
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .edu-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 40px;
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: rgba(178,34,34,0.3); }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600;
+    color: var(--white); margin-bottom: 6px; line-height: 1.2;
+  }
+  .edu-school {
+    font-size: 15px; color: var(--gold-light); font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .edu-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.75); font-weight: 500;
+    letter-spacing: 0.08em; margin-bottom: 20px;
+  }
+  .edu-courses {
+    font-size: 14px; line-height: 1.7; font-weight: 400;
+    color: rgba(255,255,255,0.88); margin-bottom: 16px;
+  }
+  .edu-awards { display: flex; flex-wrap: wrap; gap: 8px; }
+  .edu-award {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    padding: 5px 11px; border-radius: 2px;
+    background: rgba(255,255,255,0.12);
+    color: #F5DCDC;
+    border: 1px solid rgba(212,160,160,0.4);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    text-align: center; padding: 96px 64px;
+  }
+  #contact .section-label { justify-content: center; }
+  #contact .section-label::before { display: none; }
+  #contact .section-title { color: var(--white); text-align: center; margin: 0 auto 16px; }
+  #contact .section-sub { text-align: center; margin: 0 auto 48px; color: rgba(255,255,255,0.92); font-weight: 400; }
+
+  .contact-links {
+    display: flex; justify-content: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 32px; border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.45);
+    color: var(--white); text-decoration: none;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.05); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 24px 64px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .exp-card { grid-template-columns: 1fr; gap: 12px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 32px; }
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Yashvi Gupta</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">Biomedical Engineer</div>
+    <h1 class="hero-name">Yashvi<br><span>Gupta</span></h1>
+    <p class="hero-title">M.Eng. Cornell University · BME</p>
+    <p class="hero-desc">
+      Biomedical engineer specializing in medical device design, R&amp;D, and quality engineering — bridging clinical insight with rigorous engineering practice to develop solutions that meaningfully improve patient outcomes.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">R&D Engineering</span>
+      <span class="hero-tag">Medical Device Design</span>
+      <span class="hero-tag">SolidWorks · Fusion 360</span>
+      <span class="hero-tag">Six Sigma Black Belt</span>
+      <span class="hero-tag">Clinical Exposure</span>
+      <span class="hero-tag">V&V · Design Controls</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View My Work</a>
+      <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">IEEE Publications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Live OR Procedures Observed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years CAD Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">BB</div>
+        <div class="stat-label">Six Sigma Certified</div>
+      </div>
+    </div>
+    <div class="hero-awards">
+      <div class="awards-label">Honors & Recognition</div>
+      <div class="award-item">1st Place — Cornell Six Sigma Hackathon '25</div>
+      <div class="award-item">JHU Digital Health Finalist '26</div>
+      <div class="award-item">Recognized Speaker — Clinical Preceptorship '25</div>
+      <div class="award-item">OUR Conference Presentation Grant '24</div>
+      <div class="award-item">National Dance Team Competitor '21–'25</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Engineering <em>in practice</em></h2>
+    <p class="section-sub">From injectable delivery systems to electromechanical rehabilitation devices — hands-on engineering across the full product development lifecycle.</p>
+
+    <div class="exp-grid reveal">
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Sep 2025 – May 2026</div>
+          <div class="exp-org">West Pharmaceutical Services</div>
+          <div class="exp-loc">Ithaca, NY</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Design Engineer</div>
+          <ul class="exp-bullets">
+            <li>Designed injectable combination product delivery concepts from ideation through prototype via Biodesign, translating user needs into engineering requirements in collaboration with industry sponsors</li>
+            <li>Executed full CAD workflow in SolidWorks & Fusion 360, ANSYS/COMSOL simulation, and bench-top testing on artificial skin models as Scrum Master under Agile framework</li>
+            <li>Assessed competitive market landscape and presented novel device concept pitch to industry professionals and faculty at end-of-year engineering showcase</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Sep – Dec 2025</div>
+          <div class="exp-org">Guthrie Robert Packer Hospital</div>
+          <div class="exp-loc">Sayre, PA</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Clinical Preceptorship</div>
+          <ul class="exp-bullets">
+            <li>Observed 7 live surgical procedures including urologic endoscopy and breast surgery — developing direct familiarity with surgical instrument handling, sterile technique, and OR workflow constraints</li>
+            <li>Presented engineering poster on imaging/laser technologies, signal translation, and medical device optimization to clinical and academic professionals</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2024 – May 2025</div>
+          <div class="exp-org">Dept. of Biomedical Engineering, UConn</div>
+          <div class="exp-loc">Storrs, CT</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Design Engineer — Shoulder Rehabilitation Device</div>
+          <ul class="exp-bullets">
+            <li>Developed novel electromechanical shoulder rehabilitation system integrating Delsys Trigno Galileo EMG sensors with NeuroMap to quantify muscle activation and motor unit firing patterns</li>
+            <li>Conducted mechanical testing at 0°, 45°, and 90° arm positions; performed bench validation across injured and uninjured conditions, iterating on sensor placement and mechanical fixture design</li>
+            <li>Documented design iterations and deliverables; presented at formal engineering showcase to industry sponsors and faculty</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Jan 2026 – May 2026</div>
+          <div class="exp-org">Cornell University</div>
+          <div class="exp-loc">Ithaca, NY</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Graduate Teaching Research Specialist</div>
+          <ul class="exp-bullets">
+            <li>Led coordination of 50+ BME M.Eng. students and design projects, collaborating with faculty to ensure effective program execution and milestone delivery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Sep 2024 – Aug 2025</div>
+          <div class="exp-org">Biomedical Signal Processing Lab, UConn</div>
+          <div class="exp-loc">Storrs, CT</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Research Assistant</div>
+          <ul class="exp-bullets">
+            <li>Collected high-frequency ECG recordings from 30 participants during controlled stress protocols to extract skin sympathetic nerve activity (SKNA)</li>
+            <li>Developed audio-inspired spectral features via ECG-derived SKNA using LabChart8 to classify autonomic stress responses — contributing to IEEE-EMBS publication</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">May 2023 – Aug 2025</div>
+          <div class="exp-org">Biosignal Processing & Wearable Device Lab, UConn</div>
+          <div class="exp-loc">Storrs, CT</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Research Assistant</div>
+          <ul class="exp-bullets">
+            <li>Collected ECG and EDA signals from 20 participants during prolonged-wakefulness protocols using iMotions to evaluate physiological markers of fatigue and sleepiness</li>
+            <li>Co-authored 3 peer-reviewed IEEE publications on sleepiness detection and autonomic response; presented poster at BSN 2024</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title" style="color:var(--white)">Engineering <em style="color:var(--gold-light)">systems</em> built</h2>
+    <p class="section-sub">Applied systems engineering and AI projects spanning medical device reliability, clinical decision support, and healthcare operations.</p>
+
+    <div class="projects-grid reveal">
+
+      <div class="project-card">
+        <div class="project-tag">🏆 1st Place · Six Sigma Hackathon</div>
+        <div class="project-title">MedHive — Medication Waste Dashboard</div>
+        <div class="project-desc">SPC-based R Shiny analytics platform identifying drivers of prescription medication waste in nursing homes. Delivered actionable insights in 24 hours.</div>
+        <div class="project-tech">
+          <span class="tech-pill">R Shiny</span>
+          <span class="tech-pill">SPC</span>
+          <span class="tech-pill">ggplot2</span>
+          <span class="tech-pill">Statistical Modeling</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Systems Engineering · Cornell</div>
+        <div class="project-title">Neonatal CPAP Reliability Improvement</div>
+        <div class="project-desc">DMAIC-driven evaluation benchmarking 3 CPAP devices against ±0.5 cmH₂O targets. Identified root-cause failure modes and modeled yield improvement from 68% to >95%.</div>
+        <div class="project-tech">
+          <span class="tech-pill">DMAIC</span>
+          <span class="tech-pill">FMEA</span>
+          <span class="tech-pill">R Shiny</span>
+          <span class="tech-pill">SPC</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Data Science · Cornell</div>
+        <div class="project-title">FDAi — Device Recall Analytics</div>
+        <div class="project-desc">End-to-end AI pipeline integrating FDA Open Data Recall API with GPT-4o-mini to autonomously generate device risk classification reports.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">R Shiny</span>
+          <span class="tech-pill">OpenFDA API</span>
+          <span class="tech-pill">GPT-4o-mini</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">AI · Clinical Decision Support</div>
+        <div class="project-title">PCOSense — PCOS Detection System</div>
+        <div class="project-desc">Multi-agent RAG AI system integrating PubMed literature with XGBoost (AUROC 0.95) and SHAP explainability for interpretable PCOS screening.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">XGBoost</span>
+          <span class="tech-pill">RAG</span>
+          <span class="tech-pill">ChromaDB</span>
+          <span class="tech-pill">FastAPI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">24-hr Hackathon · Cornell</div>
+        <div class="project-title">Med(ICU)be — ICU Digital Twin</div>
+        <div class="project-desc">AI-enabled ICU digital twin platform forecasting bed capacity, analyzing readmission risk, and simulating clinical interventions using synthetic patient datasets.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Streamlit</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Plotly</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">JHU Digital Health Finalist '26</div>
+        <div class="project-title">Digital Twins for Menopausal Transition</div>
+        <div class="project-desc">Co-authoring systematic review of data-driven models and digital twin approaches for menopausal transition and cognitive risk assessment. In progress.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Systematic Review</span>
+          <span class="tech-pill">Digital Twins</span>
+          <span class="tech-pill">Cornell</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Peer-reviewed <em>research</em></h2>
+    <p class="section-sub">Five IEEE publications spanning autonomic signal processing, sleepiness detection, and biomedical wearable systems.</p>
+
+    <div class="pub-list reveal">
+
+      <div class="pub-card">
+        <div class="pub-num">01</div>
+        <div>
+          <div class="pub-venue">Cornell University · In Progress</div>
+          <div class="pub-title">Digital Twins and Data-Driven Models for Menopausal Transition and Cognitive Risk: A Systematic Review</div>
+          <div class="pub-meta">Co-author · Expected May 2026 <span class="pub-badge">In Progress</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">02</div>
+        <div>
+          <div class="pub-venue">IEEE-EMBS BSN 2025 · Los Angeles, CA</div>
+          <div class="pub-title">Tuning In to Nerve Activity: Audio-Inspired Features for Sympathetic State Detection</div>
+          <div class="pub-meta">Co-author · F. Baghestani, Y. Gupta et al. · doi: 10.1109/BSN66969.2025.11337760</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">03</div>
+        <div>
+          <div class="pub-venue">IEEE ICASSP 2025 · Hyderabad, India</div>
+          <div class="pub-title">Exploring Acted Sleepy Speech to Advance Real-World Sleepiness Estimation and Cognitive Degradation Detection</div>
+          <div class="pub-meta">Co-author · J. Moon, Y. Kong, Y. Gupta et al. · doi: 10.1109/ICASSP49660.2025.10888755</div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">04</div>
+        <div>
+          <div class="pub-venue">IEEE BSN 2024 · Chicago, IL</div>
+          <div class="pub-title">Toward Effective Sleepiness Simulation: Validation Using Perceptual and Physiological Measures</div>
+          <div class="pub-meta">Co-first author · J. Moon*, Y. Gupta* et al. · Presented poster · doi: 10.1109/BSN63547.2024.10780541 <span class="pub-badge">Presented</span></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">05</div>
+        <div>
+          <div class="pub-venue">IEEE BSN 2023 · Boston, MA</div>
+          <div class="pub-title">Your Sympathetic Nervous System Becomes More Sensitive to Sleep Deprivation When You Speak</div>
+          <div class="pub-meta">Co-author · J. Moon, Y. Kong, A. Powsner, Y. Gupta et al. · doi: 10.1109/BSN58485.2023.10331056</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Technical <em>toolkit</em></h2>
+    <p class="section-sub">A broad engineering foundation spanning mechanical design, clinical systems, regulatory frameworks, and applied computation.</p>
+
+    <div class="skills-grid reveal">
+      <div class="skill-block">
+        
+        <div class="skill-cat">CAD & Prototyping</div>
+        <div class="skill-items">SolidWorks · Fusion 360 · COMSOL · ANSYS · 3D Printing · Bench Mechanical Testing · Design Iteration · V&V</div>
+      </div>
+      <div class="skill-block">
+        
+        <div class="skill-cat">Quality & Regulation</div>
+        <div class="skill-items">FDA Workflows · GMP/GxP · CAPA · RCA · NCR · Change Control · ISO 13485 · ISO 14971 · Design Controls</div>
+      </div>
+      <div class="skill-block">
+        
+        <div class="skill-cat">Process Engineering</div>
+        <div class="skill-items">DMAIC · Six Sigma Black Belt · SPC · DOE · FMEA · Process Validation · OQ/PQ · Gauge R&R</div>
+      </div>
+      <div class="skill-block">
+        
+        <div class="skill-cat">Human Factors & UX</div>
+        <div class="skill-items">Biodesign · Usability Evaluation · HMI · Use-Related Risk Analysis · Clinical Observation · Ergonomics</div>
+      </div>
+      <div class="skill-block">
+        
+        <div class="skill-cat">Instrumentation & Signals</div>
+        <div class="skill-items">ECG · SKNA · EDA · EMG · PPG · Signal Acquisition · LabVIEW · LabChart8 · iMotions · NeuroMap</div>
+      </div>
+      <div class="skill-block">
+        
+        <div class="skill-cat">Software & Computation</div>
+        <div class="skill-items">Python · MATLAB · R · R Shiny · C++ · REST API · GitHub · XGBoost · RAG · LLM · FastAPI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title" style="color:var(--white)">Academic <em style="color:var(--gold-light)">foundation</em></h2>
+    <p class="section-sub">Rigorous engineering training across two nationally recognized programs.</p>
+
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
+        <div class="edu-school">Cornell University, College of Engineering</div>
+        <div class="edu-date">May 2026 · Ithaca, NY</div>
+        <div class="edu-courses">BME M.Eng Design Project · Biomedical Technology Innovation & Design · Clinical Preceptorship · Systems Engineering & Six Sigma · Biomaterials & Drug Delivery · Engineering Human Body · Clinical Cardiac Electrophysiology · Business of Entrepreneurship · Project Management</div>
+        <div class="edu-awards">
+          <span class="edu-award">Cornell Hackathon 1st Place '25</span>
+          <span class="edu-award">JHU Digital Health Finalist '26</span>
+          <span class="edu-award">Recognized Speaker '25</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
+        <div class="edu-school">University of Connecticut, School of Engineering</div>
+        <div class="edu-date">May 2025 · Storrs, CT</div>
+        <div class="edu-courses">Biomedical Engineering Design Project I & II · Clinical Instrumentation Systems · Physiological Systems · Biomaterials & Drug Delivery · Biomechanics</div>
+        <div class="edu-awards">
+          <span class="edu-award">OUR Presentation Grant '24</span>
+          <span class="edu-award">Academic & Leadership Scholarship</span>
+          <span class="edu-award">National Dance Team '21–'25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's <em>connect</em></h2>
+  <p class="section-sub">Open to opportunities in design engineering, product development, medical affairs, R&amp;D, quality engineering, and related MedTech roles. Based in Boston, MA — open to relocation.</p>
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="contact-link">
+      LinkedIn
+    </a>
+    <a href="mailto:yg678@cornell.edu" class="contact-link">
+      Email
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Yashvi Gupta · Biomedical Engineer</p>
+  <p>Cornell MEng BME · UConn BSE</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
