@@ -62,7 +62,8 @@
     min-height: 100vh;
     background: var(--navy);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 1fr auto;
     position: relative;
     overflow: hidden;
   }
@@ -83,8 +84,9 @@
   }
 
   .hero-left {
+    grid-column: 1; grid-row: 1;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 64px 80px;
+    padding: 120px 48px 48px 64px;
     position: relative; z-index: 2;
   }
 
@@ -118,14 +120,23 @@
 
   .hero-desc {
     font-size: 16px; line-height: 1.75; font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    max-width: 520px; margin-bottom: 48px;
+    color: rgba(255,255,255,0.92);
+    max-width: 540px; margin-bottom: 20px;
     animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-desc-secondary {
+    font-size: 14px; line-height: 1.7;
+    color: var(--gold-light);
+    font-style: italic;
+    border-left: 2px solid var(--gold-light);
+    padding-left: 16px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s 0.25s ease both;
   }
 
   .hero-tags {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    margin-bottom: 48px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 36px;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-tag {
@@ -161,54 +172,85 @@
   .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.05); }
 
   .hero-right {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 64px 80px 32px;
+    grid-column: 2; grid-row: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 120px 64px 48px 32px;
     position: relative; z-index: 2;
   }
 
-  .hero-stats {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 24px; margin-bottom: 40px;
-    animation: fadeUp 0.8s 0.3s ease both;
+  .hero-photo-frame {
+    position: relative;
+    width: 100%; max-width: 420px;
+    animation: fadeUp 1s 0.3s ease both;
   }
-  .stat-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px; padding: 24px;
-    transition: border-color 0.2s;
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px -12px 12px 12px;
+    border: 1.5px solid var(--gold-light);
+    border-radius: 4px;
+    z-index: 0;
+    opacity: 0.6;
   }
-  .stat-card:hover { border-color: rgba(178,34,34,0.3); }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px; font-weight: 300;
-    color: var(--gold-light); line-height: 1;
-    margin-bottom: 8px;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
+  .hero-photo {
+    position: relative; z-index: 1;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+    filter: saturate(1.05) contrast(1.02);
   }
 
-  .hero-awards {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(178,34,34,0.15);
-    border-radius: 4px; padding: 24px;
-    animation: fadeUp 0.8s 0.4s ease both;
+  /* Hero stats bar (spans full hero width below text + photo) */
+  .hero-stats-bar {
+    grid-column: 1 / -1; grid-row: 2;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.18);
+    position: relative; z-index: 2;
+    animation: fadeUp 0.8s 0.5s ease both;
   }
-  .awards-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold-light); margin-bottom: 16px;
+  .stat-card {
+    padding: 36px 32px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
   }
-  .award-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px; color: rgba(255,255,255,0.92); line-height: 1.5;
+  .stat-card:last-child { border-right: none; }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-light), var(--blue-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
   }
-  .award-item:last-child { border-bottom: none; }
-  .award-item::before { content: '✦'; color: var(--gold); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+  .stat-card:hover { background: rgba(255,255,255,0.06); }
+  .stat-card:hover::before { transform: scaleX(1); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 68px); font-weight: 300;
+    color: var(--white); line-height: 1;
+    margin-bottom: 14px;
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .stat-num em {
+    font-style: normal;
+    color: var(--gold-light);
+    font-size: 0.55em;
+  }
+  .stat-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
 
   /* ── SECTIONS ── */
   section { padding: 96px 0; }
@@ -511,8 +553,14 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
+    .hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+    .hero-left { grid-column: 1; grid-row: 1; padding: 110px 32px 32px; }
+    .hero-right { grid-column: 1; grid-row: 2; padding: 0 32px 40px; }
+    .hero-photo-frame { max-width: 320px; margin: 0 auto; }
+    .hero-stats-bar { grid-column: 1; grid-row: 3; grid-template-columns: 1fr 1fr; }
+    .stat-card { padding: 24px 20px; }
+    .stat-card:nth-child(2) { border-right: none; }
+    .stat-card:nth-child(1), .stat-card:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -548,14 +596,16 @@
     <h1 class="hero-name">Yashvi<br><span>Gupta</span></h1>
     <p class="hero-title">M.Eng. Cornell University · BME</p>
     <p class="hero-desc">
-      Biomedical engineer specializing in medical device design, R&amp;D, and quality engineering — bridging clinical insight with rigorous engineering practice to develop solutions that meaningfully improve patient outcomes.
+      At Cornell University, I focus on medical device innovation and downstream processing — applying my biomedical engineering background to translate research into practical, patient-centered solutions. My work brings together technical development, data-driven problem solving, and cross-functional collaboration to address complex challenges in healthcare.
+    </p>
+    <p class="hero-desc hero-desc-secondary">
+      Currently seeking full-time opportunities starting May 2026, and open to part-time roles during graduate studies to further build industry experience.
     </p>
     <div class="hero-tags">
       <span class="hero-tag">R&D Engineering</span>
       <span class="hero-tag">Medical Device Design</span>
       <span class="hero-tag">SolidWorks · Fusion 360</span>
       <span class="hero-tag">Six Sigma Black Belt</span>
-      <span class="hero-tag">Clinical Exposure</span>
       <span class="hero-tag">V&V · Design Controls</span>
     </div>
     <div class="hero-cta">
@@ -565,31 +615,27 @@
   </div>
 
   <div class="hero-right">
-    <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-num">5</div>
-        <div class="stat-label">IEEE Publications</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">7</div>
-        <div class="stat-label">Live OR Procedures Observed</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Years CAD Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">BB</div>
-        <div class="stat-label">Six Sigma Certified</div>
-      </div>
+    <div class="hero-photo-frame">
+      <img src="assets/yashvi-cornell.png" alt="Yashvi Gupta at Cornell University" class="hero-photo">
     </div>
-    <div class="hero-awards">
-      <div class="awards-label">Honors & Recognition</div>
-      <div class="award-item">1st Place — Cornell Six Sigma Hackathon '25</div>
-      <div class="award-item">JHU Digital Health Finalist '26</div>
-      <div class="award-item">Recognized Speaker — Clinical Preceptorship '25</div>
-      <div class="award-item">OUR Conference Presentation Grant '24</div>
-      <div class="award-item">National Dance Team Competitor '21–'25</div>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label">IEEE Publications &amp; Research</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Live OR Surgical Procedures Observed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3<em>+</em></div>
+      <div class="stat-label">Years Medical Device Engineering Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">BB</div>
+      <div class="stat-label">Black Belt Six Sigma Certified</div>
     </div>
   </div>
 </section>
