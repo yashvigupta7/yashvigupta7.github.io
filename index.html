@@ -497,10 +497,33 @@
   .edu-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px; padding: 40px;
-    transition: border-color 0.2s;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
   }
-  .edu-card:hover { border-color: rgba(178,34,34,0.3); }
+  .edu-card:hover {
+    border-color: rgba(212,160,160,0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  .edu-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: saturate(1.05) contrast(1.02);
+  }
+  .edu-card:hover .edu-photo {
+    transform: scale(1.04);
+    filter: saturate(1.12) contrast(1.05) brightness(1.04);
+  }
+  .edu-card-body {
+    padding: 32px 36px 36px;
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
 
   .edu-degree {
     font-family: 'Cormorant Garamond', serif;
@@ -982,25 +1005,31 @@
 
     <div class="edu-grid reveal">
       <div class="edu-card">
-        <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
-        <div class="edu-school">Cornell University, College of Engineering</div>
-        <div class="edu-date">May 2026 · Ithaca, NY</div>
-        <div class="edu-courses">BME M.Eng Design Project · Biomedical Technology Innovation & Design · Clinical Preceptorship · Systems Engineering & Six Sigma · Biomaterials & Drug Delivery · Engineering Human Body · Clinical Cardiac Electrophysiology · Business of Entrepreneurship · Project Management</div>
-        <div class="edu-awards">
-          <span class="edu-award">Cornell Hackathon 1st Place '25</span>
-          <span class="edu-award">JHU Digital Health Finalist '26</span>
-          <span class="edu-award">Recognized Speaker '25</span>
+        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center 35%;">
+        <div class="edu-card-body">
+          <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
+          <div class="edu-school">Cornell University, College of Engineering</div>
+          <div class="edu-date">May 2026 · Ithaca, NY</div>
+          <div class="edu-courses">BME M.Eng Design Project · Biomedical Technology Innovation & Design · Clinical Preceptorship · Systems Engineering & Six Sigma · Biomaterials & Drug Delivery · Engineering Human Body · Clinical Cardiac Electrophysiology · Business of Entrepreneurship · Project Management</div>
+          <div class="edu-awards">
+            <span class="edu-award">Cornell Hackathon 1st Place '25</span>
+            <span class="edu-award">JHU Digital Health Finalist '26</span>
+            <span class="edu-award">Recognized Speaker '25</span>
+          </div>
         </div>
       </div>
       <div class="edu-card">
-        <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
-        <div class="edu-school">University of Connecticut, School of Engineering</div>
-        <div class="edu-date">May 2025 · Storrs, CT</div>
-        <div class="edu-courses">Biomedical Engineering Design Project I & II · Clinical Instrumentation Systems · Physiological Systems · Biomaterials & Drug Delivery · Biomechanics</div>
-        <div class="edu-awards">
-          <span class="edu-award">OUR Presentation Grant '24</span>
-          <span class="edu-award">Academic & Leadership Scholarship</span>
-          <span class="edu-award">National Dance Team '21–'25</span>
+        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 30%;">
+        <div class="edu-card-body">
+          <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
+          <div class="edu-school">University of Connecticut, School of Engineering</div>
+          <div class="edu-date">May 2025 · Storrs, CT</div>
+          <div class="edu-courses">Biomedical Engineering Design Project I & II · Clinical Instrumentation Systems · Physiological Systems · Biomaterials & Drug Delivery · Biomechanics</div>
+          <div class="edu-awards">
+            <span class="edu-award">OUR Presentation Grant '24</span>
+            <span class="edu-award">Academic & Leadership Scholarship</span>
+            <span class="edu-award">National Dance Team '21–'25</span>
+          </div>
         </div>
       </div>
     </div>
