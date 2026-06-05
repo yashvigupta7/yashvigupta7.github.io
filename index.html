@@ -149,28 +149,35 @@
     background: rgba(255,255,255,0.06);
   }
 
-  .hero-cta {
-    display: flex; flex-wrap: wrap; gap: 12px;
+  .hero-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
     animation: fadeUp 0.8s 0.4s ease both;
   }
-  .btn-primary {
+  .hero-tab {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 11px 16px; border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s ease;
+  }
+  .hero-tab:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+  }
+  .hero-tab-external {
+    border-color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.08);
+  }
+  .hero-tab-external:hover {
     background: var(--white);
     color: var(--navy);
-    padding: 14px 32px; border-radius: 2px;
-    font-size: 14px; font-weight: 600; letter-spacing: 0.05em;
-    text-decoration: none; text-transform: uppercase;
-    transition: all 0.2s;
+    border-color: var(--white);
   }
-  .btn-primary:hover { background: var(--gold-light); color: var(--navy); transform: translateY(-1px); }
-  .btn-outline {
-    border: 1px solid rgba(255,255,255,0.6);
-    color: var(--white);
-    padding: 14px 32px; border-radius: 2px;
-    font-size: 14px; font-weight: 500; letter-spacing: 0.05em;
-    text-decoration: none; text-transform: uppercase;
-    transition: all 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.05); }
 
   /* Right column: photo on top, stats grid below */
   .hero-right-col {
@@ -832,7 +839,7 @@
     .hero-text-col { grid-column: 1; padding: 110px 32px 32px; text-align: center; }
     .hero-text-col .hero-eyebrow { justify-content: center; }
     .hero-text-col .hero-tags { justify-content: center; }
-    .hero-text-col .hero-cta { justify-content: center; }
+    .hero-text-col .hero-tabs { justify-content: center; }
     .hero-text-col .hero-desc, .hero-text-col .hero-desc-secondary { margin-left: auto; margin-right: auto; }
     .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
     .hero-name { white-space: normal; }
@@ -886,10 +893,14 @@
       <span class="hero-tag">Data Science & Process Analytics</span>
       <span class="hero-tag">Systems Engineering</span>
     </div>
-    <div class="hero-cta">
-      <a href="#education" class="btn-outline">About Me</a>
-      <a href="#experience" class="btn-primary">My Work</a>
-      <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="btn-outline">LinkedIn</a>
+    <div class="hero-tabs">
+      <a href="#education" class="hero-tab">About Me</a>
+      <a href="#experience" class="hero-tab">My Work</a>
+      <a href="#projects" class="hero-tab">Projects</a>
+      <a href="#publications" class="hero-tab">Publications</a>
+      <a href="#skills" class="hero-tab">Skills</a>
+      <a href="#contact" class="hero-tab">Contact</a>
+      <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" rel="noopener" class="hero-tab hero-tab-external">LinkedIn</a>
     </div>
   </div>
 
