@@ -23,7 +23,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
   body {
     font-family: 'Outfit', sans-serif;
@@ -62,8 +62,8 @@
     min-height: 100vh;
     background: var(--navy);
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 280px 1.1fr 1fr;
+    align-items: center;
     position: relative;
     overflow: hidden;
   }
@@ -83,10 +83,16 @@
     background-size: 60px 60px;
   }
 
-  .hero-left {
-    grid-column: 1; grid-row: 1;
+  .hero-photo-col {
+    grid-column: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 120px 0 60px 64px;
+    position: relative; z-index: 2;
+  }
+  .hero-text-col {
+    grid-column: 2;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 48px 48px 64px;
+    padding: 120px 40px 60px 48px;
     position: relative; z-index: 2;
   }
 
@@ -103,9 +109,10 @@
 
   .hero-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 6vw, 84px);
-    font-weight: 300; line-height: 1.0;
+    font-size: clamp(38px, 4.2vw, 60px);
+    font-weight: 300; line-height: 1.05;
     color: var(--white); margin-bottom: 8px;
+    white-space: nowrap;
     animation: fadeUp 0.8s ease both;
   }
   .hero-name span { font-style: italic; color: var(--gold-light); }
@@ -171,22 +178,15 @@
   }
   .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(255,255,255,0.05); }
 
-  .hero-right {
-    grid-column: 2; grid-row: 1;
-    display: flex; align-items: center; justify-content: center;
-    padding: 120px 64px 48px 32px;
-    position: relative; z-index: 2;
-  }
-
   .hero-photo-frame {
     position: relative;
-    width: 100%; max-width: 420px;
-    animation: fadeUp 1s 0.3s ease both;
+    width: 100%; max-width: 240px;
+    animation: fadeUp 1s 0.2s ease both;
   }
   .hero-photo-frame::before {
     content: '';
     position: absolute;
-    inset: -12px -12px 12px 12px;
+    inset: -10px -10px 10px 10px;
     border: 1.5px solid var(--gold-light);
     border-radius: 4px;
     z-index: 0;
@@ -203,54 +203,77 @@
     filter: saturate(1.05) contrast(1.02);
   }
 
-  /* Hero stats bar (spans full hero width below text + photo) */
-  .hero-stats-bar {
-    grid-column: 1 / -1; grid-row: 2;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    background: rgba(0,0,0,0.18);
+  /* Hero stats grid (2x2 on the right) */
+  .hero-stats-col {
+    grid-column: 3;
+    display: flex; align-items: center;
+    padding: 120px 64px 60px 32px;
     position: relative; z-index: 2;
-    animation: fadeUp 0.8s 0.5s ease both;
+  }
+  .hero-stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; width: 100%;
+    animation: fadeUp 0.8s 0.4s ease both;
   }
   .stat-card {
-    padding: 36px 32px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    transition: background 0.3s, transform 0.3s;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 24px 22px;
+    text-decoration: none; color: inherit;
+    display: block;
+    transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
-    cursor: default;
+    cursor: pointer;
   }
-  .stat-card:last-child { border-right: none; }
   .stat-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold-light), var(--blue-light));
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-light), #F5DCDC);
     transform: scaleX(0); transform-origin: left;
     transition: transform 0.4s ease;
   }
-  .stat-card:hover { background: rgba(255,255,255,0.06); }
+  .stat-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(212,160,160,0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  }
   .stat-card:hover::before { transform: scaleX(1); }
+  .stat-card:hover .stat-link {
+    color: var(--gold-light);
+  }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 5vw, 68px); font-weight: 300;
+    font-size: clamp(42px, 4vw, 56px); font-weight: 300;
     color: var(--white); line-height: 1;
-    margin-bottom: 14px;
-    display: flex; align-items: baseline; gap: 4px;
+    margin-bottom: 10px;
+    display: flex; align-items: baseline; gap: 2px;
   }
   .stat-num em {
     font-style: normal;
     color: var(--gold-light);
-    font-size: 0.55em;
+    font-size: 0.7em;
   }
   .stat-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
-    color: rgba(255,255,255,0.85);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.88);
     line-height: 1.4;
+    margin-bottom: 8px;
   }
+  .stat-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    transition: color 0.25s;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .stat-link::after { content: '→'; font-size: 11px; }
 
   /* ── SECTIONS ── */
   section { padding: 96px 0; }
@@ -294,11 +317,22 @@
     gap: 40px;
     transition: all 0.25s;
     cursor: default;
+    scroll-margin-top: 80px;
   }
   .exp-card:hover {
     border-left-color: var(--gold);
     background: var(--white);
     transform: translateX(4px);
+  }
+  .exp-card:target {
+    border-left-color: var(--gold);
+    background: var(--white);
+    box-shadow: 0 8px 30px rgba(139,26,26,0.15);
+    animation: targetFlash 1.2s ease;
+  }
+  @keyframes targetFlash {
+    0% { background: #FFE9E9; }
+    100% { background: var(--white); }
   }
 
   .exp-meta { padding-top: 4px; }
@@ -552,15 +586,29 @@
   .reveal.visible { opacity: 1; transform: none; }
 
   /* ── RESPONSIVE ── */
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .hero { grid-template-columns: 220px 1fr 1fr; }
+    .hero-photo-col { padding-left: 32px; }
+    .hero-text-col { padding-left: 32px; padding-right: 24px; }
+    .hero-stats-col { padding-right: 32px; padding-left: 16px; }
+    .hero-name { font-size: clamp(32px, 3.4vw, 48px); }
+    .hero-stats-grid { gap: 12px; }
+    .stat-card { padding: 20px 18px; }
+    .stat-num { font-size: clamp(36px, 3.5vw, 48px); }
+  }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
-    .hero-left { grid-column: 1; grid-row: 1; padding: 110px 32px 32px; }
-    .hero-right { grid-column: 1; grid-row: 2; padding: 0 32px 40px; }
-    .hero-photo-frame { max-width: 320px; margin: 0 auto; }
-    .hero-stats-bar { grid-column: 1; grid-row: 3; grid-template-columns: 1fr 1fr; }
-    .stat-card { padding: 24px 20px; }
-    .stat-card:nth-child(2) { border-right: none; }
-    .stat-card:nth-child(1), .stat-card:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hero { grid-template-columns: 1fr; align-items: stretch; }
+    .hero-photo-col { grid-column: 1; padding: 110px 32px 16px; }
+    .hero-photo-frame { max-width: 200px; margin: 0 auto; }
+    .hero-text-col { grid-column: 1; padding: 16px 32px 32px; text-align: center; }
+    .hero-text-col .hero-eyebrow { justify-content: center; }
+    .hero-text-col .hero-tags { justify-content: center; }
+    .hero-text-col .hero-cta { justify-content: center; }
+    .hero-text-col .hero-desc, .hero-text-col .hero-desc-secondary { margin-left: auto; margin-right: auto; }
+    .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
+    .hero-name { white-space: normal; }
+    .hero-stats-col { grid-column: 1; padding: 0 32px 64px; }
+    .hero-stats-grid { grid-template-columns: 1fr 1fr; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -591,51 +639,57 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <div class="hero-left">
-    <div class="hero-eyebrow">Biomedical Engineer</div>
-    <h1 class="hero-name">Yashvi<br><span>Gupta</span></h1>
-    <p class="hero-title">M.Eng. Cornell University · BME</p>
-    <p class="hero-desc">
-      At Cornell University, I focus on medical device innovation and downstream processing — applying my biomedical engineering background to translate research into practical, patient-centered solutions. My work brings together technical development, data-driven problem solving, and cross-functional collaboration to address complex challenges in healthcare.
-    </p>
-    <p class="hero-desc hero-desc-secondary">
-      Currently seeking full-time opportunities starting May 2026, and open to part-time roles during graduate studies to further build industry experience.
-    </p>
-    <div class="hero-tags">
-      <span class="hero-tag">R&D Engineering</span>
-      <span class="hero-tag">Medical Device Design</span>
-      <span class="hero-tag">SolidWorks · Fusion 360</span>
-      <span class="hero-tag">Six Sigma Black Belt</span>
-      <span class="hero-tag">V&V · Design Controls</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#experience" class="btn-primary">View My Work</a>
-      <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="btn-outline">LinkedIn</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
+  <div class="hero-photo-col">
     <div class="hero-photo-frame">
       <img src="assets/yashvi-cornell.png" alt="Yashvi Gupta at Cornell University" class="hero-photo">
     </div>
   </div>
 
-  <div class="hero-stats-bar">
-    <div class="stat-card">
-      <div class="stat-num">5</div>
-      <div class="stat-label">IEEE Publications &amp; Research</div>
+  <div class="hero-text-col">
+    <div class="hero-eyebrow">Biomedical Engineer</div>
+    <h1 class="hero-name">Yashvi <span>Gupta</span></h1>
+    <p class="hero-title">Cornell University · Master of Engineering in Biomedical Engineering</p>
+    <p class="hero-desc">
+      Upon my graduation from Cornell University, I focused on medical device innovation and downstream processing — applying my biomedical engineering background to translate research into practical, patient-centered solutions. My work brought together technical development, data-driven problem solving, and cross-functional collaboration to address complex challenges in healthcare.
+    </p>
+    <p class="hero-desc hero-desc-secondary">
+      Currently seeking full-time opportunities starting June 2026 to further build industry experience upon my recent graduate studies.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">R&D Engineering</span>
+      <span class="hero-tag">Medical Device Design</span>
+      <span class="hero-tag">Product Development</span>
+      <span class="hero-tag">Data Science & Process Analytics</span>
+      <span class="hero-tag">Systems Engineering</span>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">7</div>
-      <div class="stat-label">Live OR Surgical Procedures Observed</div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">My Projects</a>
+      <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">3<em>+</em></div>
-      <div class="stat-label">Years Medical Device Engineering Experience</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">BB</div>
-      <div class="stat-label">Black Belt Six Sigma Certified</div>
+  </div>
+
+  <div class="hero-stats-col">
+    <div class="hero-stats-grid">
+      <a href="#publications" class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">IEEE Publications &amp; Research</div>
+        <div class="stat-link">View publications</div>
+      </a>
+      <a href="#exp-guthrie" class="stat-card">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Live OR Surgical Procedures Observed</div>
+        <div class="stat-link">Clinical preceptorship</div>
+      </a>
+      <a href="#exp-west" class="stat-card">
+        <div class="stat-num">3<em>+</em></div>
+        <div class="stat-label">Years Medical Device Engineering Experience</div>
+        <div class="stat-link">Design engineer role</div>
+      </a>
+      <a href="#projects" class="stat-card">
+        <div class="stat-num">BB</div>
+        <div class="stat-label">Black Belt Six Sigma Certified</div>
+        <div class="stat-link">Engineering projects</div>
+      </a>
     </div>
   </div>
 </section>
@@ -649,7 +703,7 @@
 
     <div class="exp-grid reveal">
 
-      <div class="exp-card">
+      <div class="exp-card" id="exp-west">
         <div class="exp-meta">
           <div class="exp-date">Sep 2025 – May 2026</div>
           <div class="exp-org">West Pharmaceutical Services</div>
@@ -665,7 +719,7 @@
         </div>
       </div>
 
-      <div class="exp-card">
+      <div class="exp-card" id="exp-guthrie">
         <div class="exp-meta">
           <div class="exp-date">Sep – Dec 2025</div>
           <div class="exp-org">Guthrie Robert Packer Hospital</div>
