@@ -380,6 +380,30 @@
     content: '›'; position: absolute; left: 0;
     color: var(--gold); font-size: 16px; line-height: 1.4;
   }
+  .exp-docs {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px;
+    margin-top: 18px; padding-top: 16px;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .exp-doc-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--blue); text-decoration: none;
+    padding: 6px 10px; border-radius: 2px;
+    background: rgba(178,34,34,0.06);
+    border: 1px solid rgba(139,26,26,0.15);
+    transition: all 0.2s ease;
+  }
+  .exp-doc-link:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .exp-doc-sep {
+    color: var(--text-light);
+    font-size: 12px;
+    user-select: none;
+  }
 
   /* ── PROJECTS ── */
   #projects { background: var(--navy); }
@@ -1051,6 +1075,11 @@
             <li>Observed 7 live surgical procedures including urologic endoscopy and breast surgery — developing direct familiarity with surgical instrument handling, sterile technique, and OR workflow constraints</li>
             <li>Presented engineering poster on imaging/laser technologies, signal translation, and medical device optimization to clinical and academic professionals</li>
           </ul>
+          <div class="exp-docs">
+            <a href="assets/clinical-preceptorship-final-report.pdf" target="_blank" rel="noopener" class="exp-doc-link">📄 Final Paper</a>
+            <span class="exp-doc-sep">·</span>
+            <a href="assets/clinical-preceptorship-poster.pptx" target="_blank" rel="noopener" class="exp-doc-link">📄 Clinical Poster</a>
+          </div>
         </div>
       </div>
 
