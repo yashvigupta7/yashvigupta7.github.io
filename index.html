@@ -377,6 +377,27 @@
     border-radius: 4px; padding: 32px;
     transition: all 0.25s;
     position: relative; overflow: hidden;
+    display: block; text-decoration: none; color: inherit;
+  }
+  a.project-card { cursor: pointer; }
+  .project-card .ext-arrow {
+    position: absolute; top: 16px; right: 16px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
+    font-size: 13px; line-height: 1;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+  }
+  .project-card:hover .ext-arrow {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: var(--navy);
+    opacity: 1;
+    transform: rotate(-45deg) scale(1.1);
   }
   .project-card::before {
     content: ''; position: absolute;
@@ -422,12 +443,30 @@
   .pub-card {
     background: var(--white);
     border-radius: 4px; padding: 28px 32px;
-    display: grid; grid-template-columns: 64px 1fr;
+    display: grid; grid-template-columns: 64px 1fr auto;
     gap: 24px; align-items: start;
     border: 1px solid var(--cream-dark);
     transition: all 0.2s;
+    text-decoration: none; color: inherit;
+    position: relative;
   }
-  .pub-card:hover { border-color: rgba(139,26,26,0.2); transform: translateX(4px); }
+  .pub-card:hover { border-color: rgba(139,26,26,0.35); transform: translateX(4px); box-shadow: 0 8px 24px rgba(139,26,26,0.08); }
+  a.pub-card { cursor: pointer; }
+  .pub-card .pub-arrow {
+    align-self: center;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 16px; line-height: 1;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .pub-card:hover .pub-arrow {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateX(3px) rotate(-45deg);
+  }
 
   .pub-num {
     font-family: 'Cormorant Garamond', serif;
@@ -935,7 +974,8 @@
 
     <div class="projects-grid reveal">
 
-      <div class="project-card">
+      <a class="project-card" href="https://github.com/chatterjee-srinjoy/Control-Freaks-Six-Sigma/tree/main" target="_blank" rel="noopener">
+        <span class="ext-arrow">↗</span>
         <div class="project-tag">🏆 1st Place · Six Sigma Hackathon</div>
         <div class="project-title">MedHive — Medication Waste Dashboard</div>
         <div class="project-desc">SPC-based R Shiny analytics platform identifying drivers of prescription medication waste in nursing homes. Delivered actionable insights in 24 hours.</div>
@@ -945,9 +985,10 @@
           <span class="tech-pill">ggplot2</span>
           <span class="tech-pill">Statistical Modeling</span>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card">
+      <a class="project-card" href="https://drive.google.com/file/d/1z4fE7PnCmHirnWePL4e2tQgA1YSY_Orz/view?usp=sharing" target="_blank" rel="noopener">
+        <span class="ext-arrow">↗</span>
         <div class="project-tag">Systems Engineering · Cornell</div>
         <div class="project-title">Neonatal CPAP Reliability Improvement</div>
         <div class="project-desc">DMAIC-driven evaluation benchmarking 3 CPAP devices against ±0.5 cmH₂O targets. Identified root-cause failure modes and modeled yield improvement from 68% to >95%.</div>
@@ -957,9 +998,10 @@
           <span class="tech-pill">R Shiny</span>
           <span class="tech-pill">SPC</span>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card">
+      <a class="project-card" href="https://github.com/yashvigupta7/dsai/blob/main/02_productivity/shiny_app/app.R" target="_blank" rel="noopener">
+        <span class="ext-arrow">↗</span>
         <div class="project-tag">Data Science · Cornell</div>
         <div class="project-title">FDAi — Device Recall Analytics</div>
         <div class="project-desc">End-to-end AI pipeline integrating FDA Open Data Recall API with GPT-4o-mini to autonomously generate device risk classification reports.</div>
@@ -969,9 +1011,10 @@
           <span class="tech-pill">OpenFDA API</span>
           <span class="tech-pill">GPT-4o-mini</span>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card">
+      <a class="project-card" href="https://github.com/Kadambari-mirashi/PCOSense" target="_blank" rel="noopener">
+        <span class="ext-arrow">↗</span>
         <div class="project-tag">AI · Clinical Decision Support</div>
         <div class="project-title">PCOSense — PCOS Detection System</div>
         <div class="project-desc">Multi-agent RAG AI system integrating PubMed literature with XGBoost (AUROC 0.95) and SHAP explainability for interpretable PCOS screening.</div>
@@ -982,9 +1025,10 @@
           <span class="tech-pill">ChromaDB</span>
           <span class="tech-pill">FastAPI</span>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card">
+      <a class="project-card" href="https://github.com/chatterjee-srinjoy/icu-twinops#medicube" target="_blank" rel="noopener">
+        <span class="ext-arrow">↗</span>
         <div class="project-tag">24-hr Hackathon · Cornell</div>
         <div class="project-title">Med(ICU)be — ICU Digital Twin</div>
         <div class="project-desc">AI-enabled ICU digital twin platform forecasting bed capacity, analyzing readmission risk, and simulating clinical interventions using synthetic patient datasets.</div>
@@ -994,7 +1038,7 @@
           <span class="tech-pill">FastAPI</span>
           <span class="tech-pill">Plotly</span>
         </div>
-      </div>
+      </a>
 
       <div class="project-card">
         <div class="project-tag">JHU Digital Health Finalist '26</div>
@@ -1029,41 +1073,45 @@
         </div>
       </div>
 
-      <div class="pub-card">
+      <a class="pub-card" href="https://ieeexplore.ieee.org/abstract/document/11337760" target="_blank" rel="noopener">
         <div class="pub-num">02</div>
         <div>
           <div class="pub-venue">IEEE-EMBS BSN 2025 · Los Angeles, CA</div>
           <div class="pub-title">Tuning In to Nerve Activity: Audio-Inspired Features for Sympathetic State Detection</div>
           <div class="pub-meta">Co-author · F. Baghestani, Y. Gupta et al. · doi: 10.1109/BSN66969.2025.11337760</div>
         </div>
-      </div>
+        <span class="pub-arrow">↗</span>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card" href="https://ieeexplore.ieee.org/document/10888755" target="_blank" rel="noopener">
         <div class="pub-num">03</div>
         <div>
           <div class="pub-venue">IEEE ICASSP 2025 · Hyderabad, India</div>
           <div class="pub-title">Exploring Acted Sleepy Speech to Advance Real-World Sleepiness Estimation and Cognitive Degradation Detection</div>
           <div class="pub-meta">Co-author · J. Moon, Y. Kong, Y. Gupta et al. · doi: 10.1109/ICASSP49660.2025.10888755</div>
         </div>
-      </div>
+        <span class="pub-arrow">↗</span>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card" href="https://ieeexplore.ieee.org/document/10780541" target="_blank" rel="noopener">
         <div class="pub-num">04</div>
         <div>
           <div class="pub-venue">IEEE BSN 2024 · Chicago, IL</div>
           <div class="pub-title">Toward Effective Sleepiness Simulation: Validation Using Perceptual and Physiological Measures</div>
           <div class="pub-meta">Co-first author · J. Moon*, Y. Gupta* et al. · Presented poster · doi: 10.1109/BSN63547.2024.10780541 <span class="pub-badge">Presented</span></div>
         </div>
-      </div>
+        <span class="pub-arrow">↗</span>
+      </a>
 
-      <div class="pub-card">
+      <a class="pub-card" href="https://ieeexplore.ieee.org/abstract/document/10331056" target="_blank" rel="noopener">
         <div class="pub-num">05</div>
         <div>
           <div class="pub-venue">IEEE BSN 2023 · Boston, MA</div>
           <div class="pub-title">Your Sympathetic Nervous System Becomes More Sensitive to Sleep Deprivation When You Speak</div>
           <div class="pub-meta">Co-author · J. Moon, Y. Kong, A. Powsner, Y. Gupta et al. · doi: 10.1109/BSN58485.2023.10331056</div>
         </div>
-      </div>
+        <span class="pub-arrow">↗</span>
+      </a>
 
     </div>
   </div>
