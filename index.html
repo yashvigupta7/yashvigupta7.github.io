@@ -509,11 +509,15 @@
   }
   .edu-photo {
     width: 100%;
-    height: 200px;
+    height: 360px;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.5s ease, filter 0.4s ease;
     filter: saturate(1.05) contrast(1.02);
+  }
+  @media (max-width: 900px) {
+    .edu-photo { height: 280px; }
   }
   .edu-card:hover .edu-photo {
     transform: scale(1.04);
@@ -1005,7 +1009,7 @@
 
     <div class="edu-grid reveal">
       <div class="edu-card">
-        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center 35%;">
+        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center top;">
         <div class="edu-card-body">
           <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
           <div class="edu-school">Cornell University, College of Engineering</div>
@@ -1019,7 +1023,7 @@
         </div>
       </div>
       <div class="edu-card">
-        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 30%;">
+        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 25%;">
         <div class="edu-card-body">
           <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
           <div class="edu-school">University of Connecticut, School of Engineering</div>
