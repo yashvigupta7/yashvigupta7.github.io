@@ -64,7 +64,7 @@
     background: var(--navy);
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    align-items: center;
+    align-items: stretch;
     padding: 88px 0 56px;
     box-sizing: border-box;
     position: relative;
@@ -89,7 +89,7 @@
   .hero-text-col {
     grid-column: 1;
     display: flex; flex-direction: column; justify-content: center;
-    align-self: center;
+    align-self: stretch;
     padding: 0 48px 0 64px;
     position: relative; z-index: 2;
   }
@@ -167,7 +167,7 @@
 
   .hero-tags {
     display: flex; flex-wrap: wrap; gap: 8px;
-    margin-bottom: 36px;
+    margin-bottom: 0;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-tag {
@@ -179,42 +179,25 @@
     background: rgba(255,255,255,0.06);
   }
 
-  .hero-tabs {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    animation: fadeUp 0.8s 0.4s ease both;
-  }
-  .hero-tab {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; text-decoration: none;
-    padding: 14px 22px; border-radius: 2px;
-    border: 1px solid rgba(255,255,255,0.45);
-    color: var(--white);
-    background: rgba(255,255,255,0.06);
-    transition: all 0.2s ease;
-  }
-  .hero-tab:hover {
-    border-color: var(--gold-light);
-    color: var(--gold-light);
-    background: rgba(255,255,255,0.12);
-    transform: translateY(-2px);
-  }
-
-  /* Right column: photo on top, stats grid below — centered as one unit to left text */
+  /* Right column: photo stretches to balance left text height */
   .hero-right-col {
     grid-column: 2;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    align-self: center;
+    align-self: stretch;
     gap: 20px;
     padding: 0 64px 0 32px;
     width: 100%; max-width: 480px;
     margin: 0 auto;
+    height: 100%;
     position: relative; z-index: 2;
   }
   .hero-photo-frame {
     position: relative;
     width: 100%; max-width: 440px;
+    flex: 1 1 auto;
+    min-height: 200px;
     margin-top: 46px;
+    display: flex;
     animation: fadeUp 1s 0.2s ease both;
   }
   .hero-photo-frame::before {
@@ -229,7 +212,8 @@
   .hero-photo {
     position: relative; z-index: 1;
     width: 100%;
-    aspect-ratio: 5 / 4;
+    height: 100%;
+    min-height: 200px;
     object-fit: cover;
     object-position: center 70%;
     border-radius: 4px;
@@ -241,6 +225,7 @@
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 14px;
     width: 100%; max-width: 440px;
+    flex-shrink: 0;
     animation: fadeUp 0.8s 0.4s ease both;
   }
   .stat-card {
@@ -866,7 +851,6 @@
     .hero-text-col { grid-column: 1; padding: 0 32px 32px; text-align: center; }
     .hero-text-col .hero-eyebrow { justify-content: center; }
     .hero-text-col .hero-tags { justify-content: center; }
-    .hero-text-col .hero-tabs { justify-content: center; }
     .hero-text-col .hero-desc, .hero-text-col .hero-desc-secondary { margin-left: auto; margin-right: auto; }
     .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
     .hero-name { white-space: normal; }
@@ -926,14 +910,6 @@
       <span class="hero-tag">Product Development</span>
       <span class="hero-tag">Data Science & Process Analytics</span>
       <span class="hero-tag">Systems Engineering</span>
-    </div>
-    <div class="hero-tabs">
-      <a href="#education" class="hero-tab">About Me</a>
-      <a href="#experience" class="hero-tab">My Work</a>
-      <a href="#projects" class="hero-tab">Projects</a>
-      <a href="#publications" class="hero-tab">Publications</a>
-      <a href="#skills" class="hero-tab">Skills</a>
-      <a href="#contact" class="hero-tab">Contact</a>
     </div>
   </div>
 
