@@ -150,7 +150,7 @@
   }
 
   .hero-cta {
-    display: flex; gap: 16px;
+    display: flex; flex-wrap: wrap; gap: 12px;
     animation: fadeUp 0.8s 0.4s ease both;
   }
   .btn-primary {
@@ -587,7 +587,7 @@
   }
 
   /* ── EDUCATION ── */
-  #education { background: var(--navy-mid); }
+  #education { background: var(--navy-mid); scroll-margin-top: 64px; }
   #education .section-title { color: var(--white); }
   #education .section-sub { color: rgba(255,255,255,0.85); }
 
@@ -855,11 +855,11 @@
 <nav>
   <div class="nav-name">Yashvi Gupta</div>
   <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -887,6 +887,7 @@
       <span class="hero-tag">Systems Engineering</span>
     </div>
     <div class="hero-cta">
+      <a href="#education" class="btn-outline">About Me</a>
       <a href="#experience" class="btn-primary">My Work</a>
       <a href="https://www.linkedin.com/in/yashvigupta7/" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
@@ -917,6 +918,46 @@
         <div class="stat-label">Black Belt Six Sigma Certified</div>
         <div class="stat-link">Engineering projects</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title" style="color:var(--white)">Academic <em style="color:var(--gold-light)">foundation</em></h2>
+    <p class="section-sub">Rigorous engineering training across two nationally recognized programs.</p>
+
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center top;">
+        <div class="edu-card-body">
+          <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
+          <div class="edu-school">Cornell University, College of Engineering</div>
+          <div class="edu-date">May 2026 · Ithaca, NY</div>
+          <div class="edu-courses">BME M.Eng Design Project · Biomedical Technology Innovation & Design · Clinical Preceptorship · Systems Engineering & Six Sigma · Biomaterials & Drug Delivery · Engineering Human Body · Clinical Cardiac Electrophysiology · Business of Entrepreneurship · Project Management</div>
+          <div class="edu-awards">
+            <span class="edu-award">Cornell Hackathon 1st Place '25</span>
+            <span class="edu-award">JHU Digital Health Finalist '26</span>
+            <span class="edu-award">Recognized Speaker '25</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 25%;">
+        <div class="edu-card-body">
+          <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
+          <div class="edu-school">University of Connecticut, School of Engineering</div>
+          <div class="edu-date">May 2025 · Storrs, CT</div>
+          <div class="edu-courses">Biomedical Engineering Design Project I & II · Clinical Instrumentation Systems · Physiological Systems · Biomaterials & Drug Delivery · Biomechanics</div>
+          <div class="edu-awards">
+            <span class="edu-award">OUR Presentation Grant '24</span>
+            <span class="edu-award">Academic & Leadership Scholarship</span>
+            <span class="edu-award">National Dance Team '21–'25</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1222,46 +1263,6 @@
         <span class="lang-item"><strong>Hindi</strong> · State Seal of Biliteracy</span>
         <span class="lang-divider"></span>
         <span class="lang-item"><strong>Spanish</strong> · Conversational</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <div class="section-label">Education</div>
-    <h2 class="section-title" style="color:var(--white)">Academic <em style="color:var(--gold-light)">foundation</em></h2>
-    <p class="section-sub">Rigorous engineering training across two nationally recognized programs.</p>
-
-    <div class="edu-grid reveal">
-      <div class="edu-card">
-        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center top;">
-        <div class="edu-card-body">
-          <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
-          <div class="edu-school">Cornell University, College of Engineering</div>
-          <div class="edu-date">May 2026 · Ithaca, NY</div>
-          <div class="edu-courses">BME M.Eng Design Project · Biomedical Technology Innovation & Design · Clinical Preceptorship · Systems Engineering & Six Sigma · Biomaterials & Drug Delivery · Engineering Human Body · Clinical Cardiac Electrophysiology · Business of Entrepreneurship · Project Management</div>
-          <div class="edu-awards">
-            <span class="edu-award">Cornell Hackathon 1st Place '25</span>
-            <span class="edu-award">JHU Digital Health Finalist '26</span>
-            <span class="edu-award">Recognized Speaker '25</span>
-          </div>
-        </div>
-      </div>
-      <div class="edu-card">
-        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 25%;">
-        <div class="edu-card-body">
-          <div class="edu-degree">Bachelor of Science in Engineering<br>Mathematics Minor</div>
-          <div class="edu-school">University of Connecticut, School of Engineering</div>
-          <div class="edu-date">May 2025 · Storrs, CT</div>
-          <div class="edu-courses">Biomedical Engineering Design Project I & II · Clinical Instrumentation Systems · Physiological Systems · Biomaterials & Drug Delivery · Biomechanics</div>
-          <div class="edu-awards">
-            <span class="edu-award">OUR Presentation Grant '24</span>
-            <span class="edu-award">Academic & Leadership Scholarship</span>
-            <span class="edu-award">National Dance Team '21–'25</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
