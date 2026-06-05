@@ -401,6 +401,26 @@
     display: block; text-decoration: none; color: inherit;
   }
   a.project-card { cursor: pointer; }
+  .project-card-primary {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .project-extra-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative; z-index: 2;
+  }
+  .project-extra-link:hover { color: var(--gold-light); }
+  .project-extra-link::after { content: '→'; font-size: 11px; }
   .project-card .ext-arrow {
     position: absolute; top: 16px; right: 16px;
     width: 28px; height: 28px;
@@ -1108,19 +1128,22 @@
         </div>
       </a>
 
-      <a class="project-card" href="https://cbid.bme.jhu.edu/2026-johns-hopkins-healthcare-design-competition-finalists/" target="_blank" rel="noopener">
-        <span class="ext-arrow">↗</span>
-        <div class="project-tag">🏆 JHU Digital Health Finalist '26 · Top 8 of 568</div>
-        <div class="project-title">SurgeSentinel — Post-Cesarean Wound Care</div>
-        <div class="project-desc">AI-powered remote monitoring system covering the critical 14-day post-discharge window after C-section. CNN-based wound image analysis paired with personalized risk scoring (BMI, GDM, HTN, surgery duration) triages infections early and routes alerts to surgeons via FHIR/EHR integration. Cornell team — Chief Medical Officer.</div>
-        <div class="project-tech">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">CNN</span>
-          <span class="tech-pill">Risk Scoring</span>
-          <span class="tech-pill">FHIR / EHR</span>
-          <span class="tech-pill">Mobile</span>
-        </div>
-      </a>
+      <div class="project-card">
+        <a class="project-card-primary" href="assets/SurgeSentinel_JHU_Hackathon.pptx" target="_blank" rel="noopener">
+          <span class="ext-arrow">↗</span>
+          <div class="project-tag">🏆 JHU Digital Health Finalist '26 · Top 8 of 568</div>
+          <div class="project-title">SurgeSentinel — Post-Cesarean Wound Care</div>
+          <div class="project-desc">AI-powered remote monitoring system covering the critical 14-day post-discharge window after C-section. CNN-based wound image analysis paired with personalized risk scoring (BMI, GDM, HTN, surgery duration) triages infections early and routes alerts to surgeons via FHIR/EHR integration. Cornell team — Chief Medical Officer.</div>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">CNN</span>
+            <span class="tech-pill">Risk Scoring</span>
+            <span class="tech-pill">FHIR / EHR</span>
+            <span class="tech-pill">Mobile</span>
+          </div>
+        </a>
+        <a class="project-extra-link" href="https://cbid.bme.jhu.edu/2026-johns-hopkins-healthcare-design-competition-finalists/" target="_blank" rel="noopener">JHU Healthcare Design Competition finalist</a>
+      </div>
 
       <a class="project-card" href="https://drive.google.com/file/d/1z4fE7PnCmHirnWePL4e2tQgA1YSY_Orz/view?usp=sharing" target="_blank" rel="noopener">
         <span class="ext-arrow">↗</span>
