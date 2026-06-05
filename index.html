@@ -181,7 +181,7 @@
   }
   .hero-photo-frame {
     position: relative;
-    width: 100%; max-width: 320px;
+    width: 100%; max-width: 440px;
     animation: fadeUp 1s 0.2s ease both;
   }
   .hero-photo-frame::before {
@@ -196,9 +196,9 @@
   .hero-photo {
     position: relative; z-index: 1;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-    object-position: center;
+    object-position: center 30%;
     border-radius: 4px;
     display: block;
     box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
@@ -584,7 +584,7 @@
     .hero { grid-template-columns: 1fr 0.95fr; }
     .hero-text-col { padding-left: 40px; padding-right: 32px; }
     .hero-right-col { padding-right: 40px; padding-left: 24px; }
-    .hero-photo-frame { max-width: 280px; }
+    .hero-photo-frame { max-width: 380px; }
     .hero-name { font-size: clamp(38px, 4vw, 56px); }
     .hero-stats-grid { gap: 10px; }
     .stat-card { padding: 18px 16px; }
@@ -600,7 +600,7 @@
     .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
     .hero-name { white-space: normal; }
     .hero-right-col { grid-column: 1; padding: 0 32px 64px; }
-    .hero-photo-frame { max-width: 240px; }
+    .hero-photo-frame { max-width: 360px; }
     .hero-stats-grid { grid-template-columns: 1fr 1fr; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
