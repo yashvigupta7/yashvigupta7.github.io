@@ -581,6 +581,123 @@
     box-shadow: 0 2px 8px rgba(139,26,26,0.2);
   }
 
+  /* ── POSTER CAROUSEL ── */
+  .poster-carousel-wrap {
+    margin-top: 48px;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    padding: 32px 36px 28px;
+  }
+  .poster-carousel-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .poster-carousel-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 8px;
+  }
+  .poster-carousel-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px; line-height: 1.3;
+  }
+  .poster-carousel-sub {
+    font-size: 13px; color: var(--text-mid); line-height: 1.5;
+  }
+  .poster-carousel-sub a {
+    color: var(--blue); text-decoration: none; font-weight: 500;
+    border-bottom: 1px solid rgba(178,34,34,0.25);
+    transition: border-color 0.2s;
+  }
+  .poster-carousel-sub a:hover { border-color: var(--blue); }
+  .poster-carousel {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    gap: 12px; align-items: center;
+  }
+  .carousel-btn {
+    width: 44px; height: 44px;
+    border: 1px solid var(--cream-dark);
+    background: var(--cream);
+    color: var(--navy);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px; line-height: 1;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .carousel-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .carousel-viewport {
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--cream);
+    border: 1px solid var(--cream-dark);
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.45s ease;
+  }
+  .carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel-slide img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+    background: #f8f4f4;
+  }
+  .carousel-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text-mid);
+    text-align: center;
+    padding: 14px 20px;
+    border-top: 1px solid var(--cream-dark);
+    width: 100%;
+    background: var(--white);
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .carousel-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--cream-dark);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  .carousel-dot.active {
+    background: var(--navy);
+    transform: scale(1.15);
+  }
+  .carousel-counter {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+
   /* ── SKILLS ── */
   #skills { background: var(--white); }
 
@@ -929,6 +1046,10 @@
     .container { padding: 0 32px; }
     nav { padding: 0 24px; }
     .nav-links { display: none; }
+    .poster-carousel-wrap { padding: 24px 16px 20px; }
+    .poster-carousel { grid-template-columns: 36px 1fr 36px; gap: 6px; }
+    .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
+    .carousel-slide img { max-height: 380px; }
   }
 </style>
 </head>
@@ -1333,6 +1454,48 @@
       </div>
 
     </div>
+
+    <div class="poster-carousel-wrap reveal">
+      <div class="poster-carousel-header">
+        <div class="poster-carousel-label">Research Poster</div>
+        <h3 class="poster-carousel-title">Toward Effective Sleepiness Simulation: Validation Using Perceptual and Physiological Measures</h3>
+        <p class="poster-carousel-sub">IEEE BSN 2024 · Chicago, IL · Co-first author · OUR Conference Presentation Award · <a href="#pub-04">View publication</a></p>
+      </div>
+
+      <div class="poster-carousel" id="posterCarousel">
+        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="assets/poster-bsn-2024-session.png" alt="Yashvi Gupta presenting sleepiness simulation research poster at IEEE BSN 2024">
+              <p class="carousel-caption">IEEE-EMBS BSN 2024 · Poster session presentation</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/poster-our-award.png" alt="Yashvi Gupta with OUR Conference Presentation Award research poster">
+              <p class="carousel-caption">Office of Undergraduate Research Conference Presentation Award</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE BSN 2024 in Chicago">
+              <p class="carousel-caption">Presenting at IEEE-EMBS BSN 2024, Chicago</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/poster-coauthor.png" alt="Yashvi Gupta and co-first author J. Moon with research poster">
+              <p class="carousel-caption">Co-first author with J. Moon · UConn Biomedical Engineering</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="carousel-dots" id="posterDots">
+        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
+        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
+        <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
+        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-counter" id="posterCounter">1 / 4</div>
+    </div>
+
   </div>
 </section>
 
@@ -1459,6 +1622,42 @@
   if (location.hash.match(/^#pub-/)) {
     requestAnimationFrame(() => goToPub(location.hash));
   }
+
+  // Research poster carousel
+  (function () {
+    const carousel = document.getElementById('posterCarousel');
+    const dotsWrap = document.getElementById('posterDots');
+    const counter = document.getElementById('posterCounter');
+    if (!carousel || !dotsWrap) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = dotsWrap.querySelectorAll('.carousel-dot');
+    const prev = carousel.querySelector('.carousel-prev');
+    const next = carousel.querySelector('.carousel-next');
+    const viewport = carousel.querySelector('.carousel-viewport');
+    let current = 0;
+    let touchStartX = 0;
+
+    function goTo(idx) {
+      current = (idx + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+      if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
+    }
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    viewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    }, { passive: true });
+  })();
 </script>
 
 </body>
