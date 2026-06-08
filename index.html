@@ -978,6 +978,64 @@
     color: #2D1010;
   }
 
+  /* Logo marquee */
+  .logo-marquee {
+    margin-top: 48px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+  .logo-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: logo-scroll 45s linear infinite;
+  }
+  .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
+  .logo-marquee-set {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 0 28px;
+    flex-shrink: 0;
+  }
+  .logo-marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .logo-marquee-item img {
+    height: 100%;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    opacity: 0.65;
+    filter: grayscale(20%);
+    transition: opacity 0.25s, filter 0.25s;
+  }
+  .logo-marquee-item:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+  .logo-marquee-item.logo-dark img {
+    border-radius: 4px;
+    padding: 4px 8px;
+    background: #111;
+  }
+  @keyframes logo-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track { animation: none; flex-wrap: wrap; width: 100%; justify-content: center; gap: 32px; }
+    .logo-marquee-set { padding: 0; gap: 32px; flex-wrap: wrap; justify-content: center; }
+    .logo-marquee-set[aria-hidden="true"] { display: none; }
+    .logo-marquee { -webkit-mask-image: none; mask-image: none; }
+  }
+
   /* ── EDUCATION ── */
   #education { background: var(--cream); scroll-margin-top: 64px; }
 
@@ -1837,6 +1895,45 @@
       <div class="skill-block">
         <div class="skill-cat">Software &amp; Computation</div>
         <div class="skill-items">Python · MATLAB · R · R Shiny · C++ · FastAPI · Streamlit · Plotly · REST APIs · Git / GitHub · Supabase / PostgreSQL · FHIR / HIPAA-compliant</div>
+      </div>
+    </div>
+
+    <div class="logo-marquee reveal" aria-label="Tools and platforms">
+      <div class="logo-marquee-track">
+        <div class="logo-marquee-set">
+          <div class="logo-marquee-item logo-dark"><img src="assets/logos/logo-solidworks.png" alt="SolidWorks"></div>
+          <div class="logo-marquee-item logo-dark"><img src="assets/logos/logo-fusion360.png" alt="Fusion 360"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-comsol.png" alt="COMSOL Multiphysics"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-ansys.png" alt="ANSYS"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-bambu-lab.png" alt="Bambu Lab"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-mark10.png" alt="Mark-10"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-github.png" alt="GitHub"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-cursor.png" alt="Cursor"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-labview.png" alt="LabVIEW"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-imotions.png" alt="iMotions"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-delsys.png" alt="Delsys"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-python.png" alt="Python"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-arduino.png" alt="Arduino"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-labchart.png" alt="LabChart"></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-rshiny.png" alt="R Shiny"></div>
+        </div>
+        <div class="logo-marquee-set" aria-hidden="true">
+          <div class="logo-marquee-item logo-dark"><img src="assets/logos/logo-solidworks.png" alt=""></div>
+          <div class="logo-marquee-item logo-dark"><img src="assets/logos/logo-fusion360.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-comsol.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-ansys.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-bambu-lab.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-mark10.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-github.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-cursor.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-labview.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-imotions.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-delsys.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-python.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-arduino.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-labchart.png" alt=""></div>
+          <div class="logo-marquee-item"><img src="assets/logos/logo-rshiny.png" alt=""></div>
+        </div>
       </div>
     </div>
 
