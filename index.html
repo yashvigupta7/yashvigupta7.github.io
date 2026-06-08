@@ -714,6 +714,14 @@
     max-width: 660px;
     margin: 0 auto;
   }
+  .carousel-collage-uconn-single {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
   .collage-cell {
     overflow: hidden;
     border-radius: 2px;
@@ -744,6 +752,24 @@
     transition: opacity 0.2s;
   }
   .collage-cell-link:hover { opacity: 0.92; }
+  .collage-cell-with-caption {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .collage-cell-with-caption img {
+    flex: 1;
+    min-height: 0;
+  }
+  .collage-cell-caption {
+    flex: 0 0 auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--text-mid);
+    text-align: center;
+    padding: 4px 0 2px;
+    background: var(--white);
+  }
   .carousel-caption.is-multiline {
     flex: 0 0 58px;
     font-size: 10px;
@@ -771,6 +797,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .carousel-caption.is-split {
+    justify-content: space-between;
+    gap: 20px;
+    flex: 0 0 58px;
+    font-size: 10px;
+    line-height: 1.45;
+    padding: 8px 16px;
+    text-align: left;
+  }
+  .carousel-caption .caption-left {
+    flex: 0 1 auto;
+    text-align: left;
+  }
+  .carousel-caption .caption-right {
+    flex: 0 1 52%;
+    text-align: right;
   }
   .carousel-dots {
     display: flex;
@@ -1146,6 +1189,8 @@
     .carousel-viewport { height: 440px; }
     .carousel-slide { height: 440px; }
     .carousel-caption { flex: 0 0 40px; font-size: 10px; }
+    .carousel-caption.is-split { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .carousel-caption .caption-right { flex: 1 1 auto; text-align: left; max-width: 100%; }
   }
 </style>
 </head>
@@ -1570,28 +1615,28 @@
                       <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE-EMBS BSN 2024 in Chicago">
                     </a>
                   </div>
-                  <div class="collage-cell collage-side-top">
-                    <img src="assets/poster-coauthor.png" alt="Co-first author with Dr. Jihye Moon at IEEE BSN 2024" class="fit-top">
+                  <div class="collage-cell collage-side-top collage-cell-with-caption">
+                    <img src="assets/jihye-graduation.png" alt="Dr. Jihye Moon" class="fit-top">
+                    <span class="collage-cell-caption">Jihye</span>
                   </div>
                   <div class="collage-cell collage-side-bottom">
                     <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago" class="fit-top">
                   </div>
                 </div>
               </div>
-              <p class="carousel-caption is-multiline">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener">View on LinkedIn ↗</a> · Co-first author with Dr.&nbsp;Jihye Moon · Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</p>
             </div>
             <div class="carousel-slide">
               <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-uconn">
+                <div class="carousel-collage carousel-collage-uconn-single">
                   <div class="collage-cell">
                     <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="fit-top">
                   </div>
-                  <div class="collage-cell">
-                    <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia">
-                  </div>
                 </div>
               </div>
-              <p class="carousel-caption">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</p>
+              <p class="carousel-caption is-split">
+                <span class="caption-left">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</span>
+                <span class="caption-right">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener">View on LinkedIn ↗</a> · Co-first author with Dr.&nbsp;Jihye Moon · Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</span>
+              </p>
             </div>
             <div class="carousel-slide">
               <div class="carousel-slide-body">
