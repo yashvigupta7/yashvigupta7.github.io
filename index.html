@@ -662,46 +662,43 @@
   }
   .carousel-collage {
     display: grid;
-    gap: 10px;
-    padding: 20px 24px;
+    gap: 4px;
+    padding: 16px;
     width: 100%;
-    max-width: 680px;
+    max-width: 700px;
     margin: 0 auto;
     background: var(--white);
   }
   .carousel-collage-chicago {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 230px 220px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 195px 175px;
+  }
+  .carousel-collage-chicago .collage-hero {
+    grid-column: 1 / -1;
   }
   .carousel-collage-uconn {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 360px;
-    max-width: 640px;
+    grid-template-rows: 320px;
+    max-width: 620px;
   }
   .collage-cell {
     overflow: hidden;
-    border-radius: 3px;
-    border: 1px solid var(--cream-dark);
+    border-radius: 2px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--cream);
-    padding: 6px;
+    position: relative;
+    background: var(--navy);
   }
   .collage-cell img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
     display: block;
-    max-height: none;
-    background: transparent;
   }
+  .collage-cell .pos-top { object-position: center top; }
+  .collage-cell .pos-35 { object-position: center 35%; }
   .collage-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100%;
     height: 100%;
     position: relative;
@@ -710,20 +707,20 @@
   .collage-link img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center 30%;
   }
-  .collage-link:hover { opacity: 0.92; }
+  .collage-link:hover { opacity: 0.9; }
   .collage-link-badge {
     position: absolute;
-    bottom: 8px; left: 8px; right: 8px;
+    bottom: 0; left: 0; right: 0;
     font-family: 'DM Mono', monospace;
     font-size: 9px; font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: rgba(139,26,26,0.88);
+    background: linear-gradient(transparent, rgba(139,26,26,0.92));
     color: var(--white);
-    padding: 5px 8px;
-    border-radius: 2px;
+    padding: 20px 10px 8px;
     text-align: center;
   }
   .carousel-caption a {
@@ -1124,9 +1121,9 @@
     .poster-carousel { grid-template-columns: 36px 1fr 36px; gap: 6px; }
     .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
     .carousel-slide img { max-height: 380px; }
-    .carousel-collage { padding: 14px 12px; gap: 8px; }
-    .carousel-collage-chicago { grid-template-rows: 170px 160px; }
-    .carousel-collage-uconn { grid-template-rows: 240px; }
+    .carousel-collage { padding: 12px; gap: 3px; }
+    .carousel-collage-chicago { grid-template-rows: 150px 130px; }
+    .carousel-collage-uconn { grid-template-rows: 220px; }
   }
 </style>
 </head>
@@ -1545,20 +1542,20 @@
           <div class="carousel-track">
             <div class="carousel-slide">
               <div class="carousel-collage carousel-collage-chicago">
-                <div class="collage-cell">
-                  <img src="assets/chicago-bean.png" alt="Yashvi Gupta at Cloud Gate during IEEE-EMBS BSN 2024 in Chicago" class="object-center">
-                </div>
-                <div class="collage-cell">
+                <div class="collage-cell collage-hero">
                   <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener" class="collage-link">
                     <img src="assets/chicago-lab-peers.png" alt="Yashvi Gupta with Chon Lab peers at IEEE-EMBS BSN 2024 in Chicago">
                     <span class="collage-link-badge">Chon Lab peers · View on LinkedIn ↗</span>
                   </a>
                 </div>
                 <div class="collage-cell">
-                  <img src="assets/poster-bsn-2024-presenting.png" alt="Presenting sleepiness simulation research at IEEE BSN 2024 in Chicago">
+                  <img src="assets/chicago-bean.png" alt="Yashvi Gupta at Cloud Gate during IEEE-EMBS BSN 2024 in Chicago" class="pos-35">
                 </div>
                 <div class="collage-cell">
-                  <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago">
+                  <img src="assets/poster-bsn-2024-presenting.png" alt="Presenting sleepiness simulation research at IEEE BSN 2024 in Chicago" class="pos-top">
+                </div>
+                <div class="collage-cell">
+                  <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="pos-top">
                 </div>
               </div>
               <p class="carousel-caption">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · Co-first author</p>
@@ -1566,10 +1563,10 @@
             <div class="carousel-slide">
               <div class="carousel-collage carousel-collage-uconn">
                 <div class="collage-cell">
-                  <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago">
+                  <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago" class="pos-top">
                 </div>
                 <div class="collage-cell">
-                  <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia">
+                  <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia" class="pos-35">
                 </div>
               </div>
               <p class="carousel-caption">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</p>
