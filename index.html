@@ -64,7 +64,7 @@
     background: var(--navy);
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    align-items: center;
+    align-items: stretch;
     padding: 88px 0 56px;
     box-sizing: border-box;
     position: relative;
@@ -179,21 +179,28 @@
     background: rgba(255,255,255,0.06);
   }
 
-  /* Right column: horizontal photo + stat grid */
+  /* Right column: tall photo + tight stat grid */
   .hero-right-col {
     grid-column: 2;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    align-self: center;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+    height: 100%;
+    gap: 10px;
     padding: 0 64px 0 32px;
-    width: 100%; max-width: 480px;
+    width: 100%;
+    max-width: 480px;
     margin: 0 auto;
-    position: relative; z-index: 2;
+    position: relative;
+    z-index: 2;
   }
   .hero-photo-frame {
     position: relative;
-    width: 100%; max-width: 440px;
-    margin-top: 46px;
+    flex: 1 1 54%;
+    min-height: 0;
+    width: 100%;
+    display: flex;
     animation: fadeUp 1s 0.2s ease both;
   }
   .hero-photo-frame::before {
@@ -208,25 +215,27 @@
   .hero-photo {
     position: relative; z-index: 1;
     width: 100%;
-    aspect-ratio: 5 / 4;
+    height: 100%;
     object-fit: cover;
-    object-position: center 70%;
+    object-position: center 65%;
     border-radius: 4px;
     display: block;
     box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
     filter: saturate(1.05) contrast(1.02);
   }
   .hero-stats-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    width: 100%; max-width: 440px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 0 0 auto;
+    width: 100%;
     animation: fadeUp 0.8s 0.4s ease both;
   }
   .stat-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 6px;
-    padding: 24px 22px;
+    padding: 18px 16px;
     text-decoration: none; color: inherit;
     display: block;
     transition: all 0.25s ease;
@@ -1178,11 +1187,10 @@
   @media (min-width: 901px) and (max-width: 1200px) {
     .hero { grid-template-columns: 1fr 0.95fr; }
     .hero-text-col { padding-left: 40px; padding-right: 32px; }
-    .hero-right-col { padding-right: 40px; padding-left: 24px; }
-    .hero-photo-frame { max-width: 380px; }
+    .hero-right-col { padding-right: 40px; padding-left: 24px; max-width: 420px; }
     .hero-name { font-size: clamp(38px, 4vw, 56px); }
-    .hero-stats-grid { gap: 10px; }
-    .stat-card { padding: 18px 16px; }
+    .hero-stats-grid { gap: 8px; }
+    .stat-card { padding: 16px 14px; }
     .stat-num { font-size: clamp(36px, 3.5vw, 48px); }
   }
   @media (max-width: 900px) {
@@ -1193,10 +1201,10 @@
     .hero-text-col .hero-desc, .hero-text-col .hero-desc-secondary { margin-left: auto; margin-right: auto; }
     .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
     .hero-name { white-space: normal; }
-    .hero-right-col { grid-column: 1; padding: 0 32px 64px; max-width: none; }
-    .hero-photo-frame { max-width: 360px; margin-top: 0; }
-    .hero-stats-grid { max-width: 360px; }
-    .hero-stats-grid { grid-template-columns: 1fr 1fr; }
+    .hero-right-col { grid-column: 1; padding: 0 32px 64px; max-width: 400px; height: auto; gap: 12px; }
+    .hero-photo-frame { flex: 0 0 auto; min-height: 280px; }
+    .hero-photo { height: 280px; }
+    .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
