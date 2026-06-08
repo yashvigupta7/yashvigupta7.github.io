@@ -952,6 +952,13 @@
     background: var(--gold-light);
     opacity: 0.6;
   }
+  .lang-item a {
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .lang-item a:hover { color: var(--gold); }
+  .languages-strip + .languages-strip { margin-top: 16px; }
   @media (max-width: 700px) {
     .languages-strip { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
     .languages-label { border-right: none; padding-right: 0; padding-bottom: 8px; border-bottom: 1px solid var(--cream-dark); width: 100%; }
@@ -1538,18 +1545,21 @@
 
     <div class="projects-grid reveal">
 
-      <a class="project-card" href="https://github.com/chatterjee-srinjoy/Control-Freaks-Six-Sigma/tree/main" target="_blank" rel="noopener">
-        <span class="ext-arrow">↗</span>
-        <div class="project-tag">🏆 1st Place · Six Sigma Hackathon</div>
-        <div class="project-title">MedHive — Medication Waste Dashboard</div>
-        <div class="project-desc">SPC-based R Shiny analytics platform identifying drivers of prescription medication waste in nursing homes. Delivered actionable insights in 24 hours.</div>
-        <div class="project-tech">
-          <span class="tech-pill">R Shiny</span>
-          <span class="tech-pill">SPC</span>
-          <span class="tech-pill">ggplot2</span>
-          <span class="tech-pill">Statistical Modeling</span>
-        </div>
-      </a>
+      <div class="project-card">
+        <a class="project-card-primary" href="https://github.com/chatterjee-srinjoy/Control-Freaks-Six-Sigma/tree/main" target="_blank" rel="noopener">
+          <span class="ext-arrow">↗</span>
+          <div class="project-tag">🏆 1st Place · Six Sigma Hackathon</div>
+          <div class="project-title">MedHive — Medication Waste Dashboard</div>
+          <div class="project-desc">SPC-based R Shiny analytics platform identifying drivers of prescription medication waste in nursing homes. Delivered actionable insights in 24 hours.</div>
+          <div class="project-tech">
+            <span class="tech-pill">R Shiny</span>
+            <span class="tech-pill">SPC</span>
+            <span class="tech-pill">ggplot2</span>
+            <span class="tech-pill">Statistical Modeling</span>
+          </div>
+        </a>
+        <a class="project-extra-link" href="https://www.linkedin.com/in/yashvigupta7/overlay/Honor/1384395199/treasury/?profileId=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">Six Sigma &amp; Systems Engineering Hackathon 1st Place</a>
+      </div>
 
       <div class="project-card">
         <a class="project-card-primary" href="assets/SurgeSentinel_JHU_Hackathon.pptx" target="_blank" rel="noopener">
@@ -1838,6 +1848,30 @@
         <span class="lang-item"><strong>Hindi</strong> · State Seal of Biliteracy</span>
         <span class="lang-divider"></span>
         <span class="lang-item"><strong>Spanish</strong> · Conversational</span>
+      </div>
+    </div>
+
+    <div class="languages-strip reveal">
+      <div class="languages-label">Certifications</div>
+      <div class="languages-items">
+        <span class="lang-item"><strong><a href="https://www.linkedin.com/in/yashvigupta7/overlay/Certifications/1740950890/treasury/?profileId=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">Six Sigma Black Belt</a></strong></span>
+        <span class="lang-divider"></span>
+        <span class="lang-item"><strong><a href="https://www.citiprogram.org/verify/?wdfdb4509-9a2b-45ac-bc92-f188e4f4379a-56239222" target="_blank" rel="noopener">CITI Human Subjects</a></strong></span>
+        <span class="lang-divider"></span>
+        <span class="lang-item"><strong>STEM Concentration</strong></span>
+        <span class="lang-divider"></span>
+        <span class="lang-item"><strong>ML</strong> · Udemy, in progress</span>
+      </div>
+    </div>
+
+    <div class="languages-strip reveal">
+      <div class="languages-label">Awards</div>
+      <div class="languages-items">
+        <span class="lang-item"><strong><a href="https://www.linkedin.com/in/yashvigupta7/overlay/Honor/900120723/treasury/?profileId=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">OUR Conference Presentation Award</a></strong></span>
+        <span class="lang-divider"></span>
+        <span class="lang-item"><strong>The Honor Society of Phi Kappa Phi</strong></span>
+        <span class="lang-divider"></span>
+        <span class="lang-item"><strong><a href="assets/clinical-preceptorship-certificate.pdf" target="_blank" rel="noopener">Keynote Clinical Preceptorship '25</a></strong></span>
       </div>
     </div>
   </div>
