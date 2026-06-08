@@ -704,6 +704,16 @@
     grid-column: 2;
     grid-row: 2;
   }
+  .carousel-collage-bsn .collage-side-top,
+  .carousel-collage-bsn .collage-side-bottom {
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-collage-bsn .collage-side-top img,
+  .carousel-collage-bsn .collage-side-bottom img {
+    object-fit: contain;
+    object-position: center center;
+  }
   .carousel-collage-uconn {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -763,12 +773,24 @@
   .collage-cell-caption {
     flex: 0 0 auto;
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
     color: var(--text-mid);
     text-align: center;
-    padding: 4px 0 2px;
+    padding: 4px 4px 2px;
     background: var(--white);
+  }
+  .collage-cell-caption a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(178,34,34,0.25);
+    transition: border-color 0.2s;
+  }
+  .collage-cell-caption a:hover { border-color: var(--blue); }
+  .collage-cell-with-caption .collage-cell-link {
+    flex: 1;
+    min-height: 0;
   }
   .carousel-caption.is-multiline {
     flex: 0 0 58px;
@@ -1610,17 +1632,19 @@
             <div class="carousel-slide">
               <div class="carousel-slide-body">
                 <div class="carousel-collage carousel-collage-bsn">
-                  <div class="collage-cell collage-main">
-                    <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener" class="collage-cell-link">
+                  <div class="collage-cell collage-main collage-cell-with-caption">
+                    <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener" class="collage-cell-link">
                       <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE-EMBS BSN 2024 in Chicago">
                     </a>
+                    <span class="collage-cell-caption">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">View on LinkedIn ↗</a></span>
                   </div>
                   <div class="collage-cell collage-side-top collage-cell-with-caption">
-                    <img src="assets/jihye-graduation.png" alt="Dr. Jihye Moon" class="fit-top">
-                    <span class="collage-cell-caption">Jihye</span>
+                    <img src="assets/jihye-graduation.png" alt="Dr. Jihye Moon">
+                    <span class="collage-cell-caption">Co-first author with Dr.&nbsp;Jihye Moon</span>
                   </div>
-                  <div class="collage-cell collage-side-bottom">
-                    <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago" class="fit-top">
+                  <div class="collage-cell collage-side-bottom collage-cell-with-caption">
+                    <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago">
+                    <span class="collage-cell-caption">Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</span>
                   </div>
                 </div>
               </div>
@@ -1633,10 +1657,7 @@
                   </div>
                 </div>
               </div>
-              <p class="carousel-caption is-split">
-                <span class="caption-left">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</span>
-                <span class="caption-right">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener">View on LinkedIn ↗</a> · Co-first author with Dr.&nbsp;Jihye Moon · Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</span>
-              </p>
+              <p class="carousel-caption">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</p>
             </div>
             <div class="carousel-slide">
               <div class="carousel-slide-body">
