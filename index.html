@@ -682,6 +682,28 @@
     object-position: center center;
     display: block;
   }
+  .carousel-collage-bsn {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .carousel-collage-bsn .collage-main {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+  .carousel-collage-bsn .collage-side-top {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .carousel-collage-bsn .collage-side-bottom {
+    grid-column: 2;
+    grid-row: 2;
+  }
   .carousel-collage-uconn {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -705,9 +727,28 @@
   .collage-cell img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+  }
+  .collage-cell img.fit-top {
     object-fit: cover;
     object-position: center top;
-    display: block;
+  }
+  .collage-cell-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+  }
+  .collage-cell-link:hover { opacity: 0.92; }
+  .carousel-caption.is-multiline {
+    flex: 0 0 58px;
+    font-size: 10px;
+    line-height: 1.45;
+    padding: 8px 16px;
   }
   .carousel-caption a {
     color: var(--blue);
@@ -1523,41 +1564,27 @@
           <div class="carousel-track">
             <div class="carousel-slide">
               <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/chicago-lab-peers.png" alt="Yashvi Gupta with Chon Lab peers at IEEE-EMBS BSN 2024 in Chicago">
+                <div class="carousel-collage carousel-collage-bsn">
+                  <div class="collage-cell collage-main">
+                    <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener" class="collage-cell-link">
+                      <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE-EMBS BSN 2024 in Chicago">
+                    </a>
+                  </div>
+                  <div class="collage-cell collage-side-top">
+                    <img src="assets/poster-coauthor.png" alt="Co-first author with Dr. Jihye Moon at IEEE BSN 2024" class="fit-top">
+                  </div>
+                  <div class="collage-cell collage-side-bottom">
+                    <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago" class="fit-top">
+                  </div>
                 </div>
               </div>
-              <p class="carousel-caption">Fall 2024 · Chicago, IL · Chon Lab peers · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener">View on LinkedIn ↗</a></p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/chicago-bean.png" alt="Yashvi Gupta at Cloud Gate during IEEE-EMBS BSN 2024 in Chicago">
-                </div>
-              </div>
-              <p class="carousel-caption">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024</p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/poster-bsn-2024-presenting.png" alt="Presenting sleepiness simulation research at IEEE BSN 2024 in Chicago">
-                </div>
-              </div>
-              <p class="carousel-caption">Fall 2024 · Chicago, IL · Co-first author presentation</p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster">
-                </div>
-              </div>
-              <p class="carousel-caption">Fall 2024 · Chicago, IL · OUR Conference Presentation Award</p>
+              <p class="carousel-caption is-multiline">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener">View on LinkedIn ↗</a> · Co-first author with Dr.&nbsp;Jihye Moon · Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</p>
             </div>
             <div class="carousel-slide">
               <div class="carousel-slide-body">
                 <div class="carousel-collage carousel-collage-uconn">
                   <div class="collage-cell">
-                    <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago">
+                    <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="fit-top">
                   </div>
                   <div class="collage-cell">
                     <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia">
@@ -1583,9 +1610,6 @@
         <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
         <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
         <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 5"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 6"></button>
       </div>
     </div>
 
