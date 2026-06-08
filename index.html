@@ -59,13 +59,12 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: auto;
     background: var(--navy);
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    align-items: stretch;
-    padding: 88px 0 56px;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: start;
+    padding: 88px 0 48px;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -90,9 +89,8 @@
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-self: stretch;
-    height: 100%;
+    justify-content: flex-start;
+    align-self: start;
     padding: 0 48px 0 64px;
     position: relative;
     z-index: 2;
@@ -185,7 +183,7 @@
 
   .hero-tags {
     display: flex; flex-wrap: wrap; gap: 8px;
-    margin-bottom: 0;
+    margin-bottom: 14px;
     animation: fadeUp 0.8s 0.3s ease both;
   }
   .hero-tag {
@@ -197,14 +195,13 @@
     background: rgba(255,255,255,0.06);
   }
 
-  /* Right column: full-height photo */
+  /* Right column: compact photo */
   .hero-right-col {
     grid-column: 2;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    align-self: stretch;
-    height: 100%;
+    align-self: start;
     padding: 0 48px 0 16px;
     width: 100%;
     max-width: none;
@@ -214,9 +211,9 @@
   }
   .hero-photo-frame {
     position: relative;
-    flex: 1 1 100%;
-    min-height: 0;
     width: 100%;
+    max-height: min(480px, calc(100vh - 160px));
+    aspect-ratio: 5 / 6;
     display: flex;
     animation: fadeUp 1s 0.2s ease both;
   }
@@ -234,7 +231,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 65%;
+    object-position: center 55%;
     border-radius: 4px;
     display: block;
     box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
@@ -244,10 +241,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    flex: 0 0 auto;
     width: 100%;
     max-width: 520px;
-    margin-top: 28px;
+    margin-top: 0;
     animation: fadeUp 0.8s 0.4s ease both;
   }
   .stat-card {
@@ -1204,9 +1200,9 @@
 
   /* ── RESPONSIVE ── */
   @media (min-width: 901px) and (max-width: 1200px) {
-    .hero { grid-template-columns: 1fr 0.95fr; }
+    .hero { grid-template-columns: 1fr 1.1fr; }
     .hero-text-col { padding-left: 40px; padding-right: 32px; }
-    .hero-right-col { padding-right: 40px; padding-left: 24px; max-width: 420px; }
+    .hero-right-col { padding-right: 32px; padding-left: 12px; }
     .hero-name { font-size: clamp(38px, 4vw, 56px); }
     .hero-stats-grid { gap: 8px; }
     .stat-card { padding: 16px 14px; }
@@ -1220,12 +1216,11 @@
     .hero-text-col .hero-desc, .hero-text-col .hero-desc-secondary { margin-left: auto; margin-right: auto; }
     .hero-desc-secondary { border-left: none; border-top: 2px solid var(--gold-light); padding-left: 0; padding-top: 12px; }
     .hero-name { white-space: normal; }
-    .hero-text-col { height: auto; justify-content: flex-start; }
     .hero-intro-block { margin-left: auto; margin-right: auto; }
-    .hero-stats-grid { max-width: 400px; margin-left: auto; margin-right: auto; margin-top: 32px; }
-    .hero-right-col { grid-column: 1; padding: 0 32px 64px; max-width: 400px; height: auto; }
-    .hero-photo-frame { flex: 0 0 auto; min-height: 280px; }
-    .hero-photo { height: 280px; }
+    .hero-stats-grid { max-width: 400px; margin-left: auto; margin-right: auto; }
+    .hero-right-col { grid-column: 1; padding: 0 32px 48px; max-width: 400px; }
+    .hero-photo-frame { max-height: 360px; aspect-ratio: 5 / 6; }
+    .hero-photo { height: 100%; }
     .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
@@ -1279,7 +1274,7 @@
           LinkedIn
         </a>
         <p class="hero-desc">
-          Cornell MEng Biomedical Engineering graduate focused on medical device innovation and patient-centered engineering - bridging technical development, data-driven problem solving, and cross-functional collaboration to translate research into practical healthcare solutions.
+          Focused on medical device innovation and patient-centered engineering — bridging technical development, data-driven problem solving, and cross-functional collaboration to translate research into practical healthcare solutions.
         </p>
       </div>
       <p class="hero-desc hero-desc-secondary">
@@ -1292,28 +1287,28 @@
         <span class="hero-tag">Data Science & Process Analytics</span>
         <span class="hero-tag">Systems Engineering</span>
       </div>
-    </div>
-    <div class="hero-stats-grid">
-      <a href="#publications" class="stat-card">
-        <div class="stat-num">5</div>
-        <div class="stat-label">IEEE Publications &amp; Research</div>
-        <div class="stat-link">View publications</div>
-      </a>
-      <a href="#exp-guthrie" class="stat-card">
-        <div class="stat-num">7</div>
-        <div class="stat-label">Live OR Surgical Procedures Observed</div>
-        <div class="stat-link">Clinical preceptorship</div>
-      </a>
-      <a href="#exp-west" class="stat-card">
-        <div class="stat-num">3<em>+</em></div>
-        <div class="stat-label">Years Medical Device Engineering Experience</div>
-        <div class="stat-link">Design engineer role</div>
-      </a>
-      <a href="#projects" class="stat-card">
-        <div class="stat-num">BB</div>
-        <div class="stat-label">Black Belt Six Sigma Certified</div>
-        <div class="stat-link">Engineering projects</div>
-      </a>
+      <div class="hero-stats-grid">
+        <a href="#publications" class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">IEEE Publications &amp; Research</div>
+          <div class="stat-link">View publications</div>
+        </a>
+        <a href="#exp-guthrie" class="stat-card">
+          <div class="stat-num">7</div>
+          <div class="stat-label">Live OR Surgical Procedures Observed</div>
+          <div class="stat-link">Clinical preceptorship</div>
+        </a>
+        <a href="#exp-west" class="stat-card">
+          <div class="stat-num">3<em>+</em></div>
+          <div class="stat-label">Years Medical Device Engineering Experience</div>
+          <div class="stat-link">Design engineer role</div>
+        </a>
+        <a href="#projects" class="stat-card">
+          <div class="stat-num">BB</div>
+          <div class="stat-label">Black Belt Six Sigma Certified</div>
+          <div class="stat-link">Engineering projects</div>
+        </a>
+      </div>
     </div>
   </div>
 
