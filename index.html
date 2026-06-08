@@ -1622,6 +1622,45 @@
       </a>
 
     </div>
+
+    <div class="poster-carousel-wrap reveal">
+      <div class="poster-carousel-header">
+        <div class="poster-carousel-label">Applied Systems</div>
+        <h3 class="poster-carousel-title">Projects Showcase</h3>
+        <p class="poster-carousel-sub">Cornell M.Eng · Hackathon wins and systems engineering builds</p>
+      </div>
+
+      <div class="poster-carousel" id="projectsCarousel">
+        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <div class="carousel-slide-body">
+                <div class="carousel-slide-single">
+                  <img src="assets/project-medhive-hackathon.png" alt="Control Freaks team winning 1st Prize at Cornell Six Sigma Hackathon for MedHive">
+                </div>
+              </div>
+              <p class="carousel-caption">Fall 2025 · Cornell University · MedHive: Medication Waste Dashboard – Systems Engineering &amp; Six Sigma Hackathon · M.Eng Biomedical Engineering · <a href="https://www.linkedin.com/feed/update/urn:li:activity:7388652812701712384/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">View on LinkedIn ↗</a></p>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-slide-body">
+                <div class="carousel-slide-single">
+                  <img src="assets/project-medicube-hackathon.png" alt="Med(ICU)be ICU Digital Twin hackathon presentation at Cornell">
+                </div>
+              </div>
+              <p class="carousel-caption">Spring 2025 · Fall 2025 · Cornell University · Med(ICU)be: ICU Digital Twin – Data Science &amp; AI Systems Hackathon · M.Eng Biomedical Engineering</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="carousel-dots" id="projectsDots">
+        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
+        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1917,6 +1956,7 @@
 
   initCarousel('posterCarousel', 'posterDots');
   initCarousel('experienceCarousel', 'experienceDots');
+  initCarousel('projectsCarousel', 'projectsDots');
 </script>
 
 </body>
