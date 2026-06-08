@@ -1487,6 +1487,45 @@
       </div>
 
     </div>
+
+    <div class="poster-carousel-wrap reveal">
+      <div class="poster-carousel-header">
+        <div class="poster-carousel-label">Design Engineering</div>
+        <h3 class="poster-carousel-title">Engineering Practice Showcase</h3>
+        <p class="poster-carousel-sub">Cornell M.Eng · UConn B.S.E. Biomedical Engineering design roles</p>
+      </div>
+
+      <div class="poster-carousel" id="experienceCarousel">
+        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <div class="carousel-slide-body">
+                <div class="carousel-slide-single">
+                  <img src="assets/exp-cornell-design-engineer.png" alt="Yashvi Gupta with Cornell BME M.Eng cohort at Tang Hall">
+                </div>
+              </div>
+              <p class="carousel-caption">Fall 2025 – Spring 2026 · Cornell University · Design Engineer · M.Eng Biomedical Engineering</p>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-slide-body">
+                <div class="carousel-slide-single">
+                  <img src="assets/exp-uconn-senior-design.png" alt="UConn senior design team presenting shoulder rehabilitation project">
+                </div>
+              </div>
+              <p class="carousel-caption">Spring 2025 · University of Connecticut · Design Engineer · B.S.E. Biomedical Engineering · <a href="https://www.linkedin.com/posts/yashvigupta7_last-month-i-had-the-privilege-of-presenting-ugcPost-7329995661171412992-_Xa3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">View on LinkedIn ↗</a></p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="carousel-dots" id="experienceDots">
+        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
+        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1842,10 +1881,10 @@
     requestAnimationFrame(() => goToPub(location.hash));
   }
 
-  // Research poster carousel
-  (function () {
-    const carousel = document.getElementById('posterCarousel');
-    const dotsWrap = document.getElementById('posterDots');
+  // Image carousels
+  function initCarousel(carouselId, dotsId) {
+    const carousel = document.getElementById(carouselId);
+    const dotsWrap = document.getElementById(dotsId);
     if (!carousel || !dotsWrap) return;
 
     const track = carousel.querySelector('.carousel-track');
@@ -1874,7 +1913,10 @@
       const diff = touchStartX - e.changedTouches[0].screenX;
       if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
     }, { passive: true });
-  })();
+  }
+
+  initCarousel('posterCarousel', 'posterDots');
+  initCarousel('experienceCarousel', 'experienceDots');
 </script>
 
 </body>
