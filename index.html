@@ -659,6 +659,70 @@
     display: block;
     background: #f8f4f4;
   }
+  .carousel-collage {
+    display: grid;
+    gap: 6px;
+    padding: 8px;
+    width: 100%;
+    background: #f8f4f4;
+  }
+  .carousel-collage-chicago {
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: 210px 155px;
+  }
+  .carousel-collage-chicago .collage-bottom {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .carousel-collage-uconn {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 380px;
+  }
+  .collage-cell {
+    overflow: hidden;
+    border-radius: 2px;
+    border: 1px solid var(--cream-dark);
+    height: 100%;
+  }
+  .collage-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    max-height: none;
+    background: #f8f4f4;
+  }
+  .collage-cell img.object-center { object-position: center center; }
+  .collage-link {
+    display: block;
+    height: 100%;
+    position: relative;
+    transition: opacity 0.2s;
+  }
+  .collage-link:hover { opacity: 0.92; }
+  .collage-link-badge {
+    position: absolute;
+    bottom: 8px; left: 8px; right: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(139,26,26,0.88);
+    color: var(--white);
+    padding: 5px 8px;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .carousel-caption a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(178,34,34,0.25);
+    transition: border-color 0.2s;
+  }
+  .carousel-caption a:hover { border-color: var(--blue); }
   .carousel-caption {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
@@ -1050,6 +1114,8 @@
     .poster-carousel { grid-template-columns: 36px 1fr 36px; gap: 6px; }
     .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
     .carousel-slide img { max-height: 380px; }
+    .carousel-collage-chicago { grid-template-rows: 160px 120px; }
+    .carousel-collage-uconn { grid-template-rows: 260px; }
   }
 </style>
 </head>
@@ -1490,10 +1556,8 @@
       <div class="carousel-dots" id="posterDots">
         <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
         <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
       </div>
-      <div class="carousel-counter" id="posterCounter">1 / 4</div>
+      <div class="carousel-counter" id="posterCounter">1 / 2</div>
     </div>
 
   </div>
