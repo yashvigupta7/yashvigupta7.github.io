@@ -636,6 +636,7 @@
     border-color: var(--navy);
   }
   .carousel-viewport {
+    height: 520px;
     overflow: hidden;
     border-radius: 4px;
     background: var(--white);
@@ -643,74 +644,99 @@
   }
   .carousel-track {
     display: flex;
+    height: 100%;
     transition: transform 0.45s ease;
   }
   .carousel-slide {
     min-width: 100%;
+    width: 100%;
+    height: 520px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+  }
+  .carousel-slide-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding: 14px 16px 0;
+    overflow: hidden;
   }
-  .carousel-slide img {
+  .carousel-slide-single {
     width: 100%;
-    max-height: 520px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .carousel-slide-single img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    object-position: center center;
     display: block;
-    background: #f8f4f4;
   }
   .carousel-collage {
     display: grid;
-    gap: 4px;
-    padding: 16px;
+    gap: 5px;
     width: 100%;
-    max-width: 700px;
+    height: 100%;
+    max-width: 720px;
     margin: 0 auto;
-    background: var(--white);
   }
   .carousel-collage-chicago {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 195px 175px;
+    grid-template-rows: 42% 58%;
   }
   .carousel-collage-chicago .collage-hero {
     grid-column: 1 / -1;
   }
   .carousel-collage-uconn {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 320px;
-    max-width: 620px;
+    grid-template-rows: 1fr;
+    max-width: 660px;
+    height: 100%;
   }
   .collage-cell {
     overflow: hidden;
     border-radius: 2px;
     height: 100%;
+    min-height: 0;
     position: relative;
-    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
   }
   .collage-cell img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center top;
     display: block;
   }
-  .collage-cell .pos-top { object-position: center top; }
-  .collage-cell .pos-35 { object-position: center 35%; }
+  .collage-cell .pos-center { object-fit: contain; object-position: center center; }
+  .collage-hero .collage-link img {
+    object-fit: contain;
+    object-position: center top;
+  }
   .collage-link {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     width: 100%;
     height: 100%;
     position: relative;
     transition: opacity 0.2s;
+    background: var(--cream);
   }
-  .collage-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-  }
-  .collage-link:hover { opacity: 0.9; }
+  .collage-link:hover { opacity: 0.95; }
   .collage-link-badge {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -718,10 +744,11 @@
     font-size: 9px; font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: linear-gradient(transparent, rgba(139,26,26,0.92));
+    background: linear-gradient(to top, rgba(20,8,8,0.97) 0%, rgba(139,26,26,0.88) 55%, rgba(139,26,26,0.25) 100%);
     color: var(--white);
-    padding: 20px 10px 8px;
+    padding: 32px 12px 10px;
     text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
   }
   .carousel-caption a {
     color: var(--blue);
@@ -731,15 +758,19 @@
   }
   .carousel-caption a:hover { border-color: var(--blue); }
   .carousel-caption {
+    flex: 0 0 46px;
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.04em;
     color: var(--text-mid);
     text-align: center;
-    padding: 14px 20px;
+    padding: 0 20px;
     border-top: 1px solid var(--cream-dark);
     width: 100%;
     background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .carousel-dots {
     display: flex;
@@ -760,15 +791,6 @@
     background: var(--navy);
     transform: scale(1.15);
   }
-  .carousel-counter {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--text-light);
-    text-align: center;
-    margin-top: 10px;
-  }
-
   /* ── SKILLS ── */
   #skills { background: var(--white); }
 
@@ -1121,9 +1143,9 @@
     .poster-carousel { grid-template-columns: 36px 1fr 36px; gap: 6px; }
     .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
     .carousel-slide img { max-height: 380px; }
-    .carousel-collage { padding: 12px; gap: 3px; }
-    .carousel-collage-chicago { grid-template-rows: 150px 130px; }
-    .carousel-collage-uconn { grid-template-rows: 220px; }
+    .carousel-viewport { height: 440px; }
+    .carousel-slide { height: 440px; }
+    .carousel-caption { flex: 0 0 40px; font-size: 10px; }
   }
 </style>
 </head>
@@ -1541,38 +1563,46 @@
         <div class="carousel-viewport">
           <div class="carousel-track">
             <div class="carousel-slide">
-              <div class="carousel-collage carousel-collage-chicago">
-                <div class="collage-cell collage-hero">
-                  <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener" class="collage-link">
-                    <img src="assets/chicago-lab-peers.png" alt="Yashvi Gupta with Chon Lab peers at IEEE-EMBS BSN 2024 in Chicago">
-                    <span class="collage-link-badge">Chon Lab peers · View on LinkedIn ↗</span>
-                  </a>
-                </div>
-                <div class="collage-cell">
-                  <img src="assets/chicago-bean.png" alt="Yashvi Gupta at Cloud Gate during IEEE-EMBS BSN 2024 in Chicago" class="pos-35">
-                </div>
-                <div class="collage-cell">
-                  <img src="assets/poster-bsn-2024-presenting.png" alt="Presenting sleepiness simulation research at IEEE BSN 2024 in Chicago" class="pos-top">
-                </div>
-                <div class="collage-cell">
-                  <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="pos-top">
+              <div class="carousel-slide-body">
+                <div class="carousel-collage carousel-collage-chicago">
+                  <div class="collage-cell collage-hero">
+                    <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/" target="_blank" rel="noopener" class="collage-link">
+                      <img src="assets/chicago-lab-peers.png" alt="Yashvi Gupta with Chon Lab peers at IEEE-EMBS BSN 2024 in Chicago">
+                      <span class="collage-link-badge">Chon Lab peers · View on LinkedIn ↗</span>
+                    </a>
+                  </div>
+                  <div class="collage-cell">
+                    <img src="assets/chicago-bean.png" alt="Yashvi Gupta at Cloud Gate during IEEE-EMBS BSN 2024 in Chicago" class="pos-center">
+                  </div>
+                  <div class="collage-cell">
+                    <img src="assets/poster-bsn-2024-presenting.png" alt="Presenting sleepiness simulation research at IEEE BSN 2024 in Chicago">
+                  </div>
+                  <div class="collage-cell">
+                    <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut">
+                  </div>
                 </div>
               </div>
               <p class="carousel-caption">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · Co-first author</p>
             </div>
             <div class="carousel-slide">
-              <div class="carousel-collage carousel-collage-uconn">
-                <div class="collage-cell">
-                  <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago" class="pos-top">
-                </div>
-                <div class="collage-cell">
-                  <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia" class="pos-35">
+              <div class="carousel-slide-body">
+                <div class="carousel-collage carousel-collage-uconn">
+                  <div class="collage-cell">
+                    <img src="assets/poster-coauthor.png" alt="Co-first author with J. Moon at IEEE BSN 2024 in Chicago">
+                  </div>
+                  <div class="collage-cell">
+                    <img src="assets/uconn-graduation.png" alt="Yashvi Gupta at UConn graduation in Society of Women Engineers regalia">
+                  </div>
                 </div>
               </div>
               <p class="carousel-caption">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</p>
             </div>
             <div class="carousel-slide">
-              <img src="assets/poster-bsn-2024-session.png" alt="Yashvi Gupta as BMES Symposium panelist at Cornell University">
+              <div class="carousel-slide-body">
+                <div class="carousel-slide-single">
+                  <img src="assets/poster-bsn-2024-session.png" alt="Yashvi Gupta as BMES Symposium panelist at Cornell University">
+                </div>
+              </div>
               <p class="carousel-caption">Fall 2025 · BMES Symposium Panelist at Cornell University</p>
             </div>
           </div>
@@ -1585,7 +1615,6 @@
         <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
         <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-counter" id="posterCounter">1 / 3</div>
     </div>
 
   </div>
@@ -1719,7 +1748,6 @@
   (function () {
     const carousel = document.getElementById('posterCarousel');
     const dotsWrap = document.getElementById('posterDots');
-    const counter = document.getElementById('posterCounter');
     if (!carousel || !dotsWrap) return;
 
     const track = carousel.querySelector('.carousel-track');
@@ -1735,7 +1763,6 @@
       current = (idx + slides.length) % slides.length;
       track.style.transform = 'translateX(-' + (current * 100) + '%)';
       dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
-      if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
     }
 
     prev.addEventListener('click', () => goTo(current - 1));
