@@ -430,6 +430,37 @@
     user-select: none;
   }
 
+  .exp-group {
+    background: var(--cream);
+    padding: 40px 40px 18px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    align-items: baseline;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .exp-group.exp-group-first {
+    border-top: none;
+    padding-top: 8px;
+  }
+  .exp-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .exp-group-label::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--blue);
+  }
+  .exp-group-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px; font-weight: 400; font-style: italic;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
   /* ── PROJECTS ── */
   #projects { background: var(--navy); }
   #projects .section-title { color: var(--white); }
@@ -1310,6 +1341,7 @@
     .hero-photo { object-position: center 28%; height: 100%; }
     .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
+    .exp-group { grid-template-columns: 1fr; gap: 10px; padding: 28px 24px 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
@@ -1453,7 +1485,7 @@
   <div class="container">
     <div class="section-label">Experience</div>
     <h2 class="section-title">Engineering <em>in practice</em></h2>
-    <p class="section-sub">From injectable delivery systems to electromechanical rehabilitation devices — hands-on engineering across the full product development lifecycle.</p>
+    <p class="section-sub">Industry design engineering, graduate clinical immersion, and biomedical research — hands-on engineering across the full product development lifecycle.</p>
 
     <div class="logo-marquee logo-marquee-header reveal" aria-label="Affiliations and organizations">
       <div class="logo-marquee-track">
@@ -1484,6 +1516,11 @@
 
     <div class="exp-grid reveal">
 
+      <div class="exp-group exp-group-first">
+        <div class="exp-group-label">Industry</div>
+        <h3 class="exp-group-title">Industry Experience</h3>
+      </div>
+
       <div class="exp-card" id="exp-west">
         <div class="exp-meta">
           <div class="exp-date">Sep 2025 – May 2026</div>
@@ -1491,13 +1528,55 @@
           <div class="exp-loc">Ithaca, NY</div>
         </div>
         <div class="exp-content">
-          <div class="exp-title">Design Engineer</div>
+          <div class="exp-title">Design Engineer — Drug Delivery Systems</div>
           <ul class="exp-bullets">
             <li>Designed injectable combination product delivery concepts from ideation through prototype via Biodesign, translating user needs into engineering requirements in collaboration with industry sponsors</li>
             <li>Executed full CAD workflow in SolidWorks & Fusion 360, ANSYS/COMSOL simulation, and bench-top testing on artificial skin models as Scrum Master under Agile framework</li>
             <li>Assessed competitive market landscape and presented novel device concept pitch to industry professionals and faculty at end-of-year engineering showcase</li>
           </ul>
         </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2024 – May 2025</div>
+          <div class="exp-org">Dept. of Biomedical Engineering, UConn</div>
+          <div class="exp-loc">Storrs, CT</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Design Engineer — Rehabilitation Systems</div>
+          <ul class="exp-bullets">
+            <li>Developed novel electromechanical shoulder rehabilitation system integrating Delsys Trigno Galileo EMG sensors with NeuroMap to quantify muscle activation and motor unit firing patterns</li>
+            <li>Conducted mechanical testing at 0°, 45°, and 90° arm positions; performed bench validation across injured and uninjured conditions, iterating on sensor placement and mechanical fixture design</li>
+            <li>Documented design iterations and deliverables; presented at formal engineering showcase to industry sponsors and faculty</li>
+          </ul>
+          <div class="exp-docs">
+            <a href="assets/shoulder-rehabilitation-final-report.pdf" target="_blank" rel="noopener" class="exp-doc-link">📄 Final Report</a>
+            <span class="exp-doc-sep">·</span>
+            <a href="https://seniordesignday.engr.uconn.edu/seniorprojectpt/senior-design-2025-biomedical-engineering-team-18/" target="_blank" rel="noopener" class="exp-doc-link">📄 Senior Design Day</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-date">Jan 2024 – May 2024</div>
+          <div class="exp-org">Dept. of Biomedical Engineering, UConn</div>
+          <div class="exp-loc">Storrs, CT</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Design Engineer — Wearable Prosthetic Systems</div>
+          <ul class="exp-bullets">
+            <li>Designed a detachable, lifelike prosthetic hand integrating myoelectric (EMG) sensors and a rechargeable power system to restore upper-limb function with sensory feedback — optimized for lightweight wearable form factor, low-cost manufacturability, and durability under repeated actuation cycles</li>
+            <li>Evaluated three design alternatives — nerve-stimulation haptics, intuitive control system, and sensor-based mechanoreceptor/Pacinian receptor emulation — and selected the sensor-based concept for its reduced system complexity, fewer failure points, and lower BOM cost</li>
+            <li>Defined engineering requirements across weight, size, material, comfort, and serviceability; modular detachable architecture improved reliability and ease of maintenance while preserving realistic sensory feedback for amputee end users</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <div class="exp-group-label">Graduate</div>
+        <h3 class="exp-group-title">Graduate Experience</h3>
       </div>
 
       <div class="exp-card" id="exp-guthrie">
@@ -1534,25 +1613,9 @@
         </div>
       </div>
 
-      <div class="exp-card">
-        <div class="exp-meta">
-          <div class="exp-date">Aug 2024 – May 2025</div>
-          <div class="exp-org">Dept. of Biomedical Engineering, UConn</div>
-          <div class="exp-loc">Storrs, CT</div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-title">Design Engineer — Shoulder Rehabilitation Device</div>
-          <ul class="exp-bullets">
-            <li>Developed novel electromechanical shoulder rehabilitation system integrating Delsys Trigno Galileo EMG sensors with NeuroMap to quantify muscle activation and motor unit firing patterns</li>
-            <li>Conducted mechanical testing at 0°, 45°, and 90° arm positions; performed bench validation across injured and uninjured conditions, iterating on sensor placement and mechanical fixture design</li>
-            <li>Documented design iterations and deliverables; presented at formal engineering showcase to industry sponsors and faculty</li>
-          </ul>
-          <div class="exp-docs">
-            <a href="assets/shoulder-rehabilitation-final-report.pdf" target="_blank" rel="noopener" class="exp-doc-link">📄 Final Report</a>
-            <span class="exp-doc-sep">·</span>
-            <a href="https://seniordesignday.engr.uconn.edu/seniorprojectpt/senior-design-2025-biomedical-engineering-team-18/" target="_blank" rel="noopener" class="exp-doc-link">📄 Senior Design Day</a>
-          </div>
-        </div>
+      <div class="exp-group">
+        <div class="exp-group-label">Research</div>
+        <h3 class="exp-group-title">Research Experience</h3>
       </div>
 
       <div class="exp-card">
@@ -1562,7 +1625,7 @@
           <div class="exp-loc">Storrs, CT</div>
         </div>
         <div class="exp-content">
-          <div class="exp-title">Research Assistant</div>
+          <div class="exp-title">Research Assistant — Cardiac Signal Processing & SKNA Analysis</div>
           <ul class="exp-bullets">
             <li>Collected high-frequency ECG recordings from 30 participants during controlled stress protocols to extract skin sympathetic nerve activity (SKNA)</li>
             <li>Developed audio-inspired spectral features via ECG-derived SKNA using LabChart8 to classify autonomic stress responses — contributing to IEEE-EMBS publication</li>
@@ -1580,7 +1643,7 @@
           <div class="exp-loc">Storrs, CT</div>
         </div>
         <div class="exp-content">
-          <div class="exp-title">Research Assistant</div>
+          <div class="exp-title">Research Assistant — Wearable Physiology & Fatigue Monitoring</div>
           <ul class="exp-bullets">
             <li>Collected ECG and EDA signals from 20 participants during prolonged-wakefulness protocols using iMotions to evaluate physiological markers of fatigue and sleepiness</li>
             <li>Co-authored 4 peer-reviewed IEEE publications on sleepiness detection and autonomic response; presented poster at BSN 2024</li>
@@ -1604,7 +1667,7 @@
           <div class="exp-loc">Storrs, CT</div>
         </div>
         <div class="exp-content">
-          <div class="exp-title">Research Assistant</div>
+          <div class="exp-title">Research Assistant — Biomaterials & Neural Tissue Modeling</div>
           <ul class="exp-bullets">
             <li>Assisted in fabrication and bench testing of gelatin-alginate hydrogels engineered to replicate brain tissue mechanics as an in vitro model for traumatic brain injury research</li>
             <li>Supported sterile filtration protocols, MTS assay procedures, and lab documentation under faculty supervision to advance hydrogel biocompatibility validation</li>
