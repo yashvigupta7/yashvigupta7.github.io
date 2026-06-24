@@ -432,11 +432,7 @@
 
   .exp-group {
     background: var(--cream);
-    padding: 72px 40px 28px;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 40px;
-    align-items: end;
+    padding: 44px 40px 14px;
     position: relative;
   }
   .exp-group::before {
@@ -447,42 +443,19 @@
     background: linear-gradient(to right, transparent, var(--cream-dark) 20%, var(--cream-dark) 80%, transparent);
   }
   .exp-group.exp-group-first {
-    padding-top: 16px;
+    padding-top: 12px;
   }
   .exp-group.exp-group-first::before { display: none; }
   .exp-group-label {
     font-family: 'DM Mono', monospace;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.24em;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--blue);
-    display: flex; align-items: center; gap: 14px;
-    padding-bottom: 6px;
+    display: inline-flex; align-items: center; gap: 14px;
   }
   .exp-group-label::before {
     content: ''; display: block;
-    width: 32px; height: 1px; background: var(--blue);
-  }
-  .exp-group-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 3.2vw, 42px);
-    font-weight: 300;
-    color: var(--navy);
-    line-height: 1.05;
-    letter-spacing: -0.005em;
-    position: relative;
-    padding-bottom: 14px;
-  }
-  .exp-group-title em {
-    font-style: italic;
-    color: var(--blue);
-  }
-  .exp-group-title::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 48px; height: 2px;
-    background: var(--blue);
-    border-radius: 1px;
+    width: 36px; height: 2px; background: var(--blue);
   }
 
   /* ── PROJECTS ── */
@@ -1365,9 +1338,8 @@
     .hero-photo { object-position: center 28%; height: 100%; }
     .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
-    .exp-group { grid-template-columns: 1fr; gap: 10px; padding: 48px 24px 20px; align-items: start; }
+    .exp-group { padding: 32px 24px 10px; }
     .exp-group::before { left: 24px; right: 24px; }
-    .exp-group-title { padding-bottom: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
@@ -1544,7 +1516,6 @@
 
       <div class="exp-group exp-group-first">
         <div class="exp-group-label">Industry</div>
-        <h3 class="exp-group-title">Industry <em>Experience</em></h3>
       </div>
 
       <div class="exp-card" id="exp-west">
@@ -1602,7 +1573,6 @@
 
       <div class="exp-group">
         <div class="exp-group-label">Graduate</div>
-        <h3 class="exp-group-title">Graduate <em>Experience</em></h3>
       </div>
 
       <div class="exp-card" id="exp-guthrie">
@@ -1641,7 +1611,6 @@
 
       <div class="exp-group">
         <div class="exp-group-label">Research</div>
-        <h3 class="exp-group-title">Research <em>Experience</em></h3>
       </div>
 
       <div class="exp-card">
