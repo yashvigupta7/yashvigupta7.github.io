@@ -432,33 +432,57 @@
 
   .exp-group {
     background: var(--cream);
-    padding: 40px 40px 18px;
+    padding: 72px 40px 28px;
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 40px;
-    align-items: baseline;
-    border-top: 1px solid var(--cream-dark);
+    align-items: end;
+    position: relative;
+  }
+  .exp-group::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 40px; right: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--cream-dark) 20%, var(--cream-dark) 80%, transparent);
   }
   .exp-group.exp-group-first {
-    border-top: none;
-    padding-top: 8px;
+    padding-top: 16px;
   }
+  .exp-group.exp-group-first::before { display: none; }
   .exp-group-label {
     font-family: 'DM Mono', monospace;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--blue);
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 6px;
   }
   .exp-group-label::before {
     content: ''; display: block;
-    width: 24px; height: 1px; background: var(--blue);
+    width: 32px; height: 1px; background: var(--blue);
   }
   .exp-group-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 30px; font-weight: 400; font-style: italic;
+    font-size: clamp(32px, 3.2vw, 42px);
+    font-weight: 300;
     color: var(--navy);
-    line-height: 1.2;
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    position: relative;
+    padding-bottom: 14px;
+  }
+  .exp-group-title em {
+    font-style: italic;
+    color: var(--blue);
+  }
+  .exp-group-title::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 48px; height: 2px;
+    background: var(--blue);
+    border-radius: 1px;
   }
 
   /* ── PROJECTS ── */
@@ -1341,7 +1365,9 @@
     .hero-photo { object-position: center 28%; height: 100%; }
     .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .exp-card { grid-template-columns: 1fr; gap: 12px; }
-    .exp-group { grid-template-columns: 1fr; gap: 10px; padding: 28px 24px 12px; }
+    .exp-group { grid-template-columns: 1fr; gap: 10px; padding: 48px 24px 20px; align-items: start; }
+    .exp-group::before { left: 24px; right: 24px; }
+    .exp-group-title { padding-bottom: 12px; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .edu-grid { grid-template-columns: 1fr; }
@@ -1518,7 +1544,7 @@
 
       <div class="exp-group exp-group-first">
         <div class="exp-group-label">Industry</div>
-        <h3 class="exp-group-title">Industry Experience</h3>
+        <h3 class="exp-group-title">Industry <em>Experience</em></h3>
       </div>
 
       <div class="exp-card" id="exp-west">
@@ -1576,7 +1602,7 @@
 
       <div class="exp-group">
         <div class="exp-group-label">Graduate</div>
-        <h3 class="exp-group-title">Graduate Experience</h3>
+        <h3 class="exp-group-title">Graduate <em>Experience</em></h3>
       </div>
 
       <div class="exp-card" id="exp-guthrie">
@@ -1615,7 +1641,7 @@
 
       <div class="exp-group">
         <div class="exp-group-label">Research</div>
-        <h3 class="exp-group-title">Research Experience</h3>
+        <h3 class="exp-group-title">Research <em>Experience</em></h3>
       </div>
 
       <div class="exp-card">
