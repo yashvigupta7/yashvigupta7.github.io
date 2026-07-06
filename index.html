@@ -937,6 +937,34 @@
   }
   .skill-block-featured:hover { background: linear-gradient(135deg, rgba(139,26,26,0.07) 0%, rgba(212,160,160,0.14) 100%); border-color: rgba(139,26,26,0.5); }
 
+  /* Soft skills subsection */
+  .soft-skills-header {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .soft-skills-header .section-label { margin-bottom: 12px; }
+  .soft-skills-title {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 34px; font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0 0 14px 0;
+  }
+  .soft-skills-title em { font-style: italic; color: var(--blue); }
+  .soft-skills-sub {
+    font-size: 15px; line-height: 1.65;
+    color: var(--gray);
+    max-width: 640px;
+    margin: 0 0 32px 0;
+  }
+  .soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
   /* Languages strip */
   .languages-strip {
     margin-top: 48px;
@@ -983,6 +1011,8 @@
     .languages-strip { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
     .languages-label { border-right: none; padding-right: 0; padding-bottom: 8px; border-bottom: 1px solid var(--cream-dark); width: 100%; }
     .languages-items { gap: 14px; }
+    .soft-skills-grid { grid-template-columns: 1fr; }
+    .soft-skills-header { margin-top: 56px; padding-top: 32px; }
   }
 
   .skill-icon {
@@ -1334,6 +1364,8 @@
     .exp-group-label { font-size: 13px; letter-spacing: 0.26em; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
+    .soft-skills-grid { grid-template-columns: 1fr 1fr; }
+    .soft-skills-title { font-size: 28px; }
     .edu-grid { grid-template-columns: 1fr; }
     .container { padding: 0 32px; }
     nav { padding: 0 24px; }
@@ -2059,6 +2091,31 @@
       <div class="skill-block">
         <div class="skill-cat">Software &amp; Computation</div>
         <div class="skill-items">Python · MATLAB · R · R Shiny · C++ · Java · HTML · Arduino · FastAPI · Streamlit · Plotly · REST APIs · Git / GitHub · Supabase / PostgreSQL · FHIR / HIPAA-compliant</div>
+      </div>
+    </div>
+
+    <div class="soft-skills-header reveal">
+      <div class="section-label">Soft skills</div>
+      <h3 class="soft-skills-title">Beyond the <em>technical</em></h3>
+      <p class="soft-skills-sub">Cross-functional leadership, communication, and stakeholder engagement cultivated through a decade of engineering teams, mentorship, and community involvement.</p>
+    </div>
+
+    <div class="skills-grid soft-skills-grid reveal">
+      <div class="skill-block">
+        <div class="skill-cat">Leadership &amp; Program Management</div>
+        <div class="skill-items">Leadership · Team Management · Executive Board Governance · Conference &amp; Event Coordination · Program Coordination · Cross-Functional Collaboration</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Communication &amp; Outreach</div>
+        <div class="skill-items">Public Relations · Public Speaking · Bilingual Communication (English / Hindi / Spanish) · Front Desk &amp; Client Relations · Stakeholder Presentations</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Community &amp; Youth Engagement</div>
+        <div class="skill-items">Working with Children · Youth Mentorship &amp; Tutoring · STEM Outreach &amp; Education Programming · Peer Advising</div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-cat">Operations &amp; Planning</div>
+        <div class="skill-items">Financial Planning &amp; Budgeting · Event Logistics · Scheduling &amp; Resource Coordination · Discipline &amp; Time Management (competitive athletics / dance)</div>
       </div>
     </div>
 
