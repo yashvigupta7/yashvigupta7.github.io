@@ -970,7 +970,7 @@
   }
   .ddn-carousel .carousel-btn {
     position: absolute;
-    top: 380px;
+    top: 55%;
     z-index: 5;
     transform: translateY(-50%);
     box-shadow: 0 4px 14px rgba(0,0,0,0.15);
@@ -1094,6 +1094,20 @@
   .ddn-collage-2 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 380px;
+  }
+
+  .ddn-collage-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 420px;
+  }
+  .ddn-collage-hero .ddn-collage-cell img.fit-top {
+    object-position: center top;
+  }
+
+  .ddn-showcase .poster-carousel-header {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-dark);
   }
 
   .ddn-year-footer {
@@ -1374,6 +1388,7 @@
     .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
     .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
     .ddn-collage-2 { grid-template-columns: 1fr; grid-template-rows: 220px 220px; }
+    .ddn-collage-hero { grid-template-rows: 280px; }
     .ddn-video-link { padding: 16px 20px; font-size: 12px; letter-spacing: 0.12em; }
     .image-lightbox { padding: 20px; }
     .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
@@ -2091,36 +2106,52 @@
 
     </div>
 
-    <div class="poster-carousel-wrap reveal">
+    <div class="ddn-showcase reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Design Engineering</div>
         <h3 class="poster-carousel-title">Engineering Showcase</h3>
         <p class="poster-carousel-sub">Cornell M.Eng · UConn B.S.E. Biomedical Engineering design roles</p>
       </div>
 
-      <div class="poster-carousel" id="experienceCarousel">
-        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/exp-cornell-design-engineer.png" alt="Yashvi Gupta with Cornell BME M.Eng cohort at Tang Hall">
-                </div>
+      <div class="ddn-carousel">
+        <button class="carousel-btn carousel-prev" id="experiencePrev" type="button" aria-label="Previous slide">‹</button>
+        <div class="ddn-years" id="experienceYears">
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Fall 2025 – Spring 2026</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-1">Cornell University</span>
+                <span>Design Engineer · M.Eng Biomedical Engineering</span>
               </div>
-              <p class="carousel-caption">Fall 2025 – Spring 2026 · Cornell University · Design Engineer · M.Eng Biomedical Engineering</p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/exp-uconn-senior-design.png" alt="UConn senior design team presenting shoulder rehabilitation project">
-                </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/exp-cornell-design-engineer.png" alt="Yashvi Gupta with Cornell BME M.Eng cohort at Tang Hall">
               </div>
-              <p class="carousel-caption">Spring 2025 · University of Connecticut · Design Engineer · B.S.E. Biomedical Engineering · <a href="https://www.linkedin.com/posts/yashvigupta7_last-month-i-had-the-privilege-of-presenting-ugcPost-7329995661171412992-_Xa3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">View on LinkedIn ↗</a></p>
             </div>
-          </div>
+          </article>
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Spring 2025</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-1">University of Connecticut</span>
+                <span>Design Engineer · B.S.E. Biomedical Engineering</span>
+              </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/exp-uconn-senior-design.png" alt="UConn senior design team presenting shoulder rehabilitation project">
+              </div>
+            </div>
+            <footer class="ddn-year-footer">
+              <a href="https://www.linkedin.com/posts/yashvigupta7_last-month-i-had-the-privilege-of-presenting-ugcPost-7329995661171412992-_Xa3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener" class="ddn-video-link">
+                View on LinkedIn
+                <span class="ddn-video-arrow" aria-hidden="true">↗</span>
+              </a>
+            </footer>
+          </article>
         </div>
-        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+        <button class="carousel-btn carousel-next" id="experienceNext" type="button" aria-label="Next slide">›</button>
       </div>
 
       <div class="carousel-dots" id="experienceDots">
@@ -2229,36 +2260,58 @@
 
     </div>
 
-    <div class="poster-carousel-wrap reveal">
+    <div class="ddn-showcase reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Applied Systems</div>
         <h3 class="poster-carousel-title">Projects Showcase</h3>
         <p class="poster-carousel-sub">Cornell M.Eng · Hackathon wins and systems engineering builds</p>
       </div>
 
-      <div class="poster-carousel" id="projectsCarousel">
-        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/project-medhive-hackathon.png" alt="Control Freaks team winning 1st Prize at Cornell Six Sigma Hackathon for MedHive">
-                </div>
+      <div class="ddn-carousel">
+        <button class="carousel-btn carousel-prev" id="projectsPrev" type="button" aria-label="Previous slide">‹</button>
+        <div class="ddn-years" id="projectsYears">
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Fall 2025</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-1">1st Place</span>
+                <span>Cornell University · Six Sigma Hackathon</span>
               </div>
-              <p class="carousel-caption">Fall 2025 · Cornell University · Medication Waste Dashboard – Systems Engineering &amp; Six Sigma Hackathon</p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/project-medicube-hackathon.png" alt="Med(ICU)be ICU Digital Twin hackathon presentation at Cornell">
-                </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/project-medhive-hackathon.png" alt="Control Freaks team winning 1st Prize at Cornell Six Sigma Hackathon for MedHive">
               </div>
-              <p class="carousel-caption">Spring 2025 · Fall 2025 · Cornell University · ICU Digital Twin – Data Science &amp; AI Systems Hackathon</p>
             </div>
-          </div>
+            <footer class="ddn-year-footer">
+              <a href="https://github.com/chatterjee-srinjoy/Control-Freaks-Six-Sigma/tree/main" target="_blank" rel="noopener" class="ddn-video-link">
+                View MedHive Project
+                <span class="ddn-video-arrow" aria-hidden="true">↗</span>
+              </a>
+            </footer>
+          </article>
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Spring 2025 · Fall 2025</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-mix">Hackathon</span>
+                <span>Cornell University · ICU Digital Twin</span>
+              </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/project-medicube-hackathon.png" alt="Med(ICU)be ICU Digital Twin hackathon presentation at Cornell">
+              </div>
+            </div>
+            <footer class="ddn-year-footer">
+              <a href="https://github.com/chatterjee-srinjoy/icu-twinops#medicube" target="_blank" rel="noopener" class="ddn-video-link">
+                View Med(ICU)be Project
+                <span class="ddn-video-arrow" aria-hidden="true">↗</span>
+              </a>
+            </footer>
+          </article>
         </div>
-        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+        <button class="carousel-btn carousel-next" id="projectsNext" type="button" aria-label="Next slide">›</button>
       </div>
 
       <div class="carousel-dots" id="projectsDots">
@@ -2350,58 +2403,72 @@
 
     </div>
 
-    <div class="poster-carousel-wrap reveal">
+    <div class="ddn-showcase reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Research Poster</div>
         <h3 class="poster-carousel-title">Toward Effective Sleepiness Simulation: Validation Using Perceptual and Physiological Measures</h3>
         <p class="poster-carousel-sub">IEEE BSN 2024 · Chicago, IL · Co-first author · OUR Conference Presentation Award · <a href="#pub-05">View publication</a></p>
       </div>
 
-      <div class="poster-carousel" id="posterCarousel">
-        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-bsn">
-                  <div class="collage-cell collage-main collage-cell-with-caption">
-                    <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener" class="collage-cell-link">
-                      <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE-EMBS BSN 2024 in Chicago">
-                    </a>
-                    <span class="collage-cell-caption">Fall 2024 · Chicago, IL · IEEE-EMBS BSN 2024 · <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener">View on LinkedIn ↗</a></span>
-                  </div>
-                  <div class="collage-cell collage-side-top collage-cell-with-caption">
-                    <img src="assets/jihye-graduation.png" alt="Dr. Jihye Moon">
-                    <span class="collage-cell-caption">Co-first author with Dr.&nbsp;Jihye Moon</span>
-                  </div>
-                  <div class="collage-cell collage-side-bottom collage-cell-with-caption">
-                    <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago">
-                    <span class="collage-cell-caption">Dr.&nbsp;Ki Chon's Lab · PhD Candidate Farnoush Baghestani</span>
-                  </div>
-                </div>
+      <div class="ddn-carousel">
+        <button class="carousel-btn carousel-prev" id="posterPrev" type="button" aria-label="Previous slide">‹</button>
+        <div class="ddn-years" id="posterYears">
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Fall 2024</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-1">IEEE BSN 2024</span>
+                <span>Chicago, IL · Co-first author</span>
+              </div>
+            </header>
+            <div class="ddn-collage ddn-collage-3">
+              <div class="ddn-collage-cell">
+                <img src="assets/poster-bsn-2024-presenting.png" alt="Yashvi Gupta presenting at IEEE-EMBS BSN 2024 in Chicago">
+              </div>
+              <div class="ddn-collage-cell">
+                <img src="assets/jihye-graduation.png" alt="Co-first author with Dr. Jihye Moon">
+              </div>
+              <div class="ddn-collage-cell">
+                <img src="assets/chicago-lab-peers.png" alt="Dr. Ki Chon's lab at IEEE-EMBS BSN 2024 in Chicago">
               </div>
             </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-uconn-single">
-                  <div class="collage-cell">
-                    <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="fit-top">
-                  </div>
-                </div>
+            <footer class="ddn-year-footer">
+              <a href="https://www.linkedin.com/posts/yashvigupta7_i-am-incredibly-honored-to-have-attended-ugcPost-7253116409281400832-egpp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkZN84BvlrMgzKi-DhNhLMDb4t-C6lihy8" target="_blank" rel="noopener" class="ddn-video-link">
+                View on LinkedIn
+                <span class="ddn-video-arrow" aria-hidden="true">↗</span>
+              </a>
+            </footer>
+          </article>
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Spring 2025</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-mix">OUR Award</span>
+                <span>University of Connecticut · B.S.E. Biomedical Engineering</span>
               </div>
-              <p class="carousel-caption">Spring 2025 · University of Connecticut · OUR Presentation Award · B.S.E. Biomedical Engineering</p>
-            </div>
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/poster-bsn-2024-session.png" alt="Yashvi Gupta as BMES Symposium panelist at Cornell University">
-                </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/poster-our-award.png" alt="OUR Conference Presentation Award research poster at the University of Connecticut" class="fit-top">
               </div>
-              <p class="carousel-caption">Fall 2025 · Cornell University · BMES Symposium Panelist · M.Eng Biomedical Engineering</p>
             </div>
-          </div>
+          </article>
+          <article class="ddn-year">
+            <header class="ddn-year-header">
+              <div class="ddn-year-label">Fall 2025</div>
+              <div class="ddn-year-places">
+                <span class="ddn-place ddn-place-1">BMES Symposium</span>
+                <span>Cornell University · Panelist · M.Eng BME</span>
+              </div>
+            </header>
+            <div class="ddn-collage ddn-collage-hero">
+              <div class="ddn-collage-cell">
+                <img src="assets/poster-bsn-2024-session.png" alt="Yashvi Gupta as BMES Symposium panelist at Cornell University">
+              </div>
+            </div>
+          </article>
         </div>
-        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
+        <button class="carousel-btn carousel-next" id="posterNext" type="button" aria-label="Next slide">›</button>
       </div>
 
       <div class="carousel-dots" id="posterDots">
@@ -2962,50 +3029,12 @@
     requestAnimationFrame(() => goToPub(location.hash));
   }
 
-  // Image carousels
-  function initCarousel(carouselId, dotsId) {
-    const carousel = document.getElementById(carouselId);
+  // Horizontal scroll-snap showcase carousels
+  function initShowcaseCarousel(trackId, prevId, nextId, dotsId) {
+    const track = document.getElementById(trackId);
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
     const dotsWrap = document.getElementById(dotsId);
-    if (!carousel || !dotsWrap) return;
-
-    const track = carousel.querySelector('.carousel-track');
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const dots = dotsWrap.querySelectorAll('.carousel-dot');
-    const prev = carousel.querySelector('.carousel-prev');
-    const next = carousel.querySelector('.carousel-next');
-    const viewport = carousel.querySelector('.carousel-viewport');
-    let current = 0;
-    let touchStartX = 0;
-
-    function goTo(idx) {
-      current = (idx + slides.length) % slides.length;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
-    }
-
-    prev.addEventListener('click', () => goTo(current - 1));
-    next.addEventListener('click', () => goTo(current + 1));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-
-    viewport.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    viewport.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
-    }, { passive: true });
-  }
-
-  initCarousel('posterCarousel', 'posterDots');
-  initCarousel('experienceCarousel', 'experienceDots');
-  initCarousel('projectsCarousel', 'projectsDots');
-
-  // DDN horizontal year carousel (scroll-snap based, one year per slide)
-  (function initDdnCarousel() {
-    const track = document.getElementById('ddnYears');
-    const prev = document.getElementById('ddnPrev');
-    const next = document.getElementById('ddnNext');
-    const dotsWrap = document.getElementById('ddnDots');
     if (!track || !prev || !next) return;
 
     const slides = track.querySelectorAll('.ddn-year');
@@ -3044,7 +3073,12 @@
     });
 
     refresh();
-  })();
+  }
+
+  initShowcaseCarousel('experienceYears', 'experiencePrev', 'experienceNext', 'experienceDots');
+  initShowcaseCarousel('projectsYears', 'projectsPrev', 'projectsNext', 'projectsDots');
+  initShowcaseCarousel('posterYears', 'posterPrev', 'posterNext', 'posterDots');
+  initShowcaseCarousel('ddnYears', 'ddnPrev', 'ddnNext', 'ddnDots');
 
   // Image lightbox for gallery cells (click any DDN photo to view full-size)
   (function initImageLightbox() {
