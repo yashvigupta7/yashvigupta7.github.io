@@ -1111,6 +1111,18 @@
     border-bottom: 1px solid var(--cream-dark);
   }
 
+  .showcase-tall .ddn-collage-hero {
+    grid-template-rows: 580px;
+  }
+  .showcase-tall .ddn-collage-3 {
+    grid-template-rows: repeat(2, 310px);
+  }
+  .showcase-tall .ddn-collage-hero .ddn-collage-cell img,
+  .showcase-tall .ddn-collage-3 .ddn-collage-cell img {
+    object-fit: contain;
+    object-position: center;
+  }
+
   .ddn-year-footer {
     margin-top: 20px;
   }
@@ -1391,6 +1403,8 @@
     .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
     .ddn-collage-2 { grid-template-columns: 1fr; grid-template-rows: 220px 220px; }
     .ddn-collage-hero { grid-template-rows: 280px; }
+    .showcase-tall .ddn-collage-hero { grid-template-rows: 420px; }
+    .showcase-tall .ddn-collage-3 { grid-template-rows: 260px 260px 260px; }
     .ddn-video-link { padding: 16px 20px; font-size: 12px; letter-spacing: 0.12em; }
     .image-lightbox { padding: 20px; }
     .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
@@ -2109,7 +2123,7 @@
 
     </div>
 
-    <div class="ddn-showcase reveal">
+    <div class="ddn-showcase showcase-tall reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Design Engineering</div>
         <h3 class="poster-carousel-title">Engineering Showcase</h3>
@@ -2263,7 +2277,7 @@
 
     </div>
 
-    <div class="ddn-showcase reveal">
+    <div class="ddn-showcase showcase-tall reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Applied Systems</div>
         <h3 class="poster-carousel-title">Projects Showcase</h3>
@@ -2406,7 +2420,7 @@
 
     </div>
 
-    <div class="ddn-showcase reveal">
+    <div class="ddn-showcase showcase-tall reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Research Poster</div>
         <h3 class="poster-carousel-title">Toward Effective Sleepiness Simulation: Validation Using Perceptual and Physiological Measures</h3>
