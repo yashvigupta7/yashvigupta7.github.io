@@ -1537,20 +1537,39 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(139,26,26,0.1);
   }
+  .edu-photo-wrap {
+    overflow: hidden;
+    height: 360px;
+    cursor: zoom-in;
+    position: relative;
+    background: var(--cream);
+    flex-shrink: 0;
+  }
+  .edu-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.18));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .edu-photo-wrap:hover::after { opacity: 1; }
   .edu-photo {
     width: 100%;
-    height: 360px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.5s ease, filter 0.4s ease;
+    transition: transform 0.5s ease, object-fit 0.35s ease;
     filter: saturate(1.05) contrast(1.02);
   }
   @media (max-width: 900px) {
-    .edu-photo { height: 280px; }
+    .edu-photo-wrap { height: 280px; }
   }
-  .edu-card:hover .edu-photo {
-    transform: scale(1.04);
+  .edu-photo-wrap:hover .edu-photo {
+    transform: scale(1.03);
+    object-fit: contain;
     filter: saturate(1.12) contrast(1.05) brightness(1.04);
   }
   .edu-card-body {
@@ -1887,7 +1906,9 @@
 
     <div class="edu-grid reveal">
       <div class="edu-card">
-        <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center top;">
+        <div class="edu-photo-wrap">
+          <img class="edu-photo" src="assets/cornell.png" alt="Yashvi Gupta at Cornell University with McGraw clocktower" style="object-position: center top;">
+        </div>
         <div class="edu-card-body">
           <div class="edu-degree">Master of Engineering<br>Biomedical Engineering</div>
           <div class="edu-concentration">Design Engineer, Graduate Teaching Research Specialist</div>
@@ -1902,7 +1923,9 @@
         </div>
       </div>
       <div class="edu-card">
-        <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 25%;">
+        <div class="edu-photo-wrap">
+          <img class="edu-photo" src="assets/uconn.png" alt="Yashvi Gupta at the UConn graduation sign" style="object-position: center 25%;">
+        </div>
         <div class="edu-card-body">
           <div class="edu-degree">Bachelor of Science in Engineering<br>Biomedical Engineering</div>
           <div class="edu-concentration">Biomaterials and Tissue Engineering Concentration, Mathematics Minor</div>
@@ -3097,9 +3120,9 @@
   initShowcaseCarousel('posterYears', 'posterPrev', 'posterNext', 'posterDots');
   initShowcaseCarousel('ddnYears', 'ddnPrev', 'ddnNext', 'ddnDots');
 
-  // Image lightbox for gallery cells (click any DDN photo to view full-size)
+  // Image lightbox for gallery cells (click any gallery photo to view full-size)
   (function initImageLightbox() {
-    const cells = document.querySelectorAll('.ddn-collage-cell');
+    const cells = document.querySelectorAll('.ddn-collage-cell, .edu-photo-wrap');
     if (!cells.length) return;
 
     const lightbox = document.createElement('div');
