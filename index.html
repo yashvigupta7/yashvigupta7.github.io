@@ -1042,20 +1042,24 @@
   .ddn-place-mix { background: var(--gold); color: var(--white); border-color: var(--gold); box-shadow: 0 1px 4px rgba(200,140,60,0.35); }
 
   .ddn-collage {
-    display: grid;
-    gap: 8px;
+    column-count: 3;
+    column-gap: 10px;
   }
   .ddn-collage-cell {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 0 0 10px 0;
     overflow: hidden;
     border-radius: 3px;
     background: var(--cream);
     position: relative;
     cursor: zoom-in;
+    display: block;
   }
   .ddn-collage-cell img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 100%;
+    height: auto;
     display: block;
     transition: transform 0.5s ease;
   }
@@ -1070,29 +1074,6 @@
     pointer-events: none;
   }
   .ddn-collage-cell:hover::after { opacity: 1; }
-
-  .ddn-collage-5 {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 220px);
-  }
-  .ddn-collage-5 .ddn-collage-cell:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-  .ddn-collage-5 .ddn-collage-cell:nth-child(2) { grid-column: 3;     grid-row: 1; }
-  .ddn-collage-5 .ddn-collage-cell:nth-child(3) { grid-column: 3;     grid-row: 2 / 4; }
-  .ddn-collage-5 .ddn-collage-cell:nth-child(4) { grid-column: 1;     grid-row: 3; }
-  .ddn-collage-5 .ddn-collage-cell:nth-child(5) { grid-column: 2;     grid-row: 3; }
-
-  .ddn-collage-3 {
-    grid-template-columns: 1.55fr 1fr;
-    grid-template-rows: repeat(2, 220px);
-  }
-  .ddn-collage-3 .ddn-collage-cell:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
-  .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
-  .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 2; grid-row: 2; }
-
-  .ddn-collage-2 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 380px;
-  }
 
   .ddn-year-footer {
     margin-top: 20px;
@@ -1256,23 +1237,8 @@
     .ddn-carousel .carousel-next { right: 4px; }
     .ddn-year-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .ddn-year-label { font-size: 24px; }
-    .ddn-collage-5 {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 190px 240px 140px 140px;
-    }
-    .ddn-collage-5 .ddn-collage-cell:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
-    .ddn-collage-5 .ddn-collage-cell:nth-child(2) { grid-column: 1;      grid-row: 2; }
-    .ddn-collage-5 .ddn-collage-cell:nth-child(3) { grid-column: 2;      grid-row: 2; }
-    .ddn-collage-5 .ddn-collage-cell:nth-child(4) { grid-column: 1;      grid-row: 3 / 5; }
-    .ddn-collage-5 .ddn-collage-cell:nth-child(5) { grid-column: 2;      grid-row: 3 / 5; }
-    .ddn-collage-3 {
-      grid-template-columns: 1fr;
-      grid-template-rows: 220px 160px 160px;
-    }
-    .ddn-collage-3 .ddn-collage-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
-    .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
-    .ddn-collage-2 { grid-template-columns: 1fr; grid-template-rows: 220px 220px; }
+    .ddn-collage { column-count: 2; column-gap: 8px; }
+    .ddn-collage-cell { margin-bottom: 8px; }
     .ddn-video-link { padding: 16px 20px; font-size: 12px; letter-spacing: 0.12em; }
     .image-lightbox { padding: 20px; }
     .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
@@ -2403,7 +2369,7 @@
               <span>Jersey Jalwa</span>
             </div>
           </header>
-          <div class="ddn-collage ddn-collage-5">
+          <div class="ddn-collage">
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2122-trophy-raised.png" alt="UConn Surya raising trophy after 1st place win 2021–2022">
             </div>
@@ -2411,7 +2377,7 @@
               <img src="assets/ddn-2122-jalwa-banner.png" alt="UConn Surya at Jersey Jalwa Bollywood dance competition 2022">
             </div>
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2122-solo-trophy.png" alt="Yashvi Gupta with UConn Surya championship trophy" style="object-position: center 30%;">
+              <img src="assets/ddn-2122-solo-trophy.png" alt="Yashvi Gupta with UConn Surya championship trophy">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2122-perform-1.png" alt="UConn Surya performing on stage 2021–2022 season">
@@ -2437,15 +2403,15 @@
               <span>Maryland Minza</span>
             </div>
           </header>
-          <div class="ddn-collage ddn-collage-5">
+          <div class="ddn-collage">
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2223-trophy-celebration.png" alt="UConn Surya celebrating 3rd place Maryland Minza 2023" style="object-position: center 15%;">
+              <img src="assets/ddn-2223-trophy-celebration.png" alt="UConn Surya celebrating 3rd place Maryland Minza 2023">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2223-team-lobby.png" alt="UConn Surya team group photo at competition hotel 2022–2023">
             </div>
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2223-perform-lyrical.png" alt="UConn Surya lyrical performance 2022–2023 season" style="object-position: 68% center;">
+              <img src="assets/ddn-2223-perform-lyrical.png" alt="UConn Surya lyrical performance 2022–2023 season">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2223-team-trophy.png" alt="UConn Surya team group photo with Maryland Minza trophy 2023">
