@@ -1060,6 +1060,8 @@
     transition: transform 0.5s ease;
   }
   .ddn-collage-cell:hover img { transform: scale(1.04); }
+  .ddn-collage-cell.is-zoomed img { transform: scale(1.25); }
+  .ddn-collage-cell.is-zoomed:hover img { transform: scale(1.30); }
   .ddn-collage-cell::after {
     content: '';
     position: absolute;
@@ -2484,7 +2486,7 @@
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2324-trophy-celebration.png" alt="UConn Surya celebrating with tall trophy 2023–2024">
             </div>
-            <div class="ddn-collage-cell">
+            <div class="ddn-collage-cell is-zoomed">
               <img src="assets/ddn-2324-perform-scarf.png" alt="UConn Surya scarf choreography moment 2023–2024">
             </div>
             <div class="ddn-collage-cell">
