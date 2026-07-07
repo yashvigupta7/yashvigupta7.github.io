@@ -218,6 +218,9 @@
     aspect-ratio: 5 / 6;
     display: flex;
     animation: fadeUp 1s 0.2s ease both;
+    overflow: hidden;
+    cursor: zoom-in;
+    border-radius: 4px;
   }
   .hero-photo-frame::before {
     content: '';
@@ -227,7 +230,20 @@
     border-radius: 4px;
     z-index: 0;
     opacity: 0.6;
+    pointer-events: none;
   }
+  .hero-photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.22));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 4px;
+  }
+  .hero-photo-frame:hover::after { opacity: 1; }
   .hero-photo {
     position: relative; z-index: 1;
     width: 100%;
@@ -238,6 +254,13 @@
     display: block;
     box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
     filter: saturate(1.05) contrast(1.02);
+    transition: transform 0.5s ease, object-fit 0.35s ease, filter 0.4s ease;
+  }
+  .hero-photo-frame:hover .hero-photo {
+    transform: scale(1.03);
+    object-fit: contain;
+    object-position: center;
+    filter: saturate(1.12) contrast(1.05) brightness(1.04);
   }
   .hero-stats-grid {
     display: grid;
@@ -3122,7 +3145,7 @@
 
   // Image lightbox for gallery cells (click any gallery photo to view full-size)
   (function initImageLightbox() {
-    const cells = document.querySelectorAll('.ddn-collage-cell, .edu-photo-wrap');
+    const cells = document.querySelectorAll('.ddn-collage-cell, .edu-photo-wrap, .hero-photo-frame');
     if (!cells.length) return;
 
     const lightbox = document.createElement('div');
