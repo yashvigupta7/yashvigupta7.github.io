@@ -945,10 +945,30 @@
     border-radius: 4px;
     padding: 32px 36px 32px;
   }
+  .ddn-key-skills {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--cream);
+    border-left: 3px solid var(--blue);
+    border-radius: 2px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-mid);
+  }
+  .ddn-key-skills strong {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-right: 8px;
+  }
   .ddn-years {
     display: flex;
     flex-direction: column;
     gap: 56px;
+    margin-top: 28px;
   }
   .ddn-year { display: flex; flex-direction: column; }
   .ddn-year-header {
@@ -963,36 +983,38 @@
   }
   .ddn-year-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 26px; font-weight: 600;
+    font-size: 28px; font-weight: 600;
     color: var(--navy);
     letter-spacing: -0.01em;
   }
   .ddn-year-places {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px 14px;
     flex-wrap: wrap;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--text-mid);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
     line-height: 1.4;
   }
   .ddn-place {
     display: inline-block;
-    padding: 3px 9px;
+    padding: 6px 12px;
     font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    border-radius: 2px;
+    border-radius: 3px;
     background: var(--cream);
     color: var(--navy);
     border: 1px solid var(--cream-dark);
+    box-shadow: 0 1px 3px rgba(139,26,26,0.08);
   }
-  .ddn-place-1 { background: var(--navy); color: var(--white); border-color: var(--navy); }
-  .ddn-place-2 { background: var(--blue); color: var(--white); border-color: var(--blue); }
-  .ddn-place-3 { background: rgba(178,34,34,0.15); color: var(--blue); border-color: rgba(178,34,34,0.35); }
-  .ddn-place-mix { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  .ddn-place-1 { background: var(--navy); color: var(--white); border-color: var(--navy); box-shadow: 0 1px 4px rgba(23,42,58,0.35); }
+  .ddn-place-2 { background: var(--blue); color: var(--white); border-color: var(--blue); box-shadow: 0 1px 4px rgba(178,34,34,0.35); }
+  .ddn-place-3 { background: rgba(178,34,34,0.12); color: var(--blue); border-color: rgba(178,34,34,0.45); }
+  .ddn-place-mix { background: var(--gold); color: var(--white); border-color: var(--gold); box-shadow: 0 1px 4px rgba(200,140,60,0.35); }
 
   .ddn-collage {
     display: grid;
@@ -1003,6 +1025,7 @@
     border-radius: 3px;
     background: var(--cream);
     position: relative;
+    cursor: zoom-in;
   }
   .ddn-collage-cell img {
     width: 100%; height: 100%;
@@ -1012,17 +1035,27 @@
     transition: transform 0.5s ease;
   }
   .ddn-collage-cell:hover img { transform: scale(1.04); }
-
-  .ddn-collage-6 {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 210px);
+  .ddn-collage-cell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.18));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(2) { grid-column: 3;     grid-row: 1; }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(3) { grid-column: 3;     grid-row: 2; }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(4) { grid-column: 1;     grid-row: 3; }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(5) { grid-column: 2;     grid-row: 3; }
-  .ddn-collage-6 .ddn-collage-cell:nth-child(6) { grid-column: 3;     grid-row: 3; }
+  .ddn-collage-cell:hover::after { opacity: 1; }
+
+  .ddn-collage-5 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 220px);
+  }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(2) { grid-column: 3;     grid-row: 1; }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(3) { grid-column: 3;     grid-row: 2 / 4; }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(4) { grid-column: 1;     grid-row: 3; }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(5) { grid-column: 2;     grid-row: 3; }
+  .ddn-collage-5 .ddn-collage-cell:nth-child(3) img { object-position: center 30%; }
 
   .ddn-collage-3 {
     grid-template-columns: 1.55fr 1fr;
@@ -1038,35 +1071,84 @@
   }
 
   .ddn-year-footer {
-    margin-top: 18px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
+    margin-top: 20px;
   }
   .ddn-video-link {
-    display: inline-flex;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 12px;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--blue);
+    letter-spacing: 0.15em;
+    color: var(--white);
     text-decoration: none;
-    padding: 9px 16px;
-    border: 1px solid rgba(178,34,34,0.35);
-    border-radius: 2px;
-    transition: all 0.2s;
-    background: var(--white);
+    padding: 18px 24px;
+    border: 2px solid var(--blue);
+    border-radius: 3px;
+    transition: all 0.25s;
+    background: var(--blue);
+    box-shadow: 0 3px 10px rgba(178,34,34,0.22);
   }
   .ddn-video-link:hover {
-    background: var(--blue);
+    background: var(--navy);
     color: var(--white);
-    border-color: var(--blue);
+    border-color: var(--navy);
+    box-shadow: 0 6px 16px rgba(23,42,58,0.35);
+    transform: translateY(-1px);
   }
-  .ddn-video-link svg { width: 14px; height: 14px; }
+  .ddn-video-link svg { width: 16px; height: 16px; }
+  .ddn-video-link .ddn-video-arrow { font-size: 15px; }
+
+  /* Image lightbox for gallery cells */
+  .image-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 12, 12, 0.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 48px;
+    cursor: zoom-out;
+    animation: lightboxIn 0.2s ease;
+  }
+  .image-lightbox.open { display: flex; }
+  @keyframes lightboxIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .lightbox-image {
+    max-width: 92vw;
+    max-height: 88vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    cursor: default;
+    border-radius: 3px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.28); }
 
   /* Soft skills subsection */
   .soft-skills-header {
@@ -1146,17 +1228,17 @@
     .soft-skills-header { margin-top: 56px; padding-top: 32px; }
     .ddn-showcase { padding: 24px 16px 24px; }
     .ddn-years { gap: 40px; }
-    .ddn-year-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .ddn-collage-6 {
+    .ddn-year-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .ddn-year-label { font-size: 24px; }
+    .ddn-collage-5 {
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 180px 130px 130px 130px;
+      grid-template-rows: 190px 240px 140px 140px;
     }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(2) { grid-column: 1;      grid-row: 2; }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(3) { grid-column: 2;      grid-row: 2; }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(4) { grid-column: 1;      grid-row: 3; }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(5) { grid-column: 2;      grid-row: 3; }
-    .ddn-collage-6 .ddn-collage-cell:nth-child(6) { grid-column: 1 / -1; grid-row: 4; }
+    .ddn-collage-5 .ddn-collage-cell:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
+    .ddn-collage-5 .ddn-collage-cell:nth-child(2) { grid-column: 1;      grid-row: 2; }
+    .ddn-collage-5 .ddn-collage-cell:nth-child(3) { grid-column: 2;      grid-row: 2; }
+    .ddn-collage-5 .ddn-collage-cell:nth-child(4) { grid-column: 1;      grid-row: 3 / 5; }
+    .ddn-collage-5 .ddn-collage-cell:nth-child(5) { grid-column: 2;      grid-row: 3 / 5; }
     .ddn-collage-3 {
       grid-template-columns: 1fr;
       grid-template-rows: 220px 160px 160px;
@@ -1165,6 +1247,9 @@
     .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
     .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
     .ddn-collage-2 { grid-template-columns: 1fr; grid-template-rows: 220px 220px; }
+    .ddn-video-link { padding: 16px 20px; font-size: 12px; letter-spacing: 0.12em; }
+    .image-lightbox { padding: 20px; }
+    .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
   }
 
   .skill-icon {
@@ -2274,7 +2359,8 @@
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Leadership Showcase</div>
         <h3 class="poster-carousel-title">Desi Dance Network (DDN) circuit</h3>
-        <p class="poster-carousel-sub">UConn Surya · National Dance Competitions · President · 2021–2025</p>
+        <p class="poster-carousel-sub">UConn Surya · President · 2021–2025</p>
+        <p class="ddn-key-skills"><strong>Key Skills</strong>Cross-Functional Leadership · Program Management · Event Logistics · Public Relations</p>
       </div>
 
       <div class="ddn-years">
@@ -2283,21 +2369,21 @@
           <header class="ddn-year-header">
             <div class="ddn-year-label">2021–2022</div>
             <div class="ddn-year-places">
-              <span class="ddn-place ddn-place-1">1st</span>
+              <span class="ddn-place ddn-place-1">1st Place</span>
               <span>Maryland Minza · SAS Boston</span>
-              <span class="ddn-place ddn-place-3">3rd</span>
+              <span class="ddn-place ddn-place-3">3rd Place</span>
               <span>Jersey Jalwa</span>
             </div>
           </header>
-          <div class="ddn-collage ddn-collage-6">
+          <div class="ddn-collage ddn-collage-5">
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2122-trophy-raised.png" alt="UConn Surya raising trophy after 1st place win 2021–2022">
             </div>
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2122-team-celebration.png" alt="UConn Surya team celebrating with trophy 2021–2022">
+              <img src="assets/ddn-2122-jalwa-banner.png" alt="UConn Surya at Jersey Jalwa Bollywood dance competition 2022">
             </div>
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2122-jalwa-banner.png" alt="UConn Surya at Jersey Jalwa Bollywood dance competition 2022">
+              <img src="assets/ddn-2122-solo-trophy.png" alt="Yashvi Gupta with UConn Surya championship trophy">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2122-perform-1.png" alt="UConn Surya performing on stage 2021–2022 season">
@@ -2305,15 +2391,12 @@
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2122-perform-2.png" alt="UConn Surya performance choreography 2021–2022 season">
             </div>
-            <div class="ddn-collage-cell">
-              <img src="assets/ddn-2122-solo-trophy.png" alt="Yashvi Gupta with UConn Surya championship trophy">
-            </div>
           </div>
           <footer class="ddn-year-footer">
             <a href="https://youtu.be/w2MdP2R1db8?si=aSOX-v6YlcEUUCyM" target="_blank" rel="noopener" class="ddn-video-link">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              Watch UConn Surya performance
-              <span aria-hidden="true">↗</span>
+              Watch UConn Surya Performance
+              <span class="ddn-video-arrow" aria-hidden="true">↗</span>
             </a>
           </footer>
         </article>
@@ -2472,6 +2555,52 @@
   initCarousel('posterCarousel', 'posterDots');
   initCarousel('experienceCarousel', 'experienceDots');
   initCarousel('projectsCarousel', 'projectsDots');
+
+  // Image lightbox for gallery cells (click any DDN photo to view full-size)
+  (function initImageLightbox() {
+    const cells = document.querySelectorAll('.ddn-collage-cell');
+    if (!cells.length) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.innerHTML =
+      '<button class="lightbox-close" type="button" aria-label="Close">\u00D7</button>' +
+      '<img class="lightbox-image" alt="">';
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+
+    function open(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    cells.forEach(cell => {
+      const img = cell.querySelector('img');
+      if (!img) return;
+      cell.setAttribute('role', 'button');
+      cell.setAttribute('tabindex', '0');
+      cell.setAttribute('aria-label', 'View ' + (img.alt || 'photo') + ' full-size');
+      cell.addEventListener('click', () => open(img.src, img.alt));
+      cell.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img.src, img.alt); }
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) close();
+    });
+  })();
 </script>
 
 </body>
