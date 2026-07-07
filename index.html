@@ -1200,8 +1200,99 @@
   }
   .soft-skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+  .skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .skill-list li {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #2D1010;
+    padding: 4px 0 4px 16px;
+    position: relative;
+  }
+  .skill-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .soft-orgs {
+    margin-top: 48px;
+  }
+  .soft-orgs-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 12px 0;
+  }
+  .soft-orgs-sub {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--gray);
+    max-width: 720px;
+    margin: 0 0 28px 0;
+  }
+  .soft-orgs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .soft-org-group {
+    padding: 28px 32px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    transition: all 0.25s;
+  }
+  .soft-org-group:hover {
+    border-color: rgba(178,34,34,0.3);
+    background: var(--cream);
+    transform: translateY(-3px);
+  }
+  .soft-org-group-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .soft-org-entry {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .soft-org-entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .soft-org-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D1010;
+    margin-bottom: 4px;
+  }
+  .soft-org-role {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .soft-org-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
   }
 
   /* Languages strip */
@@ -1251,6 +1342,7 @@
     .languages-label { border-right: none; padding-right: 0; padding-bottom: 8px; border-bottom: 1px solid var(--cream-dark); width: 100%; }
     .languages-items { gap: 14px; }
     .soft-skills-grid { grid-template-columns: 1fr; }
+    .soft-orgs-grid { grid-template-columns: 1fr; }
     .soft-skills-header { margin-top: 56px; padding-top: 32px; }
     .ddn-showcase { padding: 24px 16px 24px; }
     .ddn-carousel .carousel-btn { width: 38px; height: 38px; font-size: 15px; top: 260px; }
@@ -1651,6 +1743,7 @@
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .soft-skills-grid { grid-template-columns: 1fr 1fr; }
+    .soft-orgs-grid { grid-template-columns: 1fr 1fr; }
     .soft-skills-title { font-size: 28px; }
     .edu-grid { grid-template-columns: 1fr; }
     .container { padding: 0 32px; }
@@ -2391,7 +2484,7 @@
 
     <div class="soft-skills-header reveal">
       <h2 class="section-title"><em>Soft</em> skills</h2>
-      <p class="section-sub">Cross-functional leadership, communication, and stakeholder engagement cultivated through a decade of engineering teams, mentorship, and community involvement.</p>
+      <p class="section-sub">Bridging technical rigor with human-centered leadership—executive board governance, community mentorship, cross-cultural awareness, and budget &amp; resource management.</p>
     </div>
 
     <div class="logo-marquee logo-marquee-soft reveal" aria-label="Leadership and community organizations">
@@ -2432,19 +2525,153 @@
     <div class="skills-grid soft-skills-grid reveal">
       <div class="skill-block">
         <div class="skill-cat">Leadership &amp; Program Management</div>
-        <div class="skill-items">Leadership · Team Management · Executive Board Governance · Conference &amp; Event Coordination · Program Coordination · Cross-Functional Collaboration</div>
+        <ul class="skill-list">
+          <li>Cross-Functional Leadership</li>
+          <li>Team Development &amp; Mentorship</li>
+          <li>Program &amp; Project Coordination</li>
+          <li>Executive Board Leadership</li>
+          <li>Conference &amp; Event Planning</li>
+          <li>Strategic Planning &amp; Operations</li>
+        </ul>
       </div>
       <div class="skill-block">
-        <div class="skill-cat">Communication &amp; Outreach</div>
-        <div class="skill-items">Public Relations · Public Speaking · Bilingual Communication (English / Hindi / Spanish) · Front Desk &amp; Client Relations · Stakeholder Presentations</div>
+        <div class="skill-cat">Communication &amp; Relationship Building</div>
+        <ul class="skill-list">
+          <li>Technical &amp; Stakeholder Communication</li>
+          <li>Public Speaking &amp; Presentations</li>
+          <li>Community Outreach</li>
+          <li>Bilingual Communication</li>
+          <li>Client &amp; Front Desk Relations</li>
+          <li>Relationship Management</li>
+        </ul>
       </div>
       <div class="skill-block">
-        <div class="skill-cat">Community &amp; Youth Engagement</div>
-        <div class="skill-items">Working with Children · Youth Mentorship &amp; Tutoring · STEM Outreach &amp; Education Programming · Peer Advising</div>
+        <div class="skill-cat">Mentorship &amp; Community Impact</div>
+        <ul class="skill-list">
+          <li>Youth Mentorship &amp; Tutoring</li>
+          <li>STEM Outreach &amp; Education</li>
+          <li>Peer Advising</li>
+          <li>Volunteer Leadership</li>
+          <li>Inclusive Team Building</li>
+        </ul>
       </div>
       <div class="skill-block">
-        <div class="skill-cat">Operations &amp; Planning</div>
-        <div class="skill-items">Financial Planning &amp; Budgeting · Event Logistics · Scheduling &amp; Resource Coordination · Discipline &amp; Time Management (competitive athletics / dance)</div>
+        <div class="skill-cat">Organization &amp; Execution</div>
+        <ul class="skill-list">
+          <li>Budget Planning &amp; Financial Oversight</li>
+          <li>Event Logistics &amp; Operations</li>
+          <li>Resource &amp; Schedule Coordination</li>
+          <li>Time Management</li>
+          <li>Adaptability &amp; Initiative</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="soft-orgs reveal">
+      <h3 class="soft-orgs-title">Organizations</h3>
+      <p class="soft-orgs-sub">A decade of student leadership, mentorship, and community involvement across engineering, cultural, and civic organizations.</p>
+
+      <div class="soft-orgs-grid">
+        <div class="soft-org-group">
+          <div class="soft-org-group-label">Cornell University · 2025–Present</div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Biomedical Engineering Society (BMES)</div>
+            <div class="soft-org-role">Member</div>
+            <div class="soft-org-date">Sep 2025 – Present</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Graduate Student School Outreach Program (GRASSHOPR)</div>
+            <div class="soft-org-role">Member</div>
+            <div class="soft-org-date">Sep 2025 – Present</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Graduate Society of Women Engineers (SWE)</div>
+            <div class="soft-org-role">Member</div>
+            <div class="soft-org-date">Sep 2025 – Present</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Sciencenter</div>
+            <div class="soft-org-role">Education Programming Assistant</div>
+            <div class="soft-org-date">Sep 2025 – Dec 2025</div>
+          </div>
+        </div>
+
+        <div class="soft-org-group">
+          <div class="soft-org-group-label">University of Connecticut · 2021–2025</div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">UConn Surya</div>
+            <div class="soft-org-role">President &amp; Public Relations Chair</div>
+            <div class="soft-org-date">Sep 2021 – May 2025</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Society of Women Engineers (SWE)</div>
+            <div class="soft-org-role">Executive Board Officer — Conference Coordination &amp; Public Relations Officer</div>
+            <div class="soft-org-date">Sep 2021 – May 2025</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Biomedical Engineering Society (BMES)</div>
+            <div class="soft-org-role">Mentor</div>
+            <div class="soft-org-date">Sep 2024 – May 2025</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">UConn Empower</div>
+            <div class="soft-org-role">Executive Board Officer</div>
+            <div class="soft-org-date">Sep 2021 – May 2024</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Asian American Mentoring Program (AMP)</div>
+            <div class="soft-org-role">Member</div>
+            <div class="soft-org-date">Sep 2021 – May 2022</div>
+          </div>
+        </div>
+
+        <div class="soft-org-group">
+          <div class="soft-org-group-label">Grafton High School &amp; Community · 2016–2021</div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Toastmasters</div>
+            <div class="soft-org-role">President</div>
+            <div class="soft-org-date">Aug 2019 – Jun 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">National Honors Society</div>
+            <div class="soft-org-role">Executive Board Member; Private Tutor</div>
+            <div class="soft-org-date">Sep 2019 – Jun 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Blackstone Valley India Society</div>
+            <div class="soft-org-role">Youth Organizer</div>
+            <div class="soft-org-date">Sep 2016 – May 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Concert Band &amp; Pep Band</div>
+            <div class="soft-org-role">Flutist</div>
+            <div class="soft-org-date">Aug 2017 – May 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">STEM Club</div>
+            <div class="soft-org-role">Member</div>
+            <div class="soft-org-date">Aug 2017 – Jun 2019</div>
+          </div>
+        </div>
+
+        <div class="soft-org-group">
+          <div class="soft-org-group-label">Performance &amp; Athletics · 2009–2021</div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Lasya School of Dance</div>
+            <div class="soft-org-role">Professional Classical Dancer</div>
+            <div class="soft-org-date">Aug 2009 – Jun 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Massachusetts Gymnastics Center</div>
+            <div class="soft-org-role">In-House Team Gold Competitive Gymnast</div>
+            <div class="soft-org-date">Aug 2018 – Jun 2021</div>
+          </div>
+          <div class="soft-org-entry">
+            <div class="soft-org-name">Crimson Aquatics</div>
+            <div class="soft-org-role">Competitive Swimmer</div>
+            <div class="soft-org-date">2014 – 2017</div>
+          </div>
+        </div>
       </div>
     </div>
 
