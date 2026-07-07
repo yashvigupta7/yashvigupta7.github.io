@@ -964,13 +964,38 @@
     color: var(--blue);
     margin-right: 8px;
   }
-  .ddn-years {
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
+  .ddn-carousel {
+    position: relative;
     margin-top: 28px;
   }
-  .ddn-year { display: flex; flex-direction: column; }
+  .ddn-carousel .carousel-btn {
+    position: absolute;
+    top: 380px;
+    z-index: 5;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    background: var(--white);
+  }
+  .ddn-carousel .carousel-prev { left: -18px; }
+  .ddn-carousel .carousel-next { right: -18px; }
+  .ddn-years {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    min-width: 0;
+  }
+  .ddn-years::-webkit-scrollbar { display: none; }
+  .ddn-year {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
   .ddn-year-header {
     display: flex;
     align-items: baseline;
@@ -1226,7 +1251,9 @@
     .soft-skills-grid { grid-template-columns: 1fr; }
     .soft-skills-header { margin-top: 56px; padding-top: 32px; }
     .ddn-showcase { padding: 24px 16px 24px; }
-    .ddn-years { gap: 40px; }
+    .ddn-carousel .carousel-btn { width: 38px; height: 38px; font-size: 15px; top: 260px; }
+    .ddn-carousel .carousel-prev { left: 4px; }
+    .ddn-carousel .carousel-next { right: 4px; }
     .ddn-year-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .ddn-year-label { font-size: 24px; }
     .ddn-collage-5 {
@@ -2362,7 +2389,9 @@
         <p class="ddn-key-skills"><strong>Key Skills</strong>Cross-Functional Leadership · Program Management · Event Logistics · Public Relations</p>
       </div>
 
-      <div class="ddn-years">
+      <div class="ddn-carousel">
+        <button class="carousel-btn carousel-prev" id="ddnPrev" type="button" aria-label="Previous year">‹</button>
+        <div class="ddn-years" id="ddnYears">
 
         <article class="ddn-year">
           <header class="ddn-year-header">
@@ -2410,13 +2439,13 @@
           </header>
           <div class="ddn-collage ddn-collage-5">
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2223-trophy-celebration.png" alt="UConn Surya celebrating 3rd place Maryland Minza 2023">
+              <img src="assets/ddn-2223-trophy-celebration.png" alt="UConn Surya celebrating 3rd place Maryland Minza 2023" style="object-position: center 15%;">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2223-team-lobby.png" alt="UConn Surya team group photo at competition hotel 2022–2023">
             </div>
             <div class="ddn-collage-cell">
-              <img src="assets/ddn-2223-perform-lyrical.png" alt="UConn Surya lyrical performance 2022–2023 season">
+              <img src="assets/ddn-2223-perform-lyrical.png" alt="UConn Surya lyrical performance 2022–2023 season" style="object-position: 68% center;">
             </div>
             <div class="ddn-collage-cell">
               <img src="assets/ddn-2223-team-trophy.png" alt="UConn Surya team group photo with Maryland Minza trophy 2023">
@@ -2434,6 +2463,13 @@
           </footer>
         </article>
 
+        </div>
+        <button class="carousel-btn carousel-next" id="ddnNext" type="button" aria-label="Next year">›</button>
+      </div>
+
+      <div class="carousel-dots" id="ddnDots">
+        <button class="carousel-dot active" type="button" aria-label="2021–2022"></button>
+        <button class="carousel-dot" type="button" aria-label="2022–2023"></button>
       </div>
     </div>
 
@@ -2588,6 +2624,52 @@
   initCarousel('posterCarousel', 'posterDots');
   initCarousel('experienceCarousel', 'experienceDots');
   initCarousel('projectsCarousel', 'projectsDots');
+
+  // DDN horizontal year carousel (scroll-snap based, one year per slide)
+  (function initDdnCarousel() {
+    const track = document.getElementById('ddnYears');
+    const prev = document.getElementById('ddnPrev');
+    const next = document.getElementById('ddnNext');
+    const dotsWrap = document.getElementById('ddnDots');
+    if (!track || !prev || !next) return;
+
+    const slides = track.querySelectorAll('.ddn-year');
+    const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.carousel-dot')) : [];
+    let current = 0;
+
+    function refresh() {
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      prev.style.opacity = current === 0 ? '0.35' : '1';
+      prev.style.pointerEvents = current === 0 ? 'none' : 'auto';
+      next.style.opacity = current === slides.length - 1 ? '0.35' : '1';
+      next.style.pointerEvents = current === slides.length - 1 ? 'none' : 'auto';
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(slides.length - 1, idx));
+      const target = slides[current].offsetLeft - track.offsetLeft;
+      track.scrollTo({ left: target, behavior: 'smooth' });
+      refresh();
+    }
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const idx = Math.round(track.scrollLeft / track.clientWidth);
+        if (idx !== current && idx >= 0 && idx < slides.length) {
+          current = idx;
+          refresh();
+        }
+      }, 120);
+    });
+
+    refresh();
+  })();
 
   // Image lightbox for gallery cells (click any DDN photo to view full-size)
   (function initImageLightbox() {
