@@ -1360,6 +1360,27 @@
   .logo-marquee-soft {
     margin-top: 0;
     margin-bottom: 40px;
+    padding: 16px 0;
+  }
+  .logo-marquee-soft .logo-marquee-item {
+    width: 150px;
+    height: 150px;
+  }
+  .logo-marquee-soft .logo-marquee-item-wide {
+    width: 220px;
+  }
+  .logo-marquee-soft .logo-marquee-item img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    transform: scale(1.45);
+  }
+  .logo-marquee-soft .logo-marquee-item:hover img {
+    transform: scale(1.52);
+  }
+  .logo-marquee-soft .logo-marquee-item.logo-dark {
+    padding: 8px;
   }
   @keyframes logo-scroll {
     0% { transform: translateX(0); }
