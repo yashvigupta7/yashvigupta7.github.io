@@ -937,6 +937,137 @@
   }
   .skill-block-featured:hover { background: linear-gradient(135deg, rgba(139,26,26,0.07) 0%, rgba(212,160,160,0.14) 100%); border-color: rgba(139,26,26,0.5); }
 
+  /* ── DDN LEADERSHIP SHOWCASE ── */
+  .ddn-showcase {
+    margin-top: 48px;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    padding: 32px 36px 32px;
+  }
+  .ddn-years {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .ddn-year { display: flex; flex-direction: column; }
+  .ddn-year-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .ddn-year-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .ddn-year-places {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+  .ddn-place {
+    display: inline-block;
+    padding: 3px 9px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    background: var(--cream);
+    color: var(--navy);
+    border: 1px solid var(--cream-dark);
+  }
+  .ddn-place-1 { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .ddn-place-2 { background: var(--blue); color: var(--white); border-color: var(--blue); }
+  .ddn-place-3 { background: rgba(178,34,34,0.15); color: var(--blue); border-color: rgba(178,34,34,0.35); }
+  .ddn-place-mix { background: var(--gold); color: var(--white); border-color: var(--gold); }
+
+  .ddn-collage {
+    display: grid;
+    gap: 8px;
+  }
+  .ddn-collage-cell {
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--cream);
+    position: relative;
+  }
+  .ddn-collage-cell img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .ddn-collage-cell:hover img { transform: scale(1.04); }
+
+  .ddn-collage-6 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 210px);
+  }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(2) { grid-column: 3;     grid-row: 1; }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(3) { grid-column: 3;     grid-row: 2; }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(4) { grid-column: 1;     grid-row: 3; }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(5) { grid-column: 2;     grid-row: 3; }
+  .ddn-collage-6 .ddn-collage-cell:nth-child(6) { grid-column: 3;     grid-row: 3; }
+
+  .ddn-collage-3 {
+    grid-template-columns: 1.55fr 1fr;
+    grid-template-rows: repeat(2, 220px);
+  }
+  .ddn-collage-3 .ddn-collage-cell:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+  .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 2; grid-row: 2; }
+
+  .ddn-collage-2 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 380px;
+  }
+
+  .ddn-year-footer {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .ddn-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    text-decoration: none;
+    padding: 9px 16px;
+    border: 1px solid rgba(178,34,34,0.35);
+    border-radius: 2px;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+  .ddn-video-link:hover {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+  .ddn-video-link svg { width: 14px; height: 14px; }
+
   /* Soft skills subsection */
   .soft-skills-header {
     margin-top: 72px;
@@ -1013,6 +1144,27 @@
     .languages-items { gap: 14px; }
     .soft-skills-grid { grid-template-columns: 1fr; }
     .soft-skills-header { margin-top: 56px; padding-top: 32px; }
+    .ddn-showcase { padding: 24px 16px 24px; }
+    .ddn-years { gap: 40px; }
+    .ddn-year-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .ddn-collage-6 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 180px 130px 130px 130px;
+    }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(2) { grid-column: 1;      grid-row: 2; }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(3) { grid-column: 2;      grid-row: 2; }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(4) { grid-column: 1;      grid-row: 3; }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(5) { grid-column: 2;      grid-row: 3; }
+    .ddn-collage-6 .ddn-collage-cell:nth-child(6) { grid-column: 1 / -1; grid-row: 4; }
+    .ddn-collage-3 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 220px 160px 160px;
+    }
+    .ddn-collage-3 .ddn-collage-cell:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .ddn-collage-3 .ddn-collage-cell:nth-child(2) { grid-column: 1; grid-row: 2; }
+    .ddn-collage-3 .ddn-collage-cell:nth-child(3) { grid-column: 1; grid-row: 3; }
+    .ddn-collage-2 { grid-template-columns: 1fr; grid-template-rows: 220px 220px; }
   }
 
   .skill-icon {
@@ -2118,85 +2270,117 @@
       </div>
     </div>
 
-    <div class="poster-carousel-wrap reveal">
+    <div class="ddn-showcase reveal">
       <div class="poster-carousel-header">
         <div class="poster-carousel-label">Leadership Showcase</div>
         <h3 class="poster-carousel-title">Desi Dance Network (DDN) circuit</h3>
         <p class="poster-carousel-sub">UConn Surya · National Dance Competitions · President · 2021–2025</p>
       </div>
 
-      <div class="poster-carousel" id="ddnCarousel">
-        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous slide">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
+      <div class="ddn-years">
 
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-slide-single">
-                  <img src="assets/ddn-2021-2022.png" alt="UConn Surya celebrating 2021–2022 DDN competition win">
-                </div>
-              </div>
-              <p class="carousel-caption is-multiline">2021–2022 · 1st Place — Maryland Minza &amp; SAS Boston · 3rd Place — Jersey Jalwa</p>
+        <article class="ddn-year">
+          <header class="ddn-year-header">
+            <div class="ddn-year-label">2021–2022</div>
+            <div class="ddn-year-places">
+              <span class="ddn-place ddn-place-1">1st</span>
+              <span>Maryland Minza · SAS Boston</span>
+              <span class="ddn-place ddn-place-3">3rd</span>
+              <span>Jersey Jalwa</span>
             </div>
-
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-uconn">
-                  <div class="collage-cell">
-                    <img src="assets/ddn-2022-2023-trophy.png" alt="UConn Surya team celebrating 3rd place Maryland Minza 2023">
-                  </div>
-                  <div class="collage-cell">
-                    <img src="assets/ddn-2022-2023-perform.png" alt="UConn Surya team performing during 2022–2023 season">
-                  </div>
-                </div>
-              </div>
-              <p class="carousel-caption is-multiline">2022–2023 · 3rd Place — Maryland Minza</p>
+          </header>
+          <div class="ddn-collage ddn-collage-6">
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-trophy-raised.png" alt="UConn Surya raising trophy after 1st place win 2021–2022">
             </div>
-
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-bsn">
-                  <div class="collage-cell collage-main">
-                    <img src="assets/ddn-2023-2024-team.png" alt="UConn Surya team group photo after 1st place Taaza Pittsburgh 2024">
-                  </div>
-                  <div class="collage-cell collage-side-top">
-                    <img src="assets/ddn-2023-2024-celebration.png" alt="UConn Surya celebrating Taaza Pittsburgh win 2024">
-                  </div>
-                  <div class="collage-cell collage-side-bottom">
-                    <img src="assets/ddn-2023-2024-perform.png" alt="UConn Surya performing during 2023–2024 season">
-                  </div>
-                </div>
-              </div>
-              <p class="carousel-caption is-multiline">2023–2024 · 1st Place — Taaza Pittsburgh &amp; Best Mix · 3rd Place — Chak de C'ville</p>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-team-celebration.png" alt="UConn Surya team celebrating with trophy 2021–2022">
             </div>
-
-            <div class="carousel-slide">
-              <div class="carousel-slide-body">
-                <div class="carousel-collage carousel-collage-bsn">
-                  <div class="collage-cell collage-main">
-                    <img src="assets/ddn-2024-2025-team.png" alt="UConn Surya team photo 2024–2025 season">
-                  </div>
-                  <div class="collage-cell collage-side-top">
-                    <img src="assets/ddn-2024-2025-celebration.png" alt="UConn Surya celebrating 2nd place TBN Virginia 2025">
-                  </div>
-                  <div class="collage-cell collage-side-bottom">
-                    <img src="assets/ddn-2024-2025-perform.png" alt="UConn Surya performing during 2024–2025 season">
-                  </div>
-                </div>
-              </div>
-              <p class="carousel-caption is-multiline">2024–2025 · 2nd Place — TBN Virginia</p>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-jalwa-banner.png" alt="UConn Surya at Jersey Jalwa Bollywood dance competition 2022">
             </div>
-
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-perform-1.png" alt="UConn Surya performing on stage 2021–2022 season">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-perform-2.png" alt="UConn Surya performance choreography 2021–2022 season">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2122-solo-trophy.png" alt="Yashvi Gupta with UConn Surya championship trophy">
+            </div>
           </div>
-        </div>
-        <button class="carousel-btn carousel-next" type="button" aria-label="Next slide">›</button>
-      </div>
+          <footer class="ddn-year-footer">
+            <a href="https://youtu.be/w2MdP2R1db8?si=aSOX-v6YlcEUUCyM" target="_blank" rel="noopener" class="ddn-video-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Watch UConn Surya performance
+              <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
 
-      <div class="carousel-dots" id="ddnDots">
-        <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
-        <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
+        <article class="ddn-year">
+          <header class="ddn-year-header">
+            <div class="ddn-year-label">2022–2023</div>
+            <div class="ddn-year-places">
+              <span class="ddn-place ddn-place-3">3rd</span>
+              <span>Maryland Minza</span>
+            </div>
+          </header>
+          <div class="ddn-collage ddn-collage-2">
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2022-2023-trophy.png" alt="UConn Surya team celebrating 3rd place Maryland Minza 2023">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2022-2023-perform.png" alt="UConn Surya team performing during 2022–2023 season">
+            </div>
+          </div>
+        </article>
+
+        <article class="ddn-year">
+          <header class="ddn-year-header">
+            <div class="ddn-year-label">2023–2024</div>
+            <div class="ddn-year-places">
+              <span class="ddn-place ddn-place-1">1st</span>
+              <span>Taaza Pittsburgh</span>
+              <span class="ddn-place ddn-place-mix">Best Mix</span>
+              <span class="ddn-place ddn-place-3">3rd</span>
+              <span>Chak de C'ville</span>
+            </div>
+          </header>
+          <div class="ddn-collage ddn-collage-3">
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2023-2024-team.png" alt="UConn Surya team group photo after 1st place Taaza Pittsburgh 2024">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2023-2024-celebration.png" alt="UConn Surya celebrating Taaza Pittsburgh win 2024">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2023-2024-perform.png" alt="UConn Surya performing during 2023–2024 season">
+            </div>
+          </div>
+        </article>
+
+        <article class="ddn-year">
+          <header class="ddn-year-header">
+            <div class="ddn-year-label">2024–2025</div>
+            <div class="ddn-year-places">
+              <span class="ddn-place ddn-place-2">2nd</span>
+              <span>TBN Virginia</span>
+            </div>
+          </header>
+          <div class="ddn-collage ddn-collage-3">
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2024-2025-team.png" alt="UConn Surya team photo 2024–2025 season">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2024-2025-celebration.png" alt="UConn Surya celebrating 2nd place TBN Virginia 2025">
+            </div>
+            <div class="ddn-collage-cell">
+              <img src="assets/ddn-2024-2025-perform.png" alt="UConn Surya performing during 2024–2025 season">
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
 
@@ -2351,7 +2535,6 @@
   initCarousel('posterCarousel', 'posterDots');
   initCarousel('experienceCarousel', 'experienceDots');
   initCarousel('projectsCarousel', 'projectsDots');
-  initCarousel('ddnCarousel', 'ddnDots');
 </script>
 
 </body>
