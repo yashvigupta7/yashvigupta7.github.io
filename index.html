@@ -514,6 +514,32 @@
   }
   .project-extra-link:hover { color: var(--gold-light); }
   .project-extra-link::after { content: '→'; font-size: 11px; }
+  .project-docs {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px;
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative; z-index: 2;
+  }
+  .project-doc-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 5px 9px; border-radius: 2px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.2s ease;
+  }
+  .project-doc-link:hover {
+    background: var(--gold-light);
+    color: var(--navy);
+    border-color: var(--gold-light);
+  }
+  .project-doc-sep {
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    user-select: none;
+  }
   .project-card .ext-arrow {
     position: absolute; top: 16px; right: 16px;
     width: 28px; height: 28px;
@@ -2268,18 +2294,29 @@
         <a class="project-extra-link" href="https://cbid.bme.jhu.edu/2026-johns-hopkins-healthcare-design-competition-finalists/" target="_blank" rel="noopener">JHU Healthcare Design Competition finalist</a>
       </div>
 
-      <a class="project-card" href="https://drive.google.com/file/d/1z4fE7PnCmHirnWePL4e2tQgA1YSY_Orz/view?usp=sharing" target="_blank" rel="noopener">
-        <span class="ext-arrow">↗</span>
-        <div class="project-tag">Systems Engineering · Cornell</div>
-        <div class="project-title">Neonatal CPAP Reliability Improvement</div>
-        <div class="project-desc">DMAIC-driven evaluation benchmarking 3 CPAP devices against ±0.5 cm H₂O targets. Identified root-cause failure modes and modeled yield improvement from 68% to >95%.</div>
-        <div class="project-tech">
-          <span class="tech-pill">DMAIC</span>
-          <span class="tech-pill">FMEA</span>
-          <span class="tech-pill">R Shiny</span>
-          <span class="tech-pill">SPC</span>
+      <div class="project-card">
+        <a class="project-card-primary" href="assets/neonatal-cpap-final-paper.docx" target="_blank" rel="noopener">
+          <span class="ext-arrow">↗</span>
+          <div class="project-tag">Systems Engineering · Cornell</div>
+          <div class="project-title">Neonatal CPAP Reliability Improvement</div>
+          <div class="project-desc">DMAIC-driven evaluation benchmarking 3 CPAP devices against ±0.5 cm H₂O targets. Identified root-cause failure modes and modeled yield improvement from 68% to >95%.</div>
+          <div class="project-tech">
+            <span class="tech-pill">DMAIC</span>
+            <span class="tech-pill">FMEA</span>
+            <span class="tech-pill">R Shiny</span>
+            <span class="tech-pill">SPC</span>
+          </div>
+        </a>
+        <div class="project-docs">
+          <a class="project-doc-link" href="assets/neonatal-cpap-poster.pptx" target="_blank" rel="noopener">📄 Poster</a>
+          <span class="project-doc-sep">·</span>
+          <a class="project-doc-link" href="https://drive.google.com/file/d/1z4fE7PnCmHirnWePL4e2tQgA1YSY_Orz/view?usp=sharing" target="_blank" rel="noopener">📄 Dashboard</a>
+          <span class="project-doc-sep">·</span>
+          <a class="project-doc-link" href="https://github.com/chatterjee-srinjoy/SixSigmaPosterDashboard" target="_blank" rel="noopener">↗ GitHub</a>
+          <span class="project-doc-sep">·</span>
+          <a class="project-doc-link" href="assets/neonatal-cpap-final-paper.docx" target="_blank" rel="noopener">📄 Final Paper</a>
         </div>
-      </a>
+      </div>
 
       <a class="project-card" href="https://github.com/yashvigupta7/dsai/blob/main/02_productivity/shiny_app/app.R" target="_blank" rel="noopener">
         <span class="ext-arrow">↗</span>
