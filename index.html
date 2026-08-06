@@ -954,9 +954,15 @@
   /* ── SKILLS ── */
   #skills { background: var(--white); }
   #involvement { background: var(--cream); }
-  #involvement .involvement-block { margin-top: 56px; }
-  #involvement .involvement-block:first-of-type { margin-top: 40px; }
+  #involvement .involvement-block { margin-top: 40px; }
+  #involvement .involvement-block + .involvement-block {
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid var(--cream-dark);
+  }
   #involvement .soft-orgs { margin-top: 0; }
+  #involvement .soft-orgs-title { margin: 0 0 16px 0; }
+  #involvement .soft-orgs-sub { margin: 0 0 32px 0; }
   #involvement .soft-org-group {
     background: var(--white);
   }
