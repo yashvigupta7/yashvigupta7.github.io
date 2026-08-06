@@ -970,91 +970,136 @@
     background: var(--white);
   }
   .involvement-detail {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 8px;
+    display: block;
+    width: 100%;
+    margin-top: 28px;
   }
   .involvement-accordion {
+    display: block;
     background: var(--white);
     border: 1px solid var(--cream-dark);
     border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
     transition: border-color 0.25s, box-shadow 0.25s;
   }
   .involvement-accordion[open] {
-    border-color: rgba(178,34,34,0.28);
-    box-shadow: 0 6px 22px rgba(139,26,26,0.06);
+    border-color: rgba(178,34,34,0.35);
+    box-shadow: 0 6px 22px rgba(139,26,26,0.07);
   }
   .involvement-accordion-summary {
+    display: block;
+    position: relative;
     list-style: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px 28px;
+    padding: 18px 64px 18px 24px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 24px;
     font-weight: 600;
     color: var(--navy);
     user-select: none;
+    background: var(--white);
     transition: background 0.2s;
   }
-  .involvement-accordion-summary::-webkit-details-marker { display: none; }
-  .involvement-accordion-summary::marker { content: ''; }
+  .involvement-accordion-summary::-webkit-details-marker,
+  .involvement-role-summary::-webkit-details-marker { display: none; }
+  .involvement-accordion-summary::marker,
+  .involvement-role-summary::marker { content: ''; }
   .involvement-accordion-summary:hover { background: var(--cream); }
-  .involvement-accordion-summary::after {
-    content: '▾';
+  .involvement-accordion-summary .accordion-hint {
+    display: block;
+    margin-top: 4px;
     font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    color: var(--gold);
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
   }
-  .involvement-accordion[open] > .involvement-accordion-summary::after {
-    transform: rotate(-180deg);
+  .involvement-accordion[open] > .involvement-accordion-summary .accordion-hint {
+    display: none;
+  }
+  .involvement-accordion-summary .accordion-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(178,34,34,0.25);
+    background: rgba(178,34,34,0.06);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 0.25s ease, background 0.2s, border-color 0.2s;
+  }
+  .involvement-accordion[open] > .involvement-accordion-summary .accordion-icon {
+    transform: translateY(-50%) rotate(180deg);
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
   }
   .involvement-accordion-body {
-    padding: 4px 28px 28px;
+    display: block;
+    padding: 8px 24px 24px;
     border-top: 1px solid var(--cream-dark);
-  }
-  .involvement-role {
-    border: 1px solid var(--cream-dark);
-    border-radius: 4px;
-    margin-top: 14px;
     background: var(--cream);
   }
-  .involvement-role[open] { background: var(--white); }
+  .involvement-role {
+    display: block;
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    margin-top: 12px;
+    background: var(--white);
+    overflow: hidden;
+  }
+  .involvement-role[open] {
+    border-color: rgba(178,34,34,0.28);
+  }
   .involvement-role-summary {
+    display: block;
+    position: relative;
     list-style: none;
     cursor: pointer;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 16px 18px;
+    padding: 14px 52px 14px 16px;
     user-select: none;
+    background: var(--white);
   }
-  .involvement-role-summary > span {
-    flex: 1;
-    min-width: 0;
-  }
-  .involvement-role-summary::-webkit-details-marker { display: none; }
-  .involvement-role-summary::marker { content: ''; }
   .involvement-role-summary:hover { background: rgba(178,34,34,0.04); }
-  .involvement-role-summary::after {
-    content: '+';
+  .involvement-role-summary .accordion-icon {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid rgba(178,34,34,0.22);
+    background: var(--cream);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'DM Mono', monospace;
     font-size: 16px;
     line-height: 1;
-    color: var(--gold);
-    margin-top: 2px;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
   }
-  .involvement-role[open] > .involvement-role-summary::after {
+  .involvement-role[open] > .involvement-role-summary .accordion-icon {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    font-size: 0;
+  }
+  .involvement-role[open] > .involvement-role-summary .accordion-icon::before {
     content: '–';
+    font-size: 16px;
+  }
+  #involvement .ddn-showcase {
+    margin-top: 36px;
   }
   .involvement-role-title {
     display: block;
@@ -1070,7 +1115,10 @@
     line-height: 1.45;
   }
   .involvement-role-body {
-    padding: 0 18px 18px;
+    display: block;
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--cream-dark);
+    background: var(--white);
   }
   .involvement-cap-list {
     display: grid;
@@ -1078,7 +1126,7 @@
     gap: 14px 28px;
     list-style: none;
     margin: 0;
-    padding: 18px 0 0;
+    padding: 8px 0 0;
   }
   .involvement-cap-list li {
     font-size: 14px;
@@ -1106,8 +1154,8 @@
     margin-bottom: 2px;
   }
   @media (max-width: 700px) {
-    .involvement-accordion-summary { padding: 18px 20px; font-size: 20px; }
-    .involvement-accordion-body { padding: 4px 20px 22px; }
+    .involvement-accordion-summary { padding: 16px 56px 16px 18px; font-size: 20px; }
+    .involvement-accordion-body { padding: 8px 16px 18px; }
     .involvement-cap-list { grid-template-columns: 1fr; }
   }
 
@@ -3003,123 +3051,131 @@
             <div class="soft-org-date">Sep 2021 – May 2022</div>
           </div>
         </div>
+      </div>
 
-        <div class="involvement-detail reveal">
-          <details class="involvement-accordion">
-            <summary class="involvement-accordion-summary">Leadership &amp; Mentorship</summary>
-            <div class="involvement-accordion-body">
-              <details class="involvement-role">
-                <summary class="involvement-role-summary">
-                  <span>
-                    <span class="involvement-role-title">President &amp; Co-Captain</span>
-                    <span class="involvement-role-meta">UConn Surya · 2 Years</span>
-                  </span>
-                </summary>
-                <div class="involvement-role-body">
-                  <ul class="exp-bullets">
-                    <li>Directed weekly E-Board meetings and maintained continuous communication, delegating tasks to ensure seamless team operations and completion of all duties.</li>
-                    <li>Developed comprehensive master spreadsheets and timelines to manage all logistics for practices, performances, and national competitions.</li>
-                    <li>Served as the primary liaison for competition executive boards, managing all applications, required materials (rosters, info packets), travel coordination (flights, drivers, housing), and finalizing national competition selections.</li>
-                    <li>Directed overall set production and managed all deadlines in partnership with the Set Design Chair, overseeing thematic development, dialogue, props, costumes, lighting cues, and introductory videos.</li>
-                    <li>Choreographed competitive routines, designed stage formations and transitions, directed lead acting, and managed dancer tracking spreadsheets for multiple set segments.</li>
-                    <li>Collaborated with the co-captain to create detailed practice breakdowns, while organizing and running team workshops and tryouts.</li>
-                    <li>Choreographed and oversaw the completion of the team’s official audition video (AV).</li>
-                    <li>Sourced and collaborated with external DJs to engineer official competition audio mixes, as well as customized mixes for local gigs and smaller-scale events.</li>
-                    <li>Partnered with the E-Board and Social Media Chair to organize major fundraising initiatives, design promotional media, and plan team photoshoots.</li>
-                    <li>Revised the beginning-of-year team contract and independently maintained the team’s Registered Student Organization (RSO) status and UConntact information.</li>
-                    <li>Provided opportunities for board and team feedback while cultivating a fun, energetic, and highly motivated practice environment.</li>
-                  </ul>
-                </div>
-              </details>
+      <div class="involvement-detail reveal">
+        <details class="involvement-accordion">
+          <summary class="involvement-accordion-summary">
+            Leadership &amp; Mentorship
+            <span class="accordion-hint">Click to expand</span>
+            <span class="accordion-icon" aria-hidden="true">▾</span>
+          </summary>
+          <div class="involvement-accordion-body">
+            <details class="involvement-role">
+              <summary class="involvement-role-summary">
+                <span class="involvement-role-title">President &amp; Co-Captain</span>
+                <span class="involvement-role-meta">UConn Surya · 2 Years</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="involvement-role-body">
+                <ul class="exp-bullets">
+                  <li>Directed weekly E-Board meetings and maintained continuous communication, delegating tasks to ensure seamless team operations and completion of all duties.</li>
+                  <li>Developed comprehensive master spreadsheets and timelines to manage all logistics for practices, performances, and national competitions.</li>
+                  <li>Served as the primary liaison for competition executive boards, managing all applications, required materials (rosters, info packets), travel coordination (flights, drivers, housing), and finalizing national competition selections.</li>
+                  <li>Directed overall set production and managed all deadlines in partnership with the Set Design Chair, overseeing thematic development, dialogue, props, costumes, lighting cues, and introductory videos.</li>
+                  <li>Choreographed competitive routines, designed stage formations and transitions, directed lead acting, and managed dancer tracking spreadsheets for multiple set segments.</li>
+                  <li>Collaborated with the co-captain to create detailed practice breakdowns, while organizing and running team workshops and tryouts.</li>
+                  <li>Choreographed and oversaw the completion of the team’s official audition video (AV).</li>
+                  <li>Sourced and collaborated with external DJs to engineer official competition audio mixes, as well as customized mixes for local gigs and smaller-scale events.</li>
+                  <li>Partnered with the E-Board and Social Media Chair to organize major fundraising initiatives, design promotional media, and plan team photoshoots.</li>
+                  <li>Revised the beginning-of-year team contract and independently maintained the team’s Registered Student Organization (RSO) status and UConntact information.</li>
+                  <li>Provided opportunities for board and team feedback while cultivating a fun, energetic, and highly motivated practice environment.</li>
+                </ul>
+              </div>
+            </details>
 
-              <details class="involvement-role">
-                <summary class="involvement-role-summary">
-                  <span>
-                    <span class="involvement-role-title">Peer Mentor</span>
-                    <span class="involvement-role-meta">UConn Biomedical Engineering Society (BMES)</span>
-                  </span>
-                </summary>
-                <div class="involvement-role-body">
-                  <ul class="exp-bullets">
-                    <li>Mentored two underclassmen, providing personalized guidance on class selection for the Biomedical Engineering track.</li>
-                    <li>Advised mentees on organizing a 4-year track, balancing mandatory classes with electives, and selecting professors.</li>
-                    <li>Facilitated informative presentations during meetings on professional development, teaching strategies for cold-emailing, and finding on- and off-campus research or internship opportunities.</li>
-                    <li>Provided continuous academic encouragement and support throughout the year.</li>
-                  </ul>
-                </div>
-              </details>
-            </div>
-          </details>
+            <details class="involvement-role">
+              <summary class="involvement-role-summary">
+                <span class="involvement-role-title">Peer Mentor</span>
+                <span class="involvement-role-meta">UConn Biomedical Engineering Society (BMES)</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="involvement-role-body">
+                <ul class="exp-bullets">
+                  <li>Mentored two underclassmen, providing personalized guidance on class selection for the Biomedical Engineering track.</li>
+                  <li>Advised mentees on organizing a 4-year track, balancing mandatory classes with electives, and selecting professors.</li>
+                  <li>Facilitated informative presentations during meetings on professional development, teaching strategies for cold-emailing, and finding on- and off-campus research or internship opportunities.</li>
+                  <li>Provided continuous academic encouragement and support throughout the year.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </details>
 
-          <details class="involvement-accordion">
-            <summary class="involvement-accordion-summary">Digital Media &amp; Communications</summary>
-            <div class="involvement-accordion-body">
-              <details class="involvement-role">
-                <summary class="involvement-role-summary">
-                  <span>
-                    <span class="involvement-role-title">Public Relations Officer</span>
-                    <span class="involvement-role-meta">UConn Surya · 1 Year</span>
-                  </span>
-                </summary>
-                <div class="involvement-role-body">
-                  <ul class="exp-bullets">
-                    <li>Produced recruitment movies and montages, providing constant process updates via emails, posts, and uploading necessary workshop/tryout links.</li>
-                    <li>Managed national competition updates and timelines, networking extensively with competition organizers and fellow competing teams.</li>
-                    <li>Promoted major team fundraisers—including performance gigs, university-wide events like Ignite (2023–2025), and donation drives—successfully raising over $10,000.</li>
-                    <li>Created end-of-year recap videos and highlighted E-Board elections, officer spotlights, and team bonding events.</li>
-                  </ul>
-                </div>
-              </details>
+        <details class="involvement-accordion">
+          <summary class="involvement-accordion-summary">
+            Digital Media &amp; Communications
+            <span class="accordion-hint">Click to expand</span>
+            <span class="accordion-icon" aria-hidden="true">▾</span>
+          </summary>
+          <div class="involvement-accordion-body">
+            <details class="involvement-role">
+              <summary class="involvement-role-summary">
+                <span class="involvement-role-title">Public Relations Officer</span>
+                <span class="involvement-role-meta">UConn Surya · 1 Year</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="involvement-role-body">
+                <ul class="exp-bullets">
+                  <li>Produced recruitment movies and montages, providing constant process updates via emails, posts, and uploading necessary workshop/tryout links.</li>
+                  <li>Managed national competition updates and timelines, networking extensively with competition organizers and fellow competing teams.</li>
+                  <li>Promoted major team fundraisers—including performance gigs, university-wide events like Ignite (2023–2025), and donation drives—successfully raising over $10,000.</li>
+                  <li>Created end-of-year recap videos and highlighted E-Board elections, officer spotlights, and team bonding events.</li>
+                </ul>
+              </div>
+            </details>
 
-              <details class="involvement-role">
-                <summary class="involvement-role-summary">
-                  <span>
-                    <span class="involvement-role-title">Digital Media Officer</span>
-                    <span class="involvement-role-meta">Society of Women Engineers, UConn · 1 Year</span>
-                  </span>
-                </summary>
-                <div class="involvement-role-body">
-                  <ul class="exp-bullets">
-                    <li>Advocated for events supporting women in STEM, increasing outreach connecting students to industry, research, and graduate programs.</li>
-                    <li>Managed communications across platforms including LinkedIn, UConntact, Facebook, newsletters, and an Instagram account with 1.4k followers.</li>
-                    <li>Coordinated digital promotion for weekly General Body Meetings, corporate industry visits, DEI events, and SWE international conferences.</li>
-                    <li>Amplified visibility for university-wide fundraisers (Ignite 2024), alumni networking events, research opportunities, board elections, and team celebrations.</li>
-                  </ul>
-                </div>
-              </details>
+            <details class="involvement-role">
+              <summary class="involvement-role-summary">
+                <span class="involvement-role-title">Digital Media Officer</span>
+                <span class="involvement-role-meta">Society of Women Engineers, UConn · 1 Year</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="involvement-role-body">
+                <ul class="exp-bullets">
+                  <li>Advocated for events supporting women in STEM, increasing outreach connecting students to industry, research, and graduate programs.</li>
+                  <li>Managed communications across platforms including LinkedIn, UConntact, Facebook, newsletters, and an Instagram account with 1.4k followers.</li>
+                  <li>Coordinated digital promotion for weekly General Body Meetings, corporate industry visits, DEI events, and SWE international conferences.</li>
+                  <li>Amplified visibility for university-wide fundraisers (Ignite 2024), alumni networking events, research opportunities, board elections, and team celebrations.</li>
+                </ul>
+              </div>
+            </details>
 
-              <details class="involvement-role">
-                <summary class="involvement-role-summary">
-                  <span>
-                    <span class="involvement-role-title">Independent Videography Projects</span>
-                    <span class="involvement-role-meta">Personal milestone filmmaking · 2021–2025</span>
-                  </span>
-                </summary>
-                <div class="involvement-role-body">
-                  <ul class="exp-bullets">
-                    <li>Filmed and edited long-form personal milestone videos with the goal of preserving cherished memories for loved ones.</li>
-                    <li>Projects include wedding videos, vacation trips, and multi-year “One Second Everyday” cinematic montages (2021–2025).</li>
-                  </ul>
-                </div>
-              </details>
-            </div>
-          </details>
+            <details class="involvement-role">
+              <summary class="involvement-role-summary">
+                <span class="involvement-role-title">Independent Videography Projects</span>
+                <span class="involvement-role-meta">Personal milestone filmmaking · 2021–2025</span>
+                <span class="accordion-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="involvement-role-body">
+                <ul class="exp-bullets">
+                  <li>Filmed and edited long-form personal milestone videos with the goal of preserving cherished memories for loved ones.</li>
+                  <li>Projects include wedding videos, vacation trips, and multi-year “One Second Everyday” cinematic montages (2021–2025).</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </details>
 
-          <details class="involvement-accordion">
-            <summary class="involvement-accordion-summary">Digital Media &amp; Design Capabilities</summary>
-            <div class="involvement-accordion-body">
-              <ul class="involvement-cap-list">
-                <li><strong>Video Production</strong>Non-linear editing, motion graphics, promotional videography, and digital storytelling.</li>
-                <li><strong>Audio Engineering</strong>Multi-track audio mixing, sound synchronization, and performance mix editing.</li>
-                <li><strong>Brand &amp; Graphic Design</strong>Digital brand identity (logo design), social media asset creation, and marketing collateral development.</li>
-                <li><strong>Content Strategy</strong>Digital campaign management, cross-platform distribution, and audience engagement strategy.</li>
-                <li><strong>Technical Tools</strong>iMovie, Canva.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
+        <details class="involvement-accordion">
+          <summary class="involvement-accordion-summary">
+            Digital Media &amp; Design Capabilities
+            <span class="accordion-hint">Click to expand</span>
+            <span class="accordion-icon" aria-hidden="true">▾</span>
+          </summary>
+          <div class="involvement-accordion-body">
+            <ul class="involvement-cap-list">
+              <li><strong>Video Production</strong>Non-linear editing, motion graphics, promotional videography, and digital storytelling.</li>
+              <li><strong>Audio Engineering</strong>Multi-track audio mixing, sound synchronization, and performance mix editing.</li>
+              <li><strong>Brand &amp; Graphic Design</strong>Digital brand identity (logo design), social media asset creation, and marketing collateral development.</li>
+              <li><strong>Content Strategy</strong>Digital campaign management, cross-platform distribution, and audience engagement strategy.</li>
+              <li><strong>Technical Tools</strong>iMovie, Canva.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
-        <div class="ddn-showcase soft-orgs-showcase reveal">
+      <div class="ddn-showcase reveal">
           <div class="poster-carousel-header">
             <div class="poster-carousel-label">Leadership Showcase</div>
             <h3 class="poster-carousel-title">Desi Dance Network (DDN) circuit</h3>
@@ -3283,7 +3339,6 @@
             <button class="carousel-dot" type="button" aria-label="2024–2025"></button>
           </div>
         </div>
-      </div>
     </div>
 
     <div class="involvement-block soft-orgs reveal">
